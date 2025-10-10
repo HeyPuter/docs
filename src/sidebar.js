@@ -308,8 +308,8 @@ let sidebar = [
             },
             {
                 title: '<code>router</code>',
-                page_title: 'The <code>router</code> object',
-                title_tag: 'The router object',
+                page_title: '<code>router</code>',
+                title_tag: 'router',
                 icon:'/assets/img/object.svg',
                 source: '/Workers/router.md',
                 path: '/Workers/router',
