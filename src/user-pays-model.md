@@ -4,9 +4,9 @@ When users interact with your Puter.js-powered apps, they handle their own resou
 
 ## User-Pays Model vs. Traditional Model
 
-With user-pays model, each user covers for what they use through their own account. When you build with Puter.js, users log in with their Puter account and all their usage from storage, compute, API calls, gets billed to them, not you. You can launch your app with zero infrastructure costs. No server bills, no scaling costs, no surprise charges when your app goes viral.
+With traditional model of building applications, you have to set up servers, databases, and cloud services before you even launch. If you use cloud services like AWS or Google Cloud, you have to configure those, manage API keys, and set up billing.
 
-Different from the traditional model, where you have to set up servers, databases, and cloud services before you even launch. If you're using AWS or Google Cloud, you configure everything, manage API keys, and handle billing. Moreover, you pay for everything your users do. Every file they upload, every API call they make, every database query—it all comes out of your pocket. The more users you get, the higher your bill.
+Puter.js with user-pays model solves this, so you can build applications without worrying about server bills, scaling costs, or usage spikes.
 
 ## Advantages of the User-Pays Model
 
