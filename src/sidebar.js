@@ -267,6 +267,14 @@ let sidebar = [
         path: '/Workers',
         children: [
             {
+                title: '<code>router</code>',
+                page_title: '<code>router</code>',
+                title_tag: 'router',
+                icon:'/assets/img/object.svg',
+                source: '/Workers/router.md',
+                path: '/Workers/router',
+            },
+            {
                 title: '<code>create()</code>',
                 page_title: '<code>puter.workers.create()</code>',
                 title_tag: 'puter.workers.create()',
@@ -305,14 +313,6 @@ let sidebar = [
                 icon:'/assets/img/function.svg',
                 source: '/Workers/exec.md',
                 path: '/Workers/exec',
-            },
-            {
-                title: '<code>router</code>',
-                page_title: '<code>router</code>',
-                title_tag: 'router',
-                icon:'/assets/img/object.svg',
-                source: '/Workers/router.md',
-                path: '/Workers/router',
             },
         ]
     },
