@@ -143,12 +143,51 @@ function generateSearchUIHTML() {
                     </div>
                     <input type="text" class="search-input" placeholder="Search documentation..." />
                 </div>
-                
+
                 <div class="search-results">
                 </div>
             </div>
         </div>
     `;
+}
+
+function generateTableOfContentsHTML(markdown) {
+    const headings = [];
+    const lines = markdown.split('\n');
+
+    for (const line of lines) {
+        // Match h1, h2, h3 headings
+        const match = line.match(/^(#{1,3})\s+(.+)$/);
+        if (match) {
+            const level = match[1].length;
+            const text = match[2];
+            const slug = text.toLowerCase().replace(/[^\w]+/g, '-');
+
+            headings.push({
+                level,
+                text,
+                slug
+            });
+        }
+    }
+
+    if (headings.length === 0) {
+        return '';
+    }
+
+    let html = '<div class="table-of-contents">';
+    html += '<div class="toc-title">On this page</div>';
+    html += '<nav class="toc-nav">';
+
+    for (const heading of headings) {
+        const indent = heading.level - 1;
+        html += `<a href="#${heading.slug}" class="toc-link toc-level-${heading.level}" data-level="${heading.level}">${heading.text}</a>`;
+    }
+
+    html += '</nav>';
+    html += '</div>';
+
+    return html;
 }
 
 // Function to process each markdown file
@@ -250,7 +289,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                 // sidebar toggle button
                 html += `<button class="sidebar-toggle hidden-lg hidden-xl"><div class="sidebar-toggle-button"><span></span><span></span><span></span></div></button>`;
                 // sidebar
-                html += `<div class="col-xl-4 col-lg-4 hidden-md hidden-sm hidden-xs" id="sidebar-wrapper">`;
+                html += `<div class="col-xl-3 col-lg-3 hidden-md hidden-sm hidden-xs" id="sidebar-wrapper">`;
                     html += `<div id="sidebar">`;
                         // html += `<div class="dark-mode-toggle">
                         //             <input type="checkbox" id="darkmode-toggle" class="dark-mode-toggle-checkbox"/>
@@ -302,7 +341,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                     html += `</div>`;
                 html +=`</div>`;
                 // content
-                html += `<div id="docs-content-${page.slug ?? ''}" class="docs-content col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">`;
+                html += `<div id="docs-content-${page.slug ?? ''}" class="docs-content col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">`;
                     // context menu
                     html += generateMenuHTML();
 
@@ -370,6 +409,15 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                     html += `</footer>`;
 
                 html += `</div>`;
+
+                // table of contents
+                const tocHTML = generateTableOfContentsHTML(markdown);
+                if (tocHTML) {
+                    html += `<div class="col-xl-3 col-lg-3" id="toc-wrapper">`;
+                    html += tocHTML;
+                    html += `</div>`;
+                }
+
             html += `</div>`;
         html += `</div>`;
 
