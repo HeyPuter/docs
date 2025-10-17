@@ -151,20 +151,17 @@ function generateSearchUIHTML() {
     `;
 }
 
-function generateTableOfContentsHTML(htmlContent) {
+function generateTableOfContentsHTML(htmlContent, title) {
     const headings = [];
 
-    // Parse HTML using JSDOM
     const dom = new JSDOM(htmlContent);
     const document = dom.window.document;
 
-    // Extract h2, h3 elements only (exclude h1)
     const headingElements = document.querySelectorAll('h2, h3');
 
     headingElements.forEach(element => {
         const tagName = element.tagName.toLowerCase();
-        const headingLevel = parseInt(tagName.charAt(1)); // 2 or 3
-        // Map h2 to level 1, h3 to level 2
+        const headingLevel = parseInt(tagName.charAt(1));
         const level = headingLevel - 1;
         const id = element.getAttribute('id');
         const text = element.textContent.trim();
@@ -182,8 +179,8 @@ function generateTableOfContentsHTML(htmlContent) {
     html += '<div class="toc-title">On this page</div>';
     html += '<nav class="toc-nav">';
 
-    // Add "Overview" as first item
-    html += `<a href="#" class="toc-link toc-level-1" data-level="1">Overview</a>`;
+    const cleanTitle = removeTags(title);
+    html += `<a href="#" class="toc-link toc-level-1" data-level="1">${cleanTitle}</a>`;
 
     for (const heading of headings) {
         html += `<a href="#${heading.slug}" class="toc-link toc-level-${heading.level}" data-level="${heading.level}">${heading.text}</a>`;
@@ -416,8 +413,8 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                     html += `</footer>`;
 
                 html += `</div>`;
-                
-                const tocHTML = generateTableOfContentsHTML(parsedHTML);
+
+                const tocHTML = generateTableOfContentsHTML(parsedHTML, page.page_title ?? page.title);
                 html += `<div class="col-xl-2 col-lg-2 hidden-xs hidden-sm hidden-md" id="toc-wrapper">`;
                     html += tocHTML;
                 html += `</div>`;
