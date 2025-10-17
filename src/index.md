@@ -85,7 +85,8 @@ Additionally, with Puter.js, you as the developer pay nothing since each user of
 
 Puter.js is powered by [Puter](https://github.com/HeyPuter/puter), the open-source cloud operating system with a heavy focus on privacy. Puter does not use tracking technologies and does not monetize or even collect personal information.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Examples
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="ai" data-icon="ai_outline" data-icon-active="ai_active"><i class="icon"></i><span>AI</span></div>
     <div class="example-group" data-section="fs" data-icon="fs_outline" data-icon-active="fs_active"><i class="icon"></i><span>Cloud Storage</span></div>
@@ -160,9 +161,7 @@ Puter.js is powered by [Puter](https://github.com/HeyPuter/puter), the open-sour
 
 </div>
 
-
 <div class="example-content" data-section="ai" style="display:block;">
-
 
 #### Chat with GPT-5 nano
 
@@ -212,7 +211,6 @@ Puter.js is powered by [Puter](https://github.com/HeyPuter/puter), the open-sour
 </html>
 ```
 
-
 <p><strong class="example-title" style="margin-top:40px;">Stream the response</strong></p>
 
 ```html;ai-chat-stream
@@ -229,10 +227,9 @@ Puter.js is powered by [Puter](https://github.com/HeyPuter/puter), the open-sour
 </html>
 ```
 
-
 </div>
 
-<div class="example-content" data-section="hosting"> 
+<div class="example-content" data-section="hosting">
 
 #### Publish a static website
 

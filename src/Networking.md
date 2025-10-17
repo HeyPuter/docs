@@ -2,7 +2,8 @@ The Puter.js Networking API lets you establish network connections directly from
 
 `puter.net` provides both low-level socket connections via TCP socket and TLS socket, and high-level HTTP client functionality, such as `fetch`. One of the major benefits of `puter.net` is that it allows you to bypass CORS restrictions entirely, making it a powerful tool for developing web applications that need to make requests to external APIs.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Features
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="fetch"><span>Fetch</span></div>
     <div class="example-group" data-section="socket"><span>Socket</span></div>

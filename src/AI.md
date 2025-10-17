@@ -2,7 +2,8 @@ The Puter.js AI feature allows you to integrate artificial intelligence capabili
 
 You can use AI models from various providers to perform tasks such as chat, text-to-image, image-to-text, and text-to-speech conversion. And with the [User-Pays Model](/user-pays-model/), you don't have to set up your own API keys and top up credits, because users cover their own AI costs.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Features
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="ai-chat"><span>AI Chat</span></div>
     <div class="example-group" data-section="text-to-image"><span>Text to Image</span></div>

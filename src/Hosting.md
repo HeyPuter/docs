@@ -2,7 +2,8 @@ The Puter.js Hosting API enables you to deploy and manage websites on Puter's in
 
 The API provides comprehensive hosting management features including creating, retrieving, listing, updating, and deleting deployments. With these capabilities, you can build powerful applications, such as website builders, static site generators, or deployment tools that require programmatic control over hosting infrastructure.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Features
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="create"><span>Create Hosting</span></div>
     <div class="example-group" data-section="list"><span>List Hosting</span></div>

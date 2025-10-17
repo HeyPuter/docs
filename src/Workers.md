@@ -1,8 +1,11 @@
 Serverless Workers are serverless functions that run JavaScript code in the cloud.
 
-They use a router-based system to handle HTTP requests and can integrate with Puter's cloud services like file storage, key-value databases, and AI APIs. Workers are perfect for building backend services, REST APIs, webhooks, and data processing pipelines.
+## Router
 
-<h2 style="margin-top: 60px;">Examples</h2>
+Workers use a router-based system to handle HTTP requests and can integrate with Puter's cloud services like file storage, key-value databases, and AI APIs. Workers are perfect for building backend services, REST APIs, webhooks, and data processing pipelines.
+
+### Examples
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="hello"><span>Hello World</span></div>
     <div class="example-group" data-section="json"><span>POST request</span></div>
@@ -100,13 +103,15 @@ router.get("/api/kv/get/:key", async ({ request, params }) => {
 
 </div>
 
-## Object
+### Object
 
 - **[`router`](/Workers/router/)** - The router object for handling HTTP requests
 
+## Workers API
+
 In addition, the Puter.js Workers API lets you create, manage, and execute these workers programmatically. The API provides comprehensive management features including create, delete, list, get, and execute worker.
 
-## Functions
+### Functions
 
 These workers management features are supported out of the box when using Puter.js:
 
@@ -116,7 +121,7 @@ These workers management features are supported out of the box when using Puter.
 - **[`puter.workers.get()`](/Workers/get/)** - Get information about a specific worker
 - **[`puter.workers.exec()`](/Workers/exec/)** - Execute a worker
 
-## Examples
+### Examples
 
 You can see various Puter.js workers management features in action from the following examples:
 

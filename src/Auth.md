@@ -2,7 +2,8 @@ The Authentication API enables users to authenticate with your application using
 
 This is essential for users to access the various Puter.js APIs integrated into your application. The auth API supports several features, including sign-in, sign-out, checking authentication status, and retrieving user information.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Features
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="sign-in"><span>Sign In</span></div>
     <div class="example-group" data-section="is-signed-in"><span>Check Sign In</span></div>

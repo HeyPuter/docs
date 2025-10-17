@@ -4,7 +4,8 @@ It supports various operations such as set, get, delete, list keys, increment an
 
 Puter.js handles all the infrastructure for you, so you don't need to set up servers, handle scaling, or manage backups. And thanks to the [User-Pays Model](/user-pays-model/), you don't have to worry about storage, read, or write costs, as users of your application cover their own usage.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Features
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="set"><span>Set</span></div>
     <div class="example-group" data-section="get"><span>Get</span></div>

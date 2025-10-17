@@ -4,7 +4,8 @@ It comes with a comprehensive but familiar file system operations including writ
 
 With Puter.js, you don't need to worry about setting up storage infrastructure such as configuring buckets, managing CDNs, or ensuring availability, since everything is handled for you. Additionally, with the [User-Pays Model](/user-pays-model/), you don't have to worry about storage or bandwidth costs, as users of your application cover their own usage.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Features
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="write"><span>Write File</span></div>
     <div class="example-group" data-section="read"><span>Read File</span></div>

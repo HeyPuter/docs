@@ -1,6 +1,7 @@
 The Apps API allows you to create, manage, and interact with applications in the Puter ecosystem. You can build and deploy applications that integrate seamlessly with Puter's platform.
 
-<h2 style="margin-top: 60px;">Examples</h2>
+## Features
+
 <div style="overflow:hidden; margin-bottom: 30px;">
     <div class="example-group active" data-section="create"><span>Create App</span></div>
      <div class="example-group" data-section="list"><span>List App</span></div>
