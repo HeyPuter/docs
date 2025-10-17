@@ -289,8 +289,8 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
             html += `<div id="progress-bar" style="width: 0%; height: 5px; background-color: #dbdbe3; transition: 0.2s all; z-index: 99999999999;"></div>`
         html += `</div>`;
         html += `<script>hljs.highlightAll();</script>`;
-        html += `<div class="container">`;
-            html += `<div class="row">`;
+        html += `<div style="max-width: 1400px; margin: 0 auto;">`;
+            html += `<div>`;
                 // sidebar toggle button
                 html += `<button class="sidebar-toggle hidden-lg hidden-xl"><div class="sidebar-toggle-button"><span></span><span></span><span></span></div></button>`;
                 // sidebar
@@ -346,7 +346,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                     html += `</div>`;
                 html +=`</div>`;
                 // content
-                html += `<div id="docs-content-${page.slug ?? ''}" class="docs-content col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">`;
+                html += `<div id="docs-content-${page.slug ?? ''}" class="docs-content col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">`;
                     // context menu
                     html += generateMenuHTML();
 
@@ -416,14 +416,12 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                     html += `</footer>`;
 
                 html += `</div>`;
-
-                // table of contents
+                
                 const tocHTML = generateTableOfContentsHTML(parsedHTML);
-                html += `<div class="col-xl-3 col-lg-3" id="toc-wrapper">`;
-                if (tocHTML) {
+                html += `<div class="col-xl-2 col-lg-2 hidden-xs hidden-sm hidden-md" id="toc-wrapper">`;
                     html += tocHTML;
-                }
                 html += `</div>`;
+
 
             html += `</div>`;
         html += `</div>`;
