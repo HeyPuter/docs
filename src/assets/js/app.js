@@ -303,6 +303,8 @@ $(document).on('click', '#sidebar a:not(.skip-insta-load), .next-prev-button', f
         }
     }).done(function(data) {
 		$('.docs-content').html($(data).find('.docs-content').html());
+        $('#toc-wrapper').html($(data).find('#toc-wrapper').html());
+
         // highlight code
         $(`code[class^='language']`).each(function() {
             var $this = $(this);

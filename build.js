@@ -151,36 +151,41 @@ function generateSearchUIHTML() {
     `;
 }
 
-function generateTableOfContentsHTML(markdown) {
+function generateTableOfContentsHTML(htmlContent) {
     const headings = [];
-    const lines = markdown.split('\n');
 
-    for (const line of lines) {
-        // Match h1, h2, h3 headings
-        const match = line.match(/^(#{1,3})\s+(.+)$/);
-        if (match) {
-            const level = match[1].length;
-            const text = match[2];
-            const slug = text.toLowerCase().replace(/[^\w]+/g, '-');
+    // Parse HTML using JSDOM
+    const dom = new JSDOM(htmlContent);
+    const document = dom.window.document;
 
+    // Extract h2, h3 elements only (exclude h1)
+    const headingElements = document.querySelectorAll('h2, h3');
+
+    headingElements.forEach(element => {
+        const tagName = element.tagName.toLowerCase();
+        const headingLevel = parseInt(tagName.charAt(1)); // 2 or 3
+        // Map h2 to level 1, h3 to level 2
+        const level = headingLevel - 1;
+        const id = element.getAttribute('id');
+        const text = element.textContent.trim();
+
+        if (id) {
             headings.push({
                 level,
                 text,
-                slug
+                slug: id
             });
         }
-    }
-
-    if (headings.length === 0) {
-        return '';
-    }
+    });
 
     let html = '<div class="table-of-contents">';
     html += '<div class="toc-title">On this page</div>';
     html += '<nav class="toc-nav">';
 
+    // Add "Overview" as first item
+    html += `<a href="#" class="toc-link toc-level-1" data-level="1">Overview</a>`;
+
     for (const heading of headings) {
-        const indent = heading.level - 1;
         html += `<a href="#${heading.slug}" class="toc-link toc-level-${heading.level}" data-level="${heading.level}">${heading.text}</a>`;
     }
 
@@ -357,8 +362,10 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                             </div>
                         </div>`;
                     }
-                    
-                    html += marked.parse(markdown);
+
+                    // Parse markdown once and store it
+                    const parsedHTML = marked.parse(markdown);
+                    html += parsedHTML;
                     
                     // add next and previous buttons
                     html += `<div class="next-prev-buttons">`;
@@ -411,12 +418,12 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                 html += `</div>`;
 
                 // table of contents
-                const tocHTML = generateTableOfContentsHTML(markdown);
+                const tocHTML = generateTableOfContentsHTML(parsedHTML);
+                html += `<div class="col-xl-3 col-lg-3" id="toc-wrapper">`;
                 if (tocHTML) {
-                    html += `<div class="col-xl-3 col-lg-3" id="toc-wrapper">`;
                     html += tocHTML;
-                    html += `</div>`;
                 }
+                html += `</div>`;
 
             html += `</div>`;
         html += `</div>`;
