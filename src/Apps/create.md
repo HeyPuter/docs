@@ -37,6 +37,7 @@ An object containing the options for the app to create. The object can contain t
 - `icon` (optional): The new icon of the app.
 - `maximizeOnStart` (optional): Whether the app should be maximized when it is started. Defaults to `false`.
 - `filetypeAssociations` (optional): An array of strings representing the filetypes that the app can open. Defaults to `[]`. File extentions and MIME types are supported; For example, `[".txt", ".md", "application/pdf"]` would allow the app to open `.txt`, `.md`, and PDF files.
+- `dedupeName` (boolean) - Whether to deduplicate the file name if it already exists. Defaults to `false`.
 
 ## Return value
 A `Promise` that will resolve to the [`app`](/Objects/app/) that was created.
