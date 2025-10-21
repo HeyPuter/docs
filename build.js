@@ -559,6 +559,36 @@ function generateSitemap() {
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml);
 }
 
+function generateLLMs() {
+    let content = '# Puter.js Documentation\n\n';
+    content += 'Build serverless applications with cloud storage, databases, and AI using Puter.js.\n\n';
+    content += `> A complete context of Puter.js is available at ${site}/prompt.md\n\n`;
+
+    sidebar.forEach((section) => {
+        const sectionTitle = section.title_tag ?? section.title;
+        content += `## ${sectionTitle}\n\n`;
+
+        if (section.path) {
+            content += `- [${sectionTitle}](${site}${section.path}/index.md)\n`;
+        }
+
+        if (section.children && Array.isArray(section.children)) {
+            section.children.forEach((child) => {
+                if (child.path) {
+                    const childTitle = child.title_tag ?? child.title;
+                    content += `- [${childTitle}](${site}${child.path}/index.md)\n`;
+                }
+            });
+        }
+
+        content += '\n';
+    });
+
+    const currentDir = process.cwd();
+    const distDir = path.join(currentDir, 'dist');
+    fs.writeFileSync(path.join(distDir, 'llms.txt'), content);
+}
+
 
 function removeTags(html) {
     return html.replace(/<[^>]*>?/gm, '');
@@ -568,6 +598,7 @@ function removeTags(html) {
 generateDocumentation('./src');
 generateRedirects();
 generateSitemap();
+generateLLMs();
 
 if (anyErrors) {
     process.exit(1);
