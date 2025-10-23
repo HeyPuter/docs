@@ -346,7 +346,19 @@ $(document).on('click', '#sidebar a:not(.skip-insta-load), .next-prev-button', f
         if(!title)
             title = $(data).find('title').text();
 		document.title = title;
-        
+
+        // update description meta tag
+        let description = $(data).filter('meta[name="description"]').attr('content');
+        if(!description)
+            description = $(data).find('meta[name="description"]').attr('content');
+        if(description) {
+            let descriptionMeta = $('meta[name="description"]');
+            if (descriptionMeta.length === 0) {
+                descriptionMeta = $('<meta name="description">').appendTo('head');
+            }
+            descriptionMeta.attr('content', description);
+        }
+
         // update canonical URL
         let canonical = $('link[rel="canonical"]');
         if (canonical.length === 0) {
