@@ -1,16 +1,21 @@
+---
+title: puter.env
+description: Returns the environment in which Puter.js is being used.
+---
+
 A property of the `puter` object that returns the environment in which Puter.js is being used.
 
 ## Syntax
 
 ```js
-puter.env
+puter.env;
 ```
 
 ## Return value
 
 A string containing the environment in which Puter.js is being used:
 
-- `app` - Puter.js is running inside a Puter application. e.g. `https://puter.com/app/editor` 
+- `app` - Puter.js is running inside a Puter application. e.g. `https://puter.com/app/editor`
 
 - `web` - Puter.js is running inside a web page outside of the Puter environment. e.g. `https://example.com/index.html`
 
@@ -22,15 +27,14 @@ A string containing the environment in which Puter.js is being used:
 
 <div style="position: relative;">
 
-
 ```html
 <html>
-<body>
+  <body>
     <script src="https://js.puter.com/v2/"></script>
     <script>
-        puter.print("Environment: " + puter.env);
+      puter.print("Environment: " + puter.env);
     </script>
-</body>
+  </body>
 </html>
 ```
 

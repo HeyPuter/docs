@@ -1,9 +1,14 @@
+---
+title: puter.appID
+description: Returns the App ID of the running application.
+---
+
 A property of the `puter` object that returns the App ID of the running application.
 
 ## Syntax
 
 ```js
-puter.appID
+puter.appID;
 ```
 
 ## Examples
@@ -12,15 +17,14 @@ puter.appID
 
 <div style="position: relative;">
 
-
 ```html
 <html>
-<body>
+  <body>
     <script src="https://js.puter.com/v2/"></script>
     <script>
-        puter.print("App ID: " + puter.appID);
+      puter.print("App ID: " + puter.appID);
     </script>
-</body>
+  </body>
 </html>
 ```
 

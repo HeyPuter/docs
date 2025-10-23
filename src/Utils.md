@@ -1,3 +1,8 @@
+---
+title: Utilities
+description: Helpful utility functions and properties when building with Puter.js
+---
+
 The Utilities API provides helpful utility functions and properties that make development easier and more efficient. These utilities help with common tasks and provide access to important system information.
 
 ## Available Functions
