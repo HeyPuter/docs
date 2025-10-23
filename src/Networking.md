@@ -1,3 +1,8 @@
+---
+title: Networking
+description: Establish network connections directly from the frontend without a server or proxy.
+---
+
 The Puter.js Networking API lets you establish network connections directly from your frontend without requiring a server or a proxy, effectively giving you a full-featured networking API in the browser.
 
 `puter.net` provides both low-level socket connections via TCP socket and TLS socket, and high-level HTTP client functionality, such as `fetch`. One of the major benefits of `puter.net` is that it allows you to bypass CORS restrictions entirely, making it a powerful tool for developing web applications that need to make requests to external APIs.

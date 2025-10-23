@@ -1,18 +1,25 @@
+---
+title: Socket
+description: Create a raw TCP socket directly in the browser.
+---
+
 The Socket API lets you create a raw TCP socket which can be used directly in the browser.
 
 ## Syntax
 
 ```js
-const socket = new puter.net.Socket(hostname, port)
+const socket = new puter.net.Socket(hostname, port);
 ```
 
 ## Parameters
+
 #### `hostname` (String) (Required)
+
 The hostname of the server to connect to. This can be an IP address or a domain name.
 
 #### `port` (Number) (Required)
-The port number to connect to on the server.
 
+The port number to connect to on the server.
 
 ## Return value
 
@@ -31,7 +38,6 @@ Write data to the socket.
 #### `socket.close()`
 
 Voluntarily close a TCP Socket.
-
 
 ## Events
 

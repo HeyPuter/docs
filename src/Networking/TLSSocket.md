@@ -1,26 +1,31 @@
+---
+title: TLS Socket
+description: Create a TLS protected TCP socket connection directly in the browser.
+---
+
 The TLS Socket API lets you create a TLS protected TCP socket connection which can be used directly in the browser. The interface is exactly the same as the normal <a href="/Networking/Socket/">`puter.net.Socket`</a> but connections are encrypted instead of being in plain text.
 
 ## Syntax
 
 ```js
-const socket = new puter.net.tls.TLSSocket(hostname, port)
+const socket = new puter.net.tls.TLSSocket(hostname, port);
 ```
 
 ## Parameters
 
 #### `hostname` (String) (Required)
+
 The hostname of the server to connect to. This can be an IP address or a domain name.
 
 #### `port` (Number) (Required)
-The port number to connect to on the server.
 
+The port number to connect to on the server.
 
 ## Return value
 
 A `TLSSocket` object.
 
 ## Methods
-
 
 #### `socket.on(event, callback)`
 
@@ -31,7 +36,6 @@ Listen to an event from the socket. Possible events are:
 - `error` - An error occurs on the socket.
 - `close` - The socket is closed.
 
-
 #### `socket.write(data)`
 
 Write data to the socket.
@@ -40,29 +44,23 @@ Write data to the socket.
 
 - `data` (String) The data to write to the socket.
 
-
 ## Events
 
 #### `socket.on("open", callback)`
 
 Fired when the socket is open.
 
-
 #### `socket.on("data", callback)`
 
 Fired when data is received from the socket.
-
 
 #### `socket.on("error", callback)`
 
 Fired when an error occurs on the socket.
 
-
-
 #### `socket.on("close", callback)`
 
 Fired when the socket is closed.
-
 
 The encryption is done by [rustls-wasm](https://github.com/MercuryWorkshop/rustls-wasm/).
 
