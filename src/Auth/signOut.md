@@ -1,5 +1,9 @@
-Signs the user out of the application.
+---
+title: puter.auth.signOut()
+description: Sign out the current user from your application.
+---
 
+Signs the user out of the application.
 
 ## Syntax
 

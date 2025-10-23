@@ -1,3 +1,8 @@
+---
+title: puter.auth.isSignedIn()
+description: Check if a user is currently signed into the application with their Puter account.
+---
+
 Checks whether the user is signed into the application.
 
 ## Syntax

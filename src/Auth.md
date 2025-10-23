@@ -1,3 +1,8 @@
+---
+title: Auth
+description: Authenticate users with their Puter accounts using Puter.js Auth API
+---
+
 The Authentication API enables users to authenticate with your application using their Puter account.
 
 This is essential for users to access the various Puter.js APIs integrated into your application. The auth API supports several features, including sign-in, sign-out, checking authentication status, and retrieving user information.

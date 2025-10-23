@@ -1,5 +1,9 @@
-Returns the user's basic information.
+---
+title: puter.auth.getUser()
+description: Retrieve the authenticated user basic information.
+---
 
+Returns the user's basic information.
 
 ## Syntax
 
