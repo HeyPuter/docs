@@ -453,15 +453,13 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
     const newDir = path.join(rootDir, '..', 'dist', relativeDir, path.basename(filePath, '.md'));
 
     // view page as markdown
-    const markdownWithTitle = `# ${page.title_tag ?? page.title}\n\n${markdown}`;
-
     if(isIndex) {
         fs.writeFileSync(path.join(rootDir, '..', 'dist', 'index.html'), html);
-        fs.writeFileSync(path.join(rootDir, '..', 'dist', 'index.md'), markdownWithTitle);
+        fs.writeFileSync(path.join(rootDir, '..', 'dist', 'index.md'), markdown);
     } else {
         createDirectoryRecursively(newDir);
         fs.writeFileSync(path.join(newDir, 'index.html'), html);
-        fs.writeFileSync(path.join(newDir, 'index.md'), markdownWithTitle);
+        fs.writeFileSync(path.join(newDir, 'index.md'), markdown);
     }
 
     // Show an error if any playground examples referred to do not exist
