@@ -1,4 +1,7 @@
-
+---
+title: Getting Started!
+description: hehe
+---
 ## Installation
 
 To begin using Puter.js, simply add it to your HTML file using the following script tag:
