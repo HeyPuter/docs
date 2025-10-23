@@ -1,3 +1,8 @@
+---
+title: Objects
+description: Various object types and classes for different entities in the Puter ecosystem.
+---
+
 Various object types and classes that represent different entities in the Puter ecosystem. These objects encapsulate data and provide methods for interacting with system resources.
 
 ## Available Objects

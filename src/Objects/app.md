@@ -1,3 +1,7 @@
+---
+title: App
+description: The app object containing Puter app details.
+---
 
 ## Attributes
 
@@ -7,7 +11,7 @@ A string containing the unique identifier of the app. This is a unique identifie
 
 #### `name` (String)
 
-A string containing the name of the app. 
+A string containing the name of the app.
 
 #### `icon` (String)
 
@@ -16,7 +20,6 @@ A string containing the Data URL of the icon of the app. This is a base64 encode
 #### `description` (String)
 
 A string containing the description of the app.
-
 
 #### `title` (String)
 

@@ -1,3 +1,8 @@
+---
+title: AppConnection
+description: Provides an interface for interaction with another app.
+---
+
 Provides an interface for interaction with another app.
 
 ## Attributes

@@ -1,3 +1,7 @@
+---
+title: Subdomain
+description: The subdomain object containing subdomain details.
+---
 
 ## Attributes
 
