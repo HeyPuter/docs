@@ -1,3 +1,8 @@
+---
+title: FS
+description: Store and manage data in the cloud with Puter.js file system API.
+---
+
 The Cloud Storage API lets you store and manage data in the cloud.
 
 It comes with a comprehensive but familiar file system operations including write, read, delete, move, and copy for files, plus powerful directory management features like creating directories, listing contents, and much more.

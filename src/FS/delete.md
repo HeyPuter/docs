@@ -1,27 +1,36 @@
+---
+title: puter.fs.delete()
+description: Deletes a file or directory in Puter file system.
+---
+
 Deletes a file or directory.
 
 ## Syntax
+
 ```js
-puter.fs.delete(path)
-puter.fs.delete(path, options)
+puter.fs.delete(path);
+puter.fs.delete(path, options);
 ```
 
 ## Parameters
+
 #### `path` (String) (required)
+
 Path of the file or directory to delete.
 If `path` is not absolute, it will be resolved relative to the app's root directory.
 
 #### `options` (Object) (optional)
+
 The options for the `delete` operation. The following options are supported:
+
 - `recursive` (Boolean) - Whether to delete the directory recursively. Defaults to `true`.
 - `descendantsOnly` (Boolean) - Whether to delete only the descendants of the directory and not the directory itself. Defaults to `false`.
 
-
 ## Return value
+
 A `Promise` that will resolve when the file or directory is deleted.
 
 ## Examples
-
 
 <strong class="example-title">Delete a file</strong>
 

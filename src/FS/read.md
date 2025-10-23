@@ -1,3 +1,8 @@
+---
+title: puter.fs.read()
+description: Read data from files in Puter file system.
+---
+
 Reads data from a file.
 
 ## Syntax

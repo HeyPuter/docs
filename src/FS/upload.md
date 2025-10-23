@@ -1,3 +1,8 @@
+---
+title: puter.fs.upload()
+description: Upload local files to Puter file system.
+---
+
 Given a number of local items, upload them to the Puter filesystem.
 
 ## Syntax

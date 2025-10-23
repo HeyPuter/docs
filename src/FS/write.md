@@ -1,3 +1,8 @@
+---
+title: puter.fs.write()
+description: Write data to files in Puter file system.
+---
+
 Writes data to a specified file path. This method is useful for creating new files or modifying existing ones in the Puter cloud storage.
 
 ## Syntax

@@ -1,3 +1,8 @@
+---
+title: puter.fs.readdir()
+description: List files and directories in Puter file system.
+---
+
 Reads the contents of a directory, returning an array of items (files and directories) within it. This method is useful for listing all items in a specified directory in the Puter cloud storage.
 
 ## Syntax

@@ -1,3 +1,8 @@
+---
+title: puter.fs.space()
+description: Check storage capacity and usage in Puter file system.
+---
+
 Returns the storage space capacity and usage for the current user.
 
 <div class="info">

@@ -1,3 +1,8 @@
+---
+title: puter.fs.mkdir()
+description: Create directories in Puter file system.
+---
+
 Allows you to create a directory.
 
 ## Syntax

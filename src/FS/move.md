@@ -1,3 +1,8 @@
+---
+title: puter.fs.move()
+description: Move files or directories to new locations in Puter file system.
+---
+
 Moves a file or a directory from one location to another.
 
 ## Syntax
