@@ -1,3 +1,8 @@
+---
+title: Apps
+description: Create, manage, and interact with applications in Puter desktop OS.
+---
+
 The Apps API allows you to create, manage, and interact with applications in the Puter ecosystem. You can build and deploy applications that integrate seamlessly with Puter's platform.
 
 ## Features

@@ -1,21 +1,30 @@
+---
+title: puter.apps.create()
+description: Create apps in the Puter desktop environment.
+---
+
 Creates a Puter app with the given name. The app will be created in the user's apps, and will be accessible to this app. The app will be created with no permissions, and will not be able to access any data until permissions are granted to it.
 
 ## Syntax
+
 ```js
-puter.apps.create(name, indexURL)
-puter.apps.create(name, indexURL, title)
-puter.apps.create(name, indexURL, title, description)
-puter.apps.create(options)
+puter.apps.create(name, indexURL);
+puter.apps.create(name, indexURL, title);
+puter.apps.create(name, indexURL, title, description);
+puter.apps.create(options);
 ```
 
 ## Parameters
+
 #### `name` (required)
+
 The name of the app to create. This name must be unique to the user's apps. If an app with this name already exists, the promise will be rejected.
 
 #### `indexURL` (required)
+
 The URL of the app's index page. This URL must be accessible to the user. If this parameter is not provided, the app will be created with no index page. The index page is the page that will be displayed when the app is started.
 
-**IMPORTANT**: The URL *must* start with either `http://` or `https://`. Any other protocols (including `file://`, `ftp://`, etc.) are not allowed and will result in an error. For example:
+**IMPORTANT**: The URL _must_ start with either `http://` or `https://`. Any other protocols (including `file://`, `ftp://`, etc.) are not allowed and will result in an error. For example:
 
 ✅ `https://example.com/app/index.html` <br>
 ✅ `http://localhost:3000/index.html` <br>
@@ -23,13 +32,17 @@ The URL of the app's index page. This URL must be accessible to the user. If thi
 ❌ `ftp://example.com/index.html` <br>
 
 #### `title` (required)
+
 The title of the app. If this parameter is not provided, the app will be created with `name` as its title.
 
 #### `description` (optional)
+
 The description of the app aimed at the end user.
 
 #### `options` (required)
+
 An object containing the options for the app to create. The object can contain the following properties:
+
 - `name` (required): The name of the app to create. This name must be unique to the user's apps. If an app with this name already exists, the promise will be rejected.
 - `indexURL` (required): The URL of the app's index page. This URL must be accessible to the user. If this parameter is not provided, the app will be created with no index page.
 - `title` (optional): The human-readable title of the app. If this parameter is not provided, the app will be created with `name` as its title.
@@ -40,6 +53,7 @@ An object containing the options for the app to create. The object can contain t
 - `dedupeName` (optional) - Whether to deduplicate the app name if it already exists. Defaults to `false`.
 
 ## Return value
+
 A `Promise` that will resolve to the [`app`](/Objects/app/) that was created.
 
 ## Examples

@@ -1,15 +1,24 @@
+---
+title: puter.apps.delete()
+description: Delete apps from your Puter account.
+---
+
 Deletes an app with the given name.
 
 ## Syntax
+
 ```js
-puter.apps.delete(name)
+puter.apps.delete(name);
 ```
 
 ## Parameters
+
 #### `name` (required)
+
 The name of the app to delete.
 
 ## Return value
+
 A `Promise` that will resolve to the app that was deleted.
 
 ## Examples

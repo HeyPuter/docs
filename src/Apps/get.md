@@ -1,13 +1,21 @@
+---
+title: puter.apps.get()
+description: Retrieve details of your Puter app.
+---
+
 Returns an app with the given name. If the app does not exist, the promise will be rejected.
 
 ## Syntax
+
 ```js
-puter.apps.get(name)
-puter.apps.get(name, options)
+puter.apps.get(name);
+puter.apps.get(name, options);
 ```
 
 ## Parameters
+
 #### `name` (required)
+
 The name of the app to get.
 
 ### options (optional)
@@ -19,6 +27,7 @@ An object containing the following properties:
 - `icon_size` (optional): An integer representing the size of the icons to return. Possible values are `null`, `16`, `32`, `64`, `128`, `256`, and `512`. Default is `null` (the original size).
 
 ## Return value
+
 A `Promise` that will resolve to the [`app`](/Objects/app/) with the given name.
 
 ## Examples

@@ -1,9 +1,15 @@
+---
+title: puter.apps.list()
+description: List all apps in your Puter account.
+---
+
 Returns an array of all apps belonging to the user and that this app has access to. If the user has no apps, the array will be empty.
 
 ## Syntax
+
 ```js
-puter.apps.list()
-puter.apps.list(options)
+puter.apps.list();
+puter.apps.list(options);
 ```
 
 ## Parameters
@@ -17,11 +23,13 @@ An object containing the following properties:
 - `icon_size` (optional): An integer representing the size of the icons to return. Possible values are `null`, `16`, `32`, `64`, `128`, `256`, and `512`. Default is `null` (the original size).
 
 ## Return value
+
 A `Promise` that will resolve to an array of all [`app`s](/Objects/app/) belonging to the user that this app has access to.
 
 ## Examples
 
 <strong class="example-title">Create 3 random apps and then list them</strong>
+
 ```html;app-list
 <html>
 <body>
