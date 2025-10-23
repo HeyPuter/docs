@@ -1,3 +1,8 @@
+---
+title: puter.ai.txt2img()
+description: Generate images from text prompts using AI models like GPT Image, Nano Banana, and DALL-E 3.
+---
+
 Given a prompt, generate an image using AI.
 
 ## Syntax

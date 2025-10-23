@@ -1,3 +1,8 @@
+---
+title: AI
+description: Add artificial intelligence capabilities to your applications with Puter.js AI feature.
+---
+
 The Puter.js AI feature allows you to integrate artificial intelligence capabilities into your applications.
 
 You can use AI models from various providers to perform tasks such as chat, text-to-image, image-to-text, and text-to-speech conversion. And with the [User-Pays Model](/user-pays-model/), you don't have to set up your own API keys and top up credits, because users cover their own AI costs.

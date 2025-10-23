@@ -1,3 +1,8 @@
+---
+title: puter.ai.txt2speech()
+description: Convert text to speech with AI using multiple languages, voices, and engine types.
+---
+
 Converts text into speech using AI. Supports multiple languages and voices.
 
 ## Syntax

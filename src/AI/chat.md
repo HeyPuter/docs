@@ -1,49 +1,64 @@
+---
+title: puter.ai.chat()
+description: Chat with AI models, analyze images, and perform function calls using 500+ models from OpenAI, Anthropic, Google, and more.
+---
+
 Given a prompt returns the completion that best matches the prompt.
 
 ## Syntax
+
 ```js
-puter.ai.chat(prompt)
-puter.ai.chat(prompt, options = {})
-puter.ai.chat(prompt, testMode = false, options = {})
-puter.ai.chat(prompt, imageURL, testMode = false, options = {})
-puter.ai.chat(prompt, [imageURLArray], testMode = false, options = {})
-puter.ai.chat([messages], testMode = false, options = {})
+puter.ai.chat(prompt);
+puter.ai.chat(prompt, (options = {}));
+puter.ai.chat(prompt, (testMode = false), (options = {}));
+puter.ai.chat(prompt, imageURL, (testMode = false), (options = {}));
+puter.ai.chat(prompt, [imageURLArray], (testMode = false), (options = {}));
+puter.ai.chat([messages], (testMode = false), (options = {}));
 ```
 
 ## Parameters
+
 #### `prompt` (String)
+
 A string containing the prompt you want to complete.
 
 #### `options` (Object) (Optional)
+
 An object containing the following properties:
+
 - `model` (String) - The model you want to use for the completion. If not specified, defaults to `gpt-5-nano`. More than 500 models are available, including, but not limited to, OpenAI, Anthropic, Google, xAI, Mistral, OpenRouter, and DeepSeek. For a full list, see the [models list](https://puter.com/puterai/chat/models) page.
 - `stream` (Boolean) - A boolean indicating whether you want to stream the completion. Defaults to `false`.
 - `max_tokens` (Number) - The maximum number of tokens to generate in the completion. By default, the specific model's maximum is used.
 - `temperature` (Number) - A number between 0 and 2 indicating the randomness of the completion. Lower values make the output more focused and deterministic, while higher values make it more random. By default, the specific model's temperature is used.
 - `tools` (Array) (Optional) - An array of function definitions that the AI can call. Each function definition should have:
-    - `type` (String) - Must be "function"
-    - `function` (Object):
-        - `name` (String) - The name of the function
-        - `description` (String) - A description of what the function does
-        - `parameters` (Object) - JSON Schema object describing the parameters
-        - `strict` (Boolean) - Whether to enforce strict parameter validation
+  - `type` (String) - Must be "function"
+  - `function` (Object):
+    - `name` (String) - The name of the function
+    - `description` (String) - A description of what the function does
+    - `parameters` (Object) - JSON Schema object describing the parameters
+    - `strict` (Boolean) - Whether to enforce strict parameter validation
 
 #### `testMode` (Boolean) (Optional)
+
 A boolean indicating whether you want to use the test API. Defaults to `false`. This is useful for testing your code without using up API credits.
 
 #### `imageURL` (String)
+
 A string containing the URL of an image you want to provide as context for the completion. Also known as "GPT Vision".
 
 #### `imageURLArray` (Array)
-An array of strings containing the URLs of images you want to provide as context for the completion. 
+
+An array of strings containing the URLs of images you want to provide as context for the completion.
 
 #### `messages` (Array)
+
 An array of objects containing the messages you want to complete. Each object must have a `role` and a `content` property. The `role` property must be one of `system`, `assistant`, `user`, or `tool`. The `content` property can be:
 
 1. A string containing the message text
 2. An array of content objects for multimodal messages
 
 When using an array of content objects, each object can have:
+
 - `type` (String) - The type of content:
   - `"text"` - Text content
   - `"file"` - File content
@@ -54,35 +69,35 @@ An example of a valid `messages` parameter with text only:
 
 ```js
 [
-    {
-        role: 'system',
-        content: 'Hello, how are you?'
-    },
-    {
-        role: 'user',
-        content: 'I am doing well, how are you?'
-    },
-]
+  {
+    role: "system",
+    content: "Hello, how are you?",
+  },
+  {
+    role: "user",
+    content: "I am doing well, how are you?",
+  },
+];
 ```
 
 An example with mixed content including files:
 
 ```js
 [
-    {
-        role: 'user',
-        content: [
-            {
-                type: 'file',
-                puter_path: '~/Desktop/document.pdf'
-            },
-            {
-                type: 'text',
-                text: 'Please summarize this document'
-            }
-        ]
-    }
-]
+  {
+    role: "user",
+    content: [
+      {
+        type: "file",
+        puter_path: "~/Desktop/document.pdf",
+      },
+      {
+        type: "text",
+        text: "Please summarize this document",
+      },
+    ],
+  },
+];
 ```
 
 Providing a messages array is especially useful for building chatbots where you want to provide context to the completion.
@@ -90,6 +105,7 @@ Providing a messages array is especially useful for building chatbots where you 
 ## Return value
 
 When `stream` is set to `false` (default):
+
 - Will resolve to a response object containing the completion message, with the following format:
   - `message` (Object):
     - `role` (String) - Indicates who is speaking in the conversation
@@ -101,6 +117,7 @@ When `stream` is set to `false` (default):
     - `arguments` (String) - JSON string of function arguments
 
 When `stream` is set to `true`:
+
 - Returns an async iterable object that you can use with a `for await...of` loop to receive the response in parts as they become available.
 
 In case of an error, the `Promise` will reject with an error message.
@@ -108,7 +125,6 @@ In case of an error, the `Promise` will reject with an error message.
 ## Vendors
 
 We use different vendors for different models and try to use the best vendor available at the time of the request. Vendors include, but are not limited to, OpenAI, Anthropic, Google, xAI, Mistral, OpenRouter, and DeepSeek.
-
 
 ## Examples
 
@@ -219,7 +235,7 @@ We use different vendors for different models and try to use the best vendor ava
             const userInput = document.getElementById('userInput').value;
             const submitBtn = document.getElementById('submit');
             const responseDiv = document.getElementById('response');
-            
+
             if (!userInput) return;
 
             submitBtn.disabled = true;
@@ -236,12 +252,12 @@ We use different vendors for different models and try to use the best vendor ava
                     if (toolCall.function.name === 'get_weather') {
                         const args = JSON.parse(toolCall.function.arguments);
                         const weatherData = getWeather(args.location);
-                        
+
                         // Send weather data back to AI for final response
                         finalResponse = await puter.ai.chat([
                             { role: "user", content: userInput },
                             completion.message,
-                            { 
+                            {
                                 role: "tool",
                                 tool_call_id: toolCall.id,
                                 content: weatherData
@@ -273,7 +289,6 @@ We use different vendors for different models and try to use the best vendor ava
 </html>
 ```
 
-
 <strong class="example-title">Working with Files</strong>
 
 ```html;ai-resume-analyzer
@@ -299,22 +314,22 @@ We use different vendors for different models and try to use the best vendor ava
     <div class="container">
         <h1>Resume Analyzer</h1>
         <p>Upload your resume (PDF, DOC, or TXT) and get a quick analysis of your key strengths in two sentences.</p>
-        
+
         <div class="upload-area" onclick="document.getElementById('fileInput').click()">
             <p>Click here to upload your resume or drag and drop</p>
             <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" />
         </div>
-        
+
         <div class="file-name" id="fileName" style="display: none;"></div>
-        
+
         <button id="analyzeBtn" disabled>Analyze My Resume</button>
-        
+
         <div id="response"></div>
     </div>
 
     <script>
         let uploadedFile = null;
-        
+
         // File upload handling
         const fileInput = document.getElementById('fileInput');
         const uploadArea = document.querySelector('.upload-area');
@@ -344,7 +359,7 @@ We use different vendors for different models and try to use the best vendor ava
         function handleDrop(e) {
             e.preventDefault();
             uploadArea.classList.remove('dragover');
-            
+
             const file = e.dataTransfer.files[0];
             if (file) {
                 uploadedFile = file;
