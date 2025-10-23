@@ -1,3 +1,8 @@
+---
+title: puter.workers.delete()
+description: Delete workers and stop their execution.
+---
+
 Deletes an existing worker and stops its execution.
 
 ## Syntax

@@ -1,3 +1,8 @@
+---
+title: puter.workers.create()
+description: Create and deploy workers from JavaScript files.
+---
+
 Creates and deploys a new worker from a JavaScript file containing [router](../router) code.
 
 <div class="info">To create a worker, you'll need a <a href="https://puter.com/">Puter account</a> with a verified email address.</div>

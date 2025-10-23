@@ -1,3 +1,8 @@
+---
+title: puter.workers.list()
+description: List all workers in your account.
+---
+
 Lists all workers in your account with their details.
 
 ## Syntax

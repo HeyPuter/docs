@@ -1,3 +1,8 @@
+---
+title: puter.workers.get()
+description: Get information about a specific worker.
+---
+
 Gets the information for a specific worker.
 
 ## Syntax

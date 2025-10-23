@@ -1,3 +1,8 @@
+---
+title: Serverless Workers
+description: Run and manage serverless JavaScript funcitons in the cloud.
+---
+
 Serverless Workers are serverless functions that run JavaScript code in the cloud.
 
 ## Router
