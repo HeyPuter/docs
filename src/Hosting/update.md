@@ -1,19 +1,28 @@
+---
+title: puter.hosting.update()
+description: Update a subdomain to point to a new directory.
+---
+
 Updates a subdomain to point to a new directory. If directory is not specified, the subdomain will be disconnected from its directory.
 
 ## Syntax
 
 ```js
-puter.hosting.update(subdomain, dirPath)
+puter.hosting.update(subdomain, dirPath);
 ```
 
 ## Parameters
+
 #### `subdomain` (String) (required)
+
 A string containing the name of the subdomain you want to update.
 
 #### `dirPath` (String) (optional)
+
 A string containing the path to the directory you want to serve. If not specified, the subdomain will be disconnected from its directory.
 
 ## Return value
+
 A `Promise` that will resolve to a [`subdomain`](/Objects/subdomain/) object when the subdomain has been updated. If a subdomain with the given name does not exist, the promise will be rejected with an error. If the path does not exist, the promise will be rejected with an error.
 
 ## Examples

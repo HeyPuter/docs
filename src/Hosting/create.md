@@ -1,3 +1,8 @@
+---
+title: puter.hosting.create()
+description: Create and host a website from a directory on Puter.
+---
+
 Will create a new subdomain that will be served by the hosting service. Optionally, you can specify a path to a directory that will be served by the subdomain.
 
 ## Syntax

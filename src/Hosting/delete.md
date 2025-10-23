@@ -1,16 +1,24 @@
+---
+title: puter.hosting.delete()
+description: Delete a subdomain from your account.
+---
+
 Deletes a subdomain from your account. The subdomain will no longer be served by the hosting service. If the subdomain has a directory, it will be disconnected from the subdomain. The associated directory will not be deleted.
 
 ## Syntax
 
 ```js
-puter.hosting.delete(subdomain)
+puter.hosting.delete(subdomain);
 ```
 
 ## Parameters
+
 #### `subdomain` (String) (required)
+
 A string containing the name of the subdomain you want to delete.
 
 ## Return value
+
 A `Promise` that will resolve to `true` when the subdomain has been deleted. If a subdomain with the given name does not exist, the promise will be rejected with an error.
 
 ## Examples

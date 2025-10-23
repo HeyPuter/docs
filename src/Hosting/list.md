@@ -1,3 +1,8 @@
+---
+title: puter.hosting.list()
+description: List all subdomains in your Puter account.
+---
+
 Returns an array of all subdomains in the user's subdomains that this app has access to. If the user has no subdomains, the array will be empty.
 
 ## Syntax
