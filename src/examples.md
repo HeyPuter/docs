@@ -1,3 +1,8 @@
+---
+title: Examples
+description: Find examples of serverless applications built with Puter.js
+---
+
 <div style="">
 
 <div class="example-card">

@@ -1,3 +1,8 @@
+---
+title: User-Pays Model
+description: Discover Puter.js User-Pays Model and how it allows you to build applications without worrying about infrastructure costs.
+---
+
 The User-Pays Model means your users cover their own cloud and AI usage. Instead of you, as a developer, paying for servers and APIs, users bring and pay for their own AI, storage and other features you've built into your application, making your app practically free to run!
 
 When users interact with your Puter.js-powered apps, they handle their own resource consumption. This means you can include powerful features without worrying about the costs; whether you have 1 or 1 million users, you pay nothing for the infrastructure to run your application.

@@ -1,7 +1,8 @@
 ---
-title: Getting Started!
-description: hehe
+title: Getting Started
+description: Get started with Puter.js for building your applications. No backend code, just add Puter.js and you're ready to start.
 ---
+
 ## Installation
 
 To begin using Puter.js, simply add it to your HTML file using the following script tag:
@@ -13,16 +14,17 @@ To begin using Puter.js, simply add it to your HTML file using the following scr
 That's it! You're now ready to start using Puter.js in your web application. No need to install any dependencies or set up a server. No API keys or configuration required.
 
 ## Basic Usage
+
 Once you've added the Puter.js script to your web application, a global `puter` object will be available for you to use. This object contains all of the functionality provided by Puter.js. For example, to use GPT-5 nano, you can call the `puter.ai.chat` function:
 
 ```html
 <html>
-<body>
+  <body>
     <script src="https://js.puter.com/v2/"></script>
     <script>
-        puter.ai.chat(`Why did the chicken cross the road?`).then(puter.print);
+      puter.ai.chat(`Why did the chicken cross the road?`).then(puter.print);
     </script>
-</body>
+  </body>
 </html>
 ```
 

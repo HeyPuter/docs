@@ -1,3 +1,8 @@
+---
+title: Supported Platforms
+description: Use Puter.js on any platform with JavaScript support, including websites, Puter Apps, Node.js, and Serverless Workers.
+---
+
 Puter.js works on any platform with JavaScript support. This includes websites, Puter Apps, Node.js, and Puter Serverless Workers.
 
 ## **Websites**

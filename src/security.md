@@ -1,8 +1,13 @@
+---
+title: Security and Permissions
+description: Learn how Puter.js handles authentication and manage app access to user data.
+---
+
 In this document we will cover the security model of Puter.js and how it manages apps' access to user data and cloud resources.
 
 ## Authentication
 
-If Puter.js is being used in a website, as opposed to a puter.com app, the user will have to authenticate with Puter.com first, or in other words, the user needs to give your website permission before you can use any of the cloud services on their behalf. 
+If Puter.js is being used in a website, as opposed to a puter.com app, the user will have to authenticate with Puter.com first, or in other words, the user needs to give your website permission before you can use any of the cloud services on their behalf.
 
 Fortunately, Puter.js handles this automatically and the user will be prompted to sign in with their Puter.com account when your code tries to access any cloud services. If the user is already signed in, they will not be prompted to sign in again. You can build your app as if the user is already signed in, and Puter.js will handle the authentication process for you whenever it's needed.
 
@@ -11,7 +16,7 @@ Fortunately, Puter.js handles this automatically and the user will be prompted t
     <figcaption style="text-align: center; font-size: 13px; color: #777;">The user will be automatically prompted to sign in with their Puter.com account when your code tries to access any cloud services or resources.</figcaption>
 </figure>
 
-If Puter.js is being used in an app published on Puter.com, the user will be automatically signed in and your app will have full access to all cloud services. 
+If Puter.js is being used in an app published on Puter.com, the user will be automatically signed in and your app will have full access to all cloud services.
 
 ## Default permissions
 
