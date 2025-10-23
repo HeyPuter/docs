@@ -38,7 +38,7 @@ A string containing the URL of an image you want to provide as context for the c
 An array of strings containing the URLs of images you want to provide as context for the completion. 
 
 #### `messages` (Array)
-An array of objects containing the messages you want to complete. Each object must have a `role` and a `content` property. The `role` property must be one of `system`, `assistant`, `user`, or `function`. The `content` property can be:
+An array of objects containing the messages you want to complete. Each object must have a `role` and a `content` property. The `role` property must be one of `system`, `assistant`, `user`, or `tool`. The `content` property can be:
 
 1. A string containing the message text
 2. An array of content objects for multimodal messages
