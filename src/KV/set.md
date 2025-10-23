@@ -1,3 +1,8 @@
+---
+title: puter.kv.set()
+description: Save or update values in key-value store.
+---
+
 When passed a key and a value, will add it to the user's key-value store, or update that key's value if it already exists.
 
 <div class="info">Each app has its own private key-value store within each user's account. Apps cannot access the key-value stores of other apps - only their own.</div>

@@ -1,3 +1,8 @@
+---
+title: puter.kv.get()
+description: Get the value stored in a key from key-value store.
+---
+
 When passed a key, will return that key's value, or `null` if the key does not exist.
 
 ## Syntax

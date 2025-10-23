@@ -1,3 +1,8 @@
+---
+title: puter.kv.list()
+description: Retrieve all keys from your app's key-value store.
+---
+
 Returns an array of all keys in the user's key-value store for the current app. If the user has no keys, the array will be empty.
 
 ## Syntax

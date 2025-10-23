@@ -1,3 +1,8 @@
+---
+title: puter.kv.decr()
+description: Decrement numeric values in key-value store by a specified amount.
+---
+
 Decrements the value of a key. If the key does not exist, it is initialized with 0 before performing the operation. An error is returned if the key contains a value of the wrong type or contains a string that can not be represented as integer.
 
 ## Syntax

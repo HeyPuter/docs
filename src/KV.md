@@ -1,3 +1,8 @@
+---
+title: Key-Value Store
+description: Store and retrieve data using key-value pairs in the cloud.
+---
+
 The Key-Value Store API lets you store and retrieve data using key-value pairs in the cloud.
 
 It supports various operations such as set, get, delete, list keys, increment and decrement values, and flush data. This enables you to build powerful functionality into your app, including persisting application data, caching, storing configuration settings, and much more.

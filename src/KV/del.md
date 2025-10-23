@@ -1,3 +1,8 @@
+---
+title: puter.kv.del()
+description: Remove keys from key-value store.
+---
+
 When passed a key, will remove that key from the key-value storage. If there is no key with the given name in the key-value storage, nothing will happen.
 
 ## Syntax

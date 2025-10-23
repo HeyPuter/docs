@@ -1,3 +1,8 @@
+---
+title: puter.kv.incr()
+description: Increment values in key-value store by a specified amount.
+---
+
 Increments the value of a key. If the key does not exist, it is initialized with 0 before performing the operation. An error is returned if the key contains a value of the wrong type or contains a string that can not be represented as integer. This operation is limited to 64 bit signed integers.
 
 ## Syntax
