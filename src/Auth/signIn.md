@@ -2,6 +2,12 @@ Initiates the sign in process for the user. This will open a popup window with t
 
 It is important to note that all essential methods in Puter handle authentication automatically. This method is only necessary if you want to handle authentication manually, for example if you want to build your own custom authentication flow.
 
+<div class="info">
+
+The `puter.auth.signIn()` function must be triggered by a user action (such as a click event) because it opens a popup window. Most browsers block popups that are not initiated by user interactions.
+
+</div>
+
 ## Syntax
 
 ```js
@@ -12,6 +18,7 @@ puter.auth.signIn(options);
 ## Parameters
 
 #### `options` (optional)
+
 `options` is an object with the following properties:
 
 - `attempt_temp_user_creation`: A boolean value that indicates whether to Puter should automatically create a temporary user. This is useful if you want to quickly onboard a user without requiring them to sign up. They can always sign up later if they want to.
