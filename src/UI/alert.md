@@ -1,3 +1,7 @@
+---
+title: puter.ui.alert()
+description: Displays an alert dialog by Puter.
+---
 
 Displays an alert dialog by Puter. Puter improves upon the traditional browser alerts by providing more flexibility. For example, you can customize the buttons displayed.
 

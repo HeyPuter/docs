@@ -1,3 +1,8 @@
+---
+title: puter.ui.onItemsOpened()
+description: Executes a function when one or more items have been opened.
+---
+
 Specify a function to execute when the one or more items have been opened. Items can be opened via a variety of methods such as: drag and dropping onto the app, double-clicking on an item, right-clicking on an item and choosing an app from the 'Open With...' submenu.
 
 **Note** `onItemsOpened` is not called when items are opened using `showOpenFilePicker()`.

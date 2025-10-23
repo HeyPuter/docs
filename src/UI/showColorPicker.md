@@ -1,3 +1,8 @@
+---
+title: puter.ui.showColorPicker()
+description: Presents a color picker dialog for selecting a color.
+---
+
 Presents the user with a color picker dialog allowing them to select a color.
 
 ## Syntax

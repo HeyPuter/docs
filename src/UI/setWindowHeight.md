@@ -1,3 +1,8 @@
+---
+title: puter.ui.setWindowHeight()
+description: Dynamically sets the height of the window.
+---
+
 Allows the user to dynamically set the height of the window.
 
 ## Syntax

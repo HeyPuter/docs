@@ -1,3 +1,8 @@
+---
+title: puter.ui.setWindowY()
+description: Sets the y position of the window.
+---
+
 Sets the y position of the window.
 
 ## Syntax

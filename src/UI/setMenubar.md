@@ -1,3 +1,7 @@
+---
+title: puter.ui.setMenubar()
+description: Creates a menubar in the UI.
+---
 
 Creates a menubar in the UI. The menubar is a horizontal bar at the top of the window that contains menus.
 

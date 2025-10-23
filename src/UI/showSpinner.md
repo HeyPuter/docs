@@ -1,3 +1,8 @@
+---
+title: puter.ui.showSpinner()
+description: Shows an overlay with a spinner in the center of the screen.
+---
+
 Shows an overlay with a spinner in the center of the screen. If multiple instances of `puter.ui.showSpinner()` are called, only one spinner will be shown until all instances are hidden.
 
 ## Syntax

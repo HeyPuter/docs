@@ -1,3 +1,7 @@
+---
+title: puter.ui.prompt()
+description: Displays a prompt dialog by Puter.
+---
 
 Displays a prompt dialog by Puter. This will block the parent window until the user responds by pressing a button.
 

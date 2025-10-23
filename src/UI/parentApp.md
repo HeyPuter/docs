@@ -1,3 +1,8 @@
+---
+title: puter.ui.parentApp()
+description: Obtains a connection to the app that launched this app.
+---
+
 Obtain a connection to the app that launched this app.
 
 ## Syntax

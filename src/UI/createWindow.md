@@ -1,3 +1,8 @@
+---
+title: puter.ui.createWindow()
+description: Creates and displays a window.
+---
+
 Creates and displays a window.
 
 ## Syntax

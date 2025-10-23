@@ -1,3 +1,8 @@
+---
+title: puter.ui.setWindowTitle()
+description: Dynamically sets the title of the window.
+---
+
 Allows the user to dynamically set the title of the window.
 
 ## Syntax

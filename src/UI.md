@@ -1,3 +1,8 @@
+---
+title: UI
+description: Create a rich UI and interactions in the Puter desktop environment.
+---
+
 The UI API provides a comprehensive set of tools for creating rich user interfaces and interacting with the Puter desktop environment. It includes window management, dialogs, and desktop integration features.
 
 ## Available Functions

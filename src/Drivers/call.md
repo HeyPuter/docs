@@ -1,3 +1,9 @@
+---
+title: puter.drivers.call()
+description: Call drivers that are not directly exposed by Puter.js high level API.
+---
+
+
 A low-level function that allows you to call any driver on any interface. This function is useful when you want to call a driver that is not directly exposed by Puter.js's high-level API or for when you need more control over the driver call.
 
 ## Syntax

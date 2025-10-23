@@ -1,3 +1,8 @@
+---
+title: puter.ui.showDirectoryPicker()
+description: Presents a directory picker dialog for selecting directories from Puter cloud storage.
+---
+
 Presents the user with a directory picker dialog allowing them to pick a directory from their Puter cloud storage.
 
 ## Syntax

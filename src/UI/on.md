@@ -1,3 +1,8 @@
+---
+title: puter.ui.on()
+description: Listens to broadcast events from Puter.
+---
+
 Listen to broadcast events from Puter. If the broadcast was received before attaching the handler, then the handler is called immediately with the most recent value.
 
 

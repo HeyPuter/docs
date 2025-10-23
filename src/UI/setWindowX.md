@@ -1,3 +1,8 @@
+---
+title: puter.ui.setWindowX()
+description: Sets the X position of the window.
+---
+
 Sets the X position of the window.
 
 ## Syntax

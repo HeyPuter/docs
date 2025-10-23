@@ -1,3 +1,8 @@
+---
+title: puter.ui.socialShare()
+description: Presents a dialog for sharing a link on various social media platforms.
+---
+
 Presents a dialog to the user allowing them to share a link on various social media platforms.
 
 ## Syntax

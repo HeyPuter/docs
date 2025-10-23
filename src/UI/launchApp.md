@@ -1,3 +1,8 @@
+---
+title: puter.ui.launchApp()
+description: Dynamically launches another app from within your app.
+---
+
 Allows you to dynamically launch another app from within your app.
 
 ## Syntax

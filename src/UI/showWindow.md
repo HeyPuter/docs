@@ -1,3 +1,8 @@
+---
+title: puter.ui.showWindow()
+description: Shows the window of your application.
+---
+
 The `showWindow` method allows you to show the window of your application.
 
 ## Syntax

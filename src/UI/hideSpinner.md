@@ -1,3 +1,8 @@
+---
+title: puter.ui.hideSpinner()
+description: Hides the active spinner instance.
+---
+
 Hides the active spinner instance.
 
 ## Syntax

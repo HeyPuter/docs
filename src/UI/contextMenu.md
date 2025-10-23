@@ -1,3 +1,8 @@
+---
+title: puter.ui.contextMenu()
+description: Displays a context menu at the current cursor position.
+---
+
 Displays a context menu at the current cursor position. Context menus provide a convenient way to show contextual actions that users can perform.
 
 ## Syntax

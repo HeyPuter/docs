@@ -1,3 +1,8 @@
+---
+title: puter.ui.authenticateWithPuter()
+description: Presents a dialog to the user to authenticate with their Puter account.
+---
+
 Presents a dialog to the user to authenticate with their Puter account.
 
 ## Syntax
