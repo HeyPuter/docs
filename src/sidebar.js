@@ -160,6 +160,22 @@ let sidebar = [
                 source: '/Auth/getUser.md',
                 path: '/Auth/getUser',
             },
+            {
+                title: '<code>getMonthlyUsage()</code>',
+                page_title: '<code>puter.auth.getMonthlyUsage()</code>',
+                title_tag: 'puter.auth.getMonthlyUsage()',
+                icon:'/assets/img/function.svg',
+                source: '/Auth/getMonthlyUsage.md',
+                path: '/Auth/getMonthlyUsage',
+            },
+            {
+                title: '<code>getDetailedAppUsage()</code>',
+                page_title: '<code>puter.auth.getDetailedAppUsage()</code>',
+                title_tag: 'puter.auth.getDetailedAppUsage()',
+                icon:'/assets/img/function.svg',
+                source: '/Auth/getDetailedAppUsage.md',
+                path: '/Auth/getDetailedAppUsage',
+            },
         ]
     },
     {
