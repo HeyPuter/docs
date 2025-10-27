@@ -7,6 +7,16 @@ const menuItems = require('./src/menu.js');
 const { encode } =  require('html-entities');
 const { JSDOM } = require('jsdom');
 const yaml = require('js-yaml');
+const esbuild = require('esbuild');
+
+esbuild.build({
+  entryPoints: ['src/assets/js/index.js'],
+  bundle: true,
+  outfile: 'dist/assets/js/bundle.js',
+  minify: true,
+  sourcemap: true,
+  allowOverwrite: true
+}).catch((error) => console.error(error));
 
 const site = "https://docs.puter.com";
 
@@ -447,7 +457,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
 
         html += generateSearchUIHTML();
 
-        html += `<script src="/${baseURL}/assets/js/app.js"></script>`;
+        html += `<script src="/${baseURL}/assets/js/bundle.js"></script>`;
     html += `</body>`;
     const relativeDir = path.relative(rootDir, path.dirname(filePath));
     const newDir = path.join(rootDir, '..', 'dist', relativeDir, path.basename(filePath, '.md'));
