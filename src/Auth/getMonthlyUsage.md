@@ -25,7 +25,7 @@ A `Promise` that resolves to an object containing the user's monthly usage, with
 - `appTotals` (Object) - Total usage by application.
   - `count` (Number) - Number of Puter API calls per application.
   - `totals` (Number) - Total resources consumed per application.
-- `usage` (Object) - Usage information by API type.
+- `usage` (Object) - Usage information per API.
   - `cost` (Number) - Total resource consumed for by this API.
   - `count` (Number) - Number of times the API is called.
   - `units` (Number) - Units of measurement for each API (e.g., tokens for AI calls, bytes for FS operations, etc).
