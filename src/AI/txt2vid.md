@@ -32,6 +32,8 @@ Any properties not set fall back to the defaults shown above.
 ## Return value
 A `Promise` that resolves to an `HTMLVideoElement`. The element is preloaded, has `controls` enabled, and exposes metadata via `data-mime-type` and `data-source` attributes. Append it to the DOM to display the generated clip immediately.
 
+> **Note:** Real Sora renders can take a couple of minutes to complete. The returned promise resolves only when the MP4 is ready, so keep your UI responsive (for example, by showing a spinner) while you wait. Each successful generation consumes the user’s AI credits in accordance with the model, duration, and resolution you request.
+
 ## Examples
 
 <strong class="example-title">Generate a sample clip (test mode)</strong>
@@ -72,5 +74,3 @@ A `Promise` that resolves to an `HTMLVideoElement`. The element is preloaded, ha
 </body>
 </html>
 ```
-
-> **Note:** Real Sora renders can take a couple of minutes to complete. The returned promise resolves only when the MP4 is ready, so keep your UI responsive (for example, by showing a spinner) while you wait. Each successful generation consumes the user’s AI credits in accordance with the model, duration, and resolution you request.
