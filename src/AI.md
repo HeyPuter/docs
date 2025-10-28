@@ -5,7 +5,7 @@ description: Add artificial intelligence capabilities to your applications with 
 
 The Puter.js AI feature allows you to integrate artificial intelligence capabilities into your applications.
 
-You can use AI models from various providers to perform tasks such as chat, text-to-image, image-to-text, and text-to-speech conversion. And with the [User-Pays Model](/user-pays-model/), you don't have to set up your own API keys and top up credits, because users cover their own AI costs.
+You can use AI models from various providers to perform tasks such as chat, text-to-image, image-to-text, text-to-video, and text-to-speech conversion. And with the [User-Pays Model](/user-pays-model/), you don't have to set up your own API keys and top up credits, because users cover their own AI costs.
 
 ## Features
 
@@ -14,6 +14,7 @@ You can use AI models from various providers to perform tasks such as chat, text
     <div class="example-group" data-section="text-to-image"><span>Text to Image</span></div>
     <div class="example-group" data-section="image-to-text"><span>Image to Text</span></div>
     <div class="example-group" data-section="text-to-speech"><span>Text to Speech</span></div>
+    <div class="example-group" data-section="text-to-video"><span>Text to Video</span></div>
 </div>
 
 <div class="example-content" data-section="ai-chat" style="display:block;">
@@ -92,6 +93,28 @@ You can use AI models from various providers to perform tasks such as chat, text
 
 </div>
 
+<div class="example-content" data-section="text-to-video">
+
+#### Generate a sample Sora clip
+
+```html;ai-txt2vid
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        puter.ai.txt2vid(
+            "A drone shot sweeping over bioluminescent waves at night",
+            true // test mode returns a sample video without spending credits
+        ).then((video)=>{
+            document.body.appendChild(video);
+        });
+    </script>
+</body>
+</html>
+```
+
+</div>
+
 ## Functions
 
 These AI features are supported out of the box when using Puter.js:
@@ -100,6 +123,7 @@ These AI features are supported out of the box when using Puter.js:
 - **[`puter.ai.txt2img()`](/AI/txt2img/)** - Generate images from text descriptions
 - **[`puter.ai.img2txt()`](/AI/img2txt/)** - Extract text from images (OCR)
 - **[`puter.ai.txt2speech()`](/AI/txt2speech/)** - Convert text to speech
+- **[`puter.ai.txt2vid()`](/AI/txt2vid/)** - Generate short videos with OpenAI Sora models
 
 ## Examples
 
@@ -126,6 +150,8 @@ You can see various Puter.js AI features in action from the following examples:
   - [Generate speech audio from text](/playground/?example=ai-txt2speech)
   - [Text to Speech with options](/playground/?example=ai-txt2speech-options)
   - [Text to Speech with engines](/playground/?example=ai-txt2speech-engines)
+- Text to Video
+  - [Generate a sample Sora clip](/AI/txt2vid/)
 
 ## Tutorials
 
