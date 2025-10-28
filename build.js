@@ -9,15 +9,6 @@ const { JSDOM } = require('jsdom');
 const yaml = require('js-yaml');
 const esbuild = require('esbuild');
 
-esbuild.build({
-  entryPoints: ['src/assets/js/index.js'],
-  bundle: true,
-  outfile: 'dist/assets/js/bundle.js',
-  minify: true,
-  sourcemap: true,
-  allowOverwrite: true
-}).catch((error) => console.error(error));
-
 const site = "https://docs.puter.com";
 
 let usedPlaygroundExamples = new Set();
@@ -526,10 +517,23 @@ function findMdFiles(rootDir) {
 }
 
 // Updated main function to start the process
-function generateDocumentation(rootDir) {
+async function generateDocumentation(rootDir) {
     const distDir = path.join(rootDir, '..', 'dist');
     removeDirectoryRecursively(distDir); // Remove the existing 'dist' directory
     findMdFiles(rootDir); // Process files based on sidebar
+
+    try {
+        await esbuild.build({
+            entryPoints: ['src/assets/js/index.js'],
+            bundle: true,
+            outfile: 'dist/assets/js/bundle.js',
+            minify: true,
+            sourcemap: true,
+            allowOverwrite: true
+        })
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 function generateRedirects() {
