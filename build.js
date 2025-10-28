@@ -520,8 +520,6 @@ function findMdFiles(rootDir) {
 async function generateDocumentation(rootDir) {
     const distDir = path.join(rootDir, '..', 'dist');
     removeDirectoryRecursively(distDir); // Remove the existing 'dist' directory
-    findMdFiles(rootDir); // Process files based on sidebar
-
     try {
         await esbuild.build({
             entryPoints: ['src/assets/js/index.js'],
@@ -534,6 +532,7 @@ async function generateDocumentation(rootDir) {
     } catch (error) {
         console.error(error);
     }
+    findMdFiles(rootDir); // Process files based on sidebar
 }
 
 function generateRedirects() {
