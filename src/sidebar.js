@@ -54,6 +54,14 @@ let sidebar = [
                 path: '/AI/txt2img',
             },
             {
+                title: '<code>txt2speech()</code>',
+                page_title: '<code>puter.ai.txt2speech()</code>',
+                title_tag: 'puter.ai.txt2speech()',
+                icon:'/assets/img/function.svg',
+                source: '/AI/txt2speech.md',
+                path: '/AI/txt2speech',
+            },
+            {
                 title: '<code>txt2vid()</code>',
                 page_title: '<code>puter.ai.txt2vid()</code>',
                 title_tag: 'puter.ai.txt2vid()',
@@ -70,14 +78,6 @@ let sidebar = [
                 path: '/AI/img2txt',
             },
             {
-                title: '<code>txt2speech()</code>',
-                page_title: '<code>puter.ai.txt2speech()</code>',
-                title_tag: 'puter.ai.txt2speech()',
-                icon:'/assets/img/function.svg',
-                source: '/AI/txt2speech.md',
-                path: '/AI/txt2speech',
-            },
-            {
                 title: '<code>speech2txt()</code>',
                 page_title: '<code>puter.ai.speech2txt()</code>',
                 title_tag: 'puter.ai.speech2txt()',
@@ -85,7 +85,6 @@ let sidebar = [
                 source: '/AI/speech2txt.md',
                 path: '/AI/speech2txt',
             },
-
         ]
     },
     {
