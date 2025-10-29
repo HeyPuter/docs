@@ -1,7 +1,4 @@
 jQuery(document).ready(function () {
-    //when doc is loaded scroll side nav to active section
-    $('#sidebar').scrollTop($('#sidebar').scrollTop() + $('#sidebar a.active').position()?.top
-        - $('#sidebar').height() / 2 + $('#sidebar a.active').height() / 2);
     //History API
     if (window.history && window.history.pushState) {
         $(window).on('popstate', function () {
@@ -10,42 +7,39 @@ jQuery(document).ready(function () {
             }
         });
     }
-
-    // get github stars
-    fetchGitHubData();
 });
 
-$(document).on('click', '.sidebar-toggle', function (e) {
-    e.preventDefault();
-    $('#sidebar-wrapper').toggleClass('active');
-    $('.sidebar-toggle-button').toggleClass('active');
-})
+function isCurrentPage(str) {
+    try {
+        const resolved = new URL(str, window.location.href);
+        const current = new URL(window.location.href);
 
-// clicking anywhere on the page will close the sidebar
-$(document).on('click', function (e) {
-    // print event target class
+        // Remove hash from both for comparison
+        resolved.hash = '';
+        current.hash = '';
 
-    if (!$(e.target).closest('#sidebar-wrapper').length && !$(e.target).closest('.sidebar-toggle-button').length && !$(e.target).hasClass('sidebar-toggle-button') && !$(e.target).hasClass('sidebar-toggle')) {
-        $('#sidebar-wrapper').removeClass('active');
-        $('.sidebar-toggle-button').removeClass('active');
+        return resolved.href === current.href;
+    } catch (e) {
+        return false;
     }
-})
+}
 
-$(document).on('click', '#sidebar a:not(.skip-insta-load), .next-prev-button', function (e) {
-    e.preventDefault();
-    $('#sidebar a').removeClass('active');
-    $(this).addClass('active');
-
-    if ($(this).hasClass('next-prev-button')) {
-        // get the next or previous link
-        var $nextPrevLink = $(this).attr('href');
-        // find the sidebar link that matches the next or previous link
-        var $sidebarLink = $(`#sidebar a[href="${$nextPrevLink}"]`);
-        // remove active class from all sidebar links
-        $('#sidebar a').removeClass('active');
-        // add active class to the sidebar link that matches the next or previous link
-        $sidebarLink.addClass('active');
+function isExternalLink(href) {
+    try {
+        const url = new URL(href, window.location.href);
+        return url.origin !== window.location.origin;
+    } catch (e) {
+        return false;
     }
+}
+
+$(document).on('click', 'a:not(.skip-insta-load)', function (e) {
+    if (isCurrentPage($(this).attr('href')) || isExternalLink($(this).attr('href'))) {
+        // default browser behavior
+        return;
+    }
+    e.preventDefault();
+
 
     // reset progress bar
     $('#progress-bar').css('width', '0%');
@@ -54,6 +48,7 @@ $(document).on('click', '#sidebar a:not(.skip-insta-load), .next-prev-button', f
     // History API
     try {
         window.history.pushState({ reload: true }, document.title, $(this).attr('href'));
+        $.event.trigger("pathchange")
     } catch (e) {
         console.error('Error: Failed to push state.', e);
     }
@@ -150,32 +145,4 @@ $(document).on('click', '#sidebar a:not(.skip-insta-load), .next-prev-button', f
     });
 
     return false;
-});
-
-function fetchGitHubData() {
-    // GitHub API fetching and handling
-
-    const url = "https://api.github.com/repos/HeyPuter/puter";
-
-    function formatNumber(num) {
-        if (num < 1000) {
-            return num; // return the same number if less than 1000
-        } else if (num < 1000000) {
-            return (num / 1000).toFixed(1) + 'K'; // convert to K for thousands
-        } else {
-            return (num / 1000000).toFixed(1) + 'M'; // convert to M for millions
-        }
-    }
-
-    $.getJSON(url, function (data) {
-        $('.github-stars').text(formatNumber(data.stargazers_count) + "");
-    }).fail(function (jqxhr, textStatus, error) {
-        let err = textStatus + ", " + error;
-        console.error("Request Failed: " + err);
-        $('.github-stars').text('Heyputer/Puter');
-    });
-}
-
-$(document).on('change', '.dark-mode-toggle-checkbox', function () {
-    $('body').toggleClass('dark', $(this).is(':checked'));
 });
