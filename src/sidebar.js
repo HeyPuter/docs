@@ -77,6 +77,14 @@ let sidebar = [
                 source: '/AI/txt2speech.md',
                 path: '/AI/txt2speech',
             },
+            {
+                title: '<code>speech2txt()</code>',
+                page_title: '<code>puter.ai.speech2txt()</code>',
+                title_tag: 'puter.ai.speech2txt()',
+                icon:'/assets/img/function.svg',
+                source: '/AI/speech2txt.md',
+                path: '/AI/speech2txt',
+            },
 
         ]
     },

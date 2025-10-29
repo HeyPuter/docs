@@ -124,6 +124,7 @@ These AI features are supported out of the box when using Puter.js:
 - **[`puter.ai.img2txt()`](/AI/img2txt/)** - Extract text from images (OCR)
 - **[`puter.ai.txt2speech()`](/AI/txt2speech/)** - Convert text to speech
 - **[`puter.ai.txt2vid()`](/AI/txt2vid/)** - Generate short videos with OpenAI Sora models
+- **[`puter.ai.speech2txt()`](/AI/speech2txt/)** - Transcribe or translate audio recordings into text
 
 ## Examples
 
@@ -150,6 +151,8 @@ You can see various Puter.js AI features in action from the following examples:
   - [Generate speech audio from text](/playground/?example=ai-txt2speech)
   - [Text to Speech with options](/playground/?example=ai-txt2speech-options)
   - [Text to Speech with engines](/playground/?example=ai-txt2speech-engines)
+- Speech to Text
+  - [Transcribe audio with `speech2txt`](/AI/speech2txt/)
 - Text to Video
   - [Generate a sample Sora clip](/AI/txt2vid/)
 
