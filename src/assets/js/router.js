@@ -48,7 +48,6 @@ $(document).on('click', 'a:not(.skip-insta-load)', function (e) {
     // History API
     try {
         window.history.pushState({ reload: true }, document.title, $(this).attr('href'));
-        $.event.trigger("pathchange")
     } catch (e) {
         console.error('Error: Failed to push state.', e);
     }
@@ -69,41 +68,11 @@ $(document).on('click', 'a:not(.skip-insta-load)', function (e) {
         $('.docs-content').html($(data).find('.docs-content').html());
         $('#toc-wrapper').html($(data).find('#toc-wrapper').html());
 
-        // highlight code
-        $(`code[class^='language']`).each(function () {
-            var $this = $(this);
-            if ($this.attr('data-highlighted') === 'yes') {
-                // Remove the attribute or set it to 'no'
-                $this.removeAttr('data-highlighted');
-            }
-            // Now you can re-highlight
-            else {
-                try {
-                    hljs.configure({ ignoreUnescapedHTML: true });
-                    hljs.highlightElement(this);
-                } catch (e) {
-                    console.error('Error: Failed to highlight.', e);
-                }
-            }
-        });
-
-        // add icons to .icon elements
-        $('.example-group').each(function () {
-            $(this).find('.icon').html(icons[$(this).data('icon')]);
-        });
-
-        $('.example-group.active').each(function () {
-            $(this).find('.icon').html(icons[$(this).data('icon-active')]);
-        });
-
         setTimeout(() => {
             $('body').animate({
                 scrollTop: 0
             }, 100);
         }, 30);
-        // close sidebar
-        $('#sidebar-wrapper').removeClass('active');
-        $('.sidebar-toggle-button').removeClass('active');
 
         //set title of page
         let title = $(data).filter('title').text();
@@ -133,6 +102,7 @@ $(document).on('click', 'a:not(.skip-insta-load)', function (e) {
         setTimeout(() => {
             $('#progress-bar').fadeOut(100);
         }, 1000);
+        $.event.trigger("pathchange")
     }).fail(function (e) {
         // Handle the error here
         console.error('Error: Failed to load the content.', e);

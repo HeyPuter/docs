@@ -259,7 +259,7 @@ function updateSearchResults(results) {
         const url = result.path + "/" + (result.textFragment || "");
         html += `
             <div class="search-result" data-index="${index}">
-                <a href="${url}" class="search-result-link">
+                <a href="${url}" class="search-result-link skip-insta-load">
                     <div class="search-result-title">${result.title}</div>
                     <div class="search-result-text">${result.text}</div>
                 </a>

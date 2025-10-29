@@ -33,6 +33,10 @@ $(document).on('pathchange', function (e) {
             return false; // break out of the loop
         }
     });
+
+    // close sidebar
+    $('#sidebar-wrapper').removeClass('active');
+    $('.sidebar-toggle-button').removeClass('active');
 })
 
 $(document).on('click', '.sidebar-toggle', function (e) {

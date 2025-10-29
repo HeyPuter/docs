@@ -22,6 +22,35 @@ jQuery(document).ready(function () {
     });
 });
 
+$(document).on('pathchange', function (e) {
+    // add icons to .icon elements
+    $('.example-group').each(function () {
+        $(this).find('.icon').html(icons[$(this).data('icon')]);
+    });
+
+    $('.example-group.active').each(function () {
+        $(this).find('.icon').html(icons[$(this).data('icon-active')]);
+    });
+
+    // highlight code
+    $(`code[class^='language']`).each(function () {
+        var $this = $(this);
+        if ($this.attr('data-highlighted') === 'yes') {
+            // Remove the attribute or set it to 'no'
+            $this.removeAttr('data-highlighted');
+        }
+        // Now you can re-highlight
+        else {
+            try {
+                hljs.configure({ ignoreUnescapedHTML: true });
+                hljs.highlightElement(this);
+            } catch (e) {
+                console.error('Error: Failed to highlight.', e);
+            }
+        }
+    });
+})
+
 $(document).on('click', '.example-group', function (e) {
     e.preventDefault();
     $('.example-group').removeClass('active');
