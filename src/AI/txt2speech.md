@@ -22,11 +22,17 @@ A string containing the text you want to convert to speech. The text must be les
 #### `options` (Object) (optional)
 An object containing the following optional properties:
 
-- `language` (String): The language to use for speech synthesis. Defaults to `en-US`.
-- `voice` (String): The voice to use for speech synthesis. Defaults to `Joanna`.
-- `engine` (String): The speech synthesis engine to use. Can be `standard`, `neural`, or `generative`. Defaults to `standard`.
+- `language` (String): Language code for speech synthesis (AWS Polly only). Defaults to `en-US`.
+- `voice` (String): Voice ID used for synthesis. Defaults to `Joanna` (AWS) or `alloy` (OpenAI).
+- `engine` (String): AWS Polly engine. Can be `standard`, `neural`, `long-form`, or `generative`. Defaults to `standard`.
+- `provider` (String): TTS provider to use. Supports `'aws-polly'` (default) and `'openai'`.
+- `model` (String): OpenAI text-to-speech model (`gpt-4o-mini-tts`, `tts-1`, `tts-1-hd`, ...). Defaults to `gpt-4o-mini-tts`.
+- `response_format` (String): Desired OpenAI output format (`mp3`, `wav`, `opus`, `aac`, `flac`, `pcm`). Defaults to `mp3`.
+- `instructions` (String): Additional guidance for OpenAI voices (tone, pacing, style, etc.).
 
 #### `language` (String) (optional)
+*AWS Polly only.*
+
 The language to use for speech synthesis. Defaults to `en-US`. The following languages are supported:
 
 - Arabic (`ar-AE`)
@@ -68,13 +74,36 @@ The language to use for speech synthesis. Defaults to `en-US`. The following lan
 - Welsh (`cy-GB`)
 
 #### `voice` (String) (optional)
-The voice to use for speech synthesis. Defaults to `Joanna`. Please refer to the [voices documentation](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for a list of available voices and their corresponding language codes.
+The voice to use for speech synthesis. Defaults to `Joanna` when `provider` is `aws-polly`, or `alloy` when using the OpenAI provider.
+
+- **AWS Polly voices:** See the [AWS Polly voice list](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for available IDs and languages.
+- **OpenAI voices:** Built-in options include `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `nova`, `onyx`, `sage`, and `shimmer`.
 
 #### `engine` (String) (optional)
-The speech synthesis engine to use. Can be `standard`, `neural`, or `generative`. Defaults to `standard`. Neural voices generally provide higher quality speech synthesis but may have usage limitations.
+*AWS Polly only.*
+
+The speech synthesis engine to use. Can be `standard`, `neural`, `long-form`, or `generative`. Defaults to `standard`. Higher-end engines provide better quality but may incur higher usage costs.
+
+#### `provider` (String) (optional)
+Selects which backend performs the synthesis. Use `'aws-polly'` (default) for the existing AWS voices, or `'openai'` to access the GPT-4o mini TTS family.
+
+#### `model` (String) (optional)
+*OpenAI provider only.*
+
+Specifies which OpenAI TTS model to use. Defaults to `gpt-4o-mini-tts`. Other available models include `tts-1` and `tts-1-hd`.
+
+#### `response_format` (String) (optional)
+*OpenAI provider only.*
+
+Controls the output format when using OpenAI. Defaults to `mp3`, but you can request `wav`, `opus`, `aac`, `flac`, or `pcm` for different latency/quality characteristics.
+
+#### `instructions` (String) (optional)
+*OpenAI provider only.*
+
+Supply extra guidance for voice style (tone, speed, mood, etc.). This text is passed directly to the model.
 
 ## Return value
-A `Promise` that will resolve to an MP3 stream when the speech has been synthesized.
+A `Promise` that resolves to an `HTMLAudioElement`. The element’s `src` points at a blob or remote URL containing the synthesized audio.
 
 ## Examples
 
@@ -112,6 +141,32 @@ A `Promise` that will resolve to an MP3 stream when the speech has been synthesi
             }).then((audio)=>{
                 audio.play();
             });
+        });
+    </script>
+</body>
+</html>
+```
+
+<strong class="example-title">Use OpenAI voices</strong>
+
+```html;ai-txt2speech-openai
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <button id="play">Use OpenAI voice</button>
+    <script>
+        document.getElementById('play').addEventListener('click', async ()=>{
+            const audio = await puter.ai.txt2speech(
+                "Hello! This sample uses the OpenAI alloy voice.",
+                {
+                    provider: "openai",
+                    model: "gpt-4o-mini-tts",
+                    voice: "alloy",
+                    response_format: "mp3",
+                    instructions: "Sound cheerful but not overly fast."
+                }
+            );
+            audio.play();
         });
     </script>
 </body>
