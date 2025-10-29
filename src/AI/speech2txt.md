@@ -19,7 +19,7 @@ puter.ai.speech2txt(source, testMode)
 #### `source` (String | File | Blob) (required unless provided in options)
 Audio to transcribe. Accepts:
 
-- A Puter path such as `/home/user/meeting.mp3`
+- A Puter path such as `~/Desktop/meeting.mp3`
 - A data URL (`data:audio/wav;base64,...`)
 - A `File` or `Blob` object (converted to data URL automatically)
 - A remote HTTPS URL
