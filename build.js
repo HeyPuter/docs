@@ -430,7 +430,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                             html += `<a href="https://www.reddit.com/r/puter/" target="_blank">Reddit</a>`;
                             html += `<span class="bull">&bull;</span>`;
 
-                            html += `<a href="/llms.txt" target="_blank">llms.txt</a>`;
+                            html += `<a href="/llms.txt" class="skip-insta-load" target="_blank">llms.txt</a>`;
                         html += `</div>`;
                         html += `<p class="copyright-notice">&copy; 2025 Puter Technologies Inc.</p>`;
                     html += `</footer>`;
