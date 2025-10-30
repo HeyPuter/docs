@@ -49,11 +49,11 @@ marked.use({
                     html += `<a href="/playground/index.html?example=${exampleID}&autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
 
                 // "Copy"
-                html += '<a class="code-button copy-code-button"><span class="copy"></span></a>';
+                html += '<div class="code-button copy-code-button"><span class="copy"></span></div>';
 
                 // "Download"
                 if (exampleID)
-                    html += '<a class="code-button download-code-button"><span class="download"></span></a>';
+                    html += '<div class="code-button download-code-button"><span class="download"></span></div>';
             html += '</div>';
             html += `<pre><code ${lang ? `class="language-${encode(lang)}"` : '' }>`;
             html += escaped ? code : encode(code);

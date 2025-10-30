@@ -33,7 +33,7 @@ function isExternalLink(href) {
     }
 }
 
-$(document).on('click', 'a:not(.skip-insta-load)', function (e) {
+$(document).on('click', 'a:not(.skip-insta-load):not([target="_blank"])', function (e) {
     if (isCurrentPage($(this).attr('href')) || isExternalLink($(this).attr('href'))) {
         // default browser behavior
         return;
