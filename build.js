@@ -212,18 +212,6 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
     const markdown = fs.readFileSync(filePath, 'utf-8');
     let html = '';
 
-    // recursively copy the assets directory and its contents to the dist directory
-    const assetsDir = path.join(rootDir, 'assets');
-    const distAssetsDir = path.join(rootDir, '..', 'dist', 'assets');
-    createDirectoryRecursively(distAssetsDir);
-    fs.copySync(assetsDir, distAssetsDir);
-
-    // recursively copy the playground directory and its contents to the dist directory
-    const playgroundDir = path.join(rootDir, 'playground');
-    const distPlaygroundDir = path.join(rootDir, '..', 'dist', 'playground');
-    createDirectoryRecursively(distPlaygroundDir);
-    fs.copySync(playgroundDir, distPlaygroundDir);
-
     // Parse markdown once and store it
     const { frontMatter , content } = parseFrontMatter(markdown);
     const parsedHTML = marked.parse(content);
@@ -464,6 +452,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
     }
 
     // Show an error if any playground examples referred to do not exist
+    const playgroundDir = path.join(rootDir, 'playground');
     for (const exampleID of usedPlaygroundExamples) {
         if (!fs.pathExistsSync(path.join(playgroundDir, 'examples', `${exampleID}.html`))) {
             console.error(`Warning: ${filePath} links to non-existent playground example '${exampleID}'`);
@@ -532,6 +521,19 @@ async function generateDocumentation(rootDir) {
     } catch (error) {
         console.error(error);
     }
+
+    // recursively copy the assets directory and its contents to the dist directory
+    const assetsDir = path.join(rootDir, 'assets');
+    const distAssetsDir = path.join(rootDir, '..', 'dist', 'assets');
+    createDirectoryRecursively(distAssetsDir);
+    fs.copySync(assetsDir, distAssetsDir);
+
+    // recursively copy the playground directory and its contents to the dist directory
+    const playgroundDir = path.join(rootDir, 'playground');
+    const distPlaygroundDir = path.join(rootDir, '..', 'dist', 'playground');
+    createDirectoryRecursively(distPlaygroundDir);
+    fs.copySync(playgroundDir, distPlaygroundDir);
+
     findMdFiles(rootDir); // Process files based on sidebar
 }
 
