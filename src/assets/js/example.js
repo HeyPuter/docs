@@ -20,6 +20,37 @@ jQuery(document).ready(function () {
     $('.example-group.active').each(function () {
         $(this).find('.icon').html(icons[$(this).data('icon-active')]);
     });
+
+    // "Copy code" buttons
+    $(document).on('click', '.copy-code-button', function (e) {
+        const $codeWrapper = $(this).closest('.code-wrapper')
+        const $codeBlock = $codeWrapper.find('code').first();
+
+        navigator.clipboard.writeText($codeBlock.text());
+        // show check mark for 1 second after copying
+        $(this).find('.copy').css('background-image', 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23012238\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpolyline points=\'20 6 9 17 4 12\'/%3E%3C/svg%3E")');
+        setTimeout(() => {
+            $(this).find('.copy').css('background-image', '');
+        }, 1000);
+    })
+
+    // "Download code" buttons
+    $(document).on('click', '.download-code-button', function (e) {
+        const $codeWrapper = $(this).closest('.code-wrapper')
+        const $codeBlock = $codeWrapper.find('code').first();
+        const $filename = 'puter-example.html';
+        const $code = $codeBlock.text();
+
+        const blob = new Blob([$code], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.className = 'skip-insta-load';
+        a.href = url;
+        a.download = $filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
 });
 
 $(document).on('pathchange', function (e) {

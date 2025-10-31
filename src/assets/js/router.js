@@ -34,12 +34,12 @@ function isExternalLink(href) {
 }
 
 $(document).on('click', 'a:not(.skip-insta-load):not([target="_blank"])', function (e) {
-    if (isCurrentPage($(this).attr('href')) || isExternalLink($(this).attr('href'))) {
-        // default browser behavior
-        return;
-    }
-    e.preventDefault();
+    // modifier keys
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    // special case handling
+    if (isCurrentPage($(this).attr('href')) || isExternalLink($(this).attr('href'))) return;
 
+    e.preventDefault();
 
     // reset progress bar
     $('#progress-bar').css('width', '0%');
