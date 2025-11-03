@@ -1,8 +1,13 @@
 jQuery(document).ready(function () {
     //History API
     if (window.history && window.history.pushState) {
+        // Initialize state for the first page
+        if (!window.history.state) {
+            window.history.replaceState({ reload: true }, document.title, window.location.href);
+        }
+
         $(window).on('popstate', function () {
-            if (window.history.state.reload) {
+            if (window.history.state && window.history.state.reload) {
                 window.location.href = window.location.href;
             }
         });
