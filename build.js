@@ -376,9 +376,6 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                                             html += `<img src="/${baseURL}${child.icon}" style="width:12px; height: 12px; margin-right:7px;">`;
                                         // title
                                         html += `${child.title}`;
-                                        // "GUI" badge
-                                        if (child.gui_only)
-                                            html += '<span class="gui-only-badge" title="This method only works when the app is being used within the Puter GUI environment">GUI</span>';
                                     html += `</a>`;
                                 html += `</p>`;
                             });
@@ -391,7 +388,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                     // context menu
                     html += generateMenuHTML();
 
-                    html += `<h1>${page.icon ? `<img src="/${baseURL}${page.icon}" style="opacity:0.5; width: 24px; height: 24px; margin-right: 10px;">` : '' }${page.page_title ?? page.title}${page.gui_only ? '<span class="gui-only-badge" title="This method only works when the app is being used within the Puter GUI environment">GUI</span>' : ''}</h1>`;
+                    html += `<h1>${page.icon ? `<img src="/${baseURL}${page.icon}" style="opacity:0.5; width: 24px; height: 24px; margin-right: 10px;">` : '' }${page.page_title ?? page.title}</h1>`;
                     // Platform compatibility badges
                     html += generatePlatformCompatibilityHTML(frontMatter);
                     html += `<hr class="hr-inset">`;                    
