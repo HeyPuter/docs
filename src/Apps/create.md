@@ -54,7 +54,7 @@ An object containing the options for the app to create. The object can contain t
 
 ## Return value
 
-A `Promise` that will resolve to the [`app`](/Objects/app/) that was created.
+A `Promise` that will resolve to the [`App`](/Objects/app/) object that was created.
 
 ## Examples
 

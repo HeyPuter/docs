@@ -21,7 +21,7 @@ A set of key/value pairs that configure the file picker dialog.
     - Example: `['.jpg', '.png']` will allow the user to select files with `.jpg` or `.png` extensions.
 
 ## Return value 
-A `Promise` that resolves to either one <code>FSItem</code> or an array of <code>FSItem</code> objects, depending on how many files were selected by the user. 
+A `Promise` that resolves to either one [`FSItem`](/Objects/fsitem) or an array of [`FSItem`](/Objects/fsitem) objects, depending on how many files were selected by the user. 
 
 ## Examples
 

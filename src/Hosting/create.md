@@ -19,7 +19,7 @@ A string containing the name of the subdomain you want to create.
 A string containing the path to the directory you want to serve. If not specified, the subdomain will be created without a directory.
 
 ## Return value
-A `Promise` that will resolve to a [`subdomain`](/Objects/subdomain/) object when the subdomain has been created. If a subdomain with the given name already exists, the promise will be rejected with an error. If the path does not exist, the promise will be rejected with an error.
+A `Promise` that will resolve to a [`Subdomain`](/Objects/subdomain/) object when the subdomain has been created. If a subdomain with the given name already exists, the promise will be rejected with an error. If the path does not exist, the promise will be rejected with an error.
 
 ## Examples
 

@@ -32,7 +32,7 @@ The UID of the directory to read.
 
 
 ## Return value
-A `Promise` that resolves to an array of [`fsitem`s](/Objects/fsitem/) (files and directories) within the specified directory.
+A `Promise` that resolves to an array of [`FSItem`](/Objects/fsitem/) objects (files and directories) within the specified directory.
 
 ## Examples
 

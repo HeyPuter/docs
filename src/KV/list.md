@@ -6,22 +6,32 @@ description: Retrieve all keys from your app's key-value store.
 Returns an array of all keys in the user's key-value store for the current app. If the user has no keys, the array will be empty.
 
 ## Syntax
+
 ```js
-puter.kv.list()
-puter.kv.list(pattern)
-puter.kv.list(returnValues = false)
-puter.kv.list(pattern, returnValues = false)
+puter.kv.list();
+puter.kv.list(pattern);
+puter.kv.list((returnValues = false));
+puter.kv.list(pattern, (returnValues = false));
 ```
 
 ## Parameters
+
 #### `pattern` (String) (optional)
+
 If set, only keys that match the given pattern will be returned. The pattern can contain the `*` wildcard character, which matches any number of characters. For example, `abc*` will match all keys that start with `abc`, such as `abc`, `abc123`, `abc123xyz`, etc. Default is `*`, which matches all keys.
 
 #### `returnValues` (Boolean) (optional)
+
 If set to `true`, the returned array will contain objects with both `key` and `value` properties. If set to `false`, the returned array will contain only the keys. Default is `false`.
 
 ## Return value
-A `Promise` that will resolve to an array of all keys (and values, if `returnValues` is set to `true`) the user's key-value store for the current app. If the user has no keys, the array will be empty. 
+
+A `Promise` that will resolve to either:
+
+- An array of all keys the user has for the current app, or
+- An array of [`KVPair`](/Objects/kvpair) objects containing the user's key-value pairs for the current app
+
+If the user has no keys, the array will be empty.
 
 ## Examples
 

@@ -14,7 +14,7 @@ puter.apps.list(options);
 
 ## Parameters
 
-### options (optional)
+#### `options` (optional)
 
 An object containing the following properties:
 
@@ -24,7 +24,7 @@ An object containing the following properties:
 
 ## Return value
 
-A `Promise` that will resolve to an array of all [`app`s](/Objects/app/) belonging to the user that this app has access to.
+A `Promise` that will resolve to an array of all [`App`](/Objects/app/) objects belonging to the user that this app has access to.
 
 ## Examples
 

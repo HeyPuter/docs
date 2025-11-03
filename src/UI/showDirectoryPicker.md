@@ -18,7 +18,7 @@ A set of key/value pairs that configure the directory picker dialog.
 * `multiple` (Boolean): if set to `true`, user will be able to select multiple directories. Default is `false`.
 
 ## Return value 
-A `Promise` that resolves to either one <code>FSItem</code> or an array of <code>FSItem</code> objects, depending on how many directories were selected by the user. 
+A `Promise` that resolves to either one [`FSItem`](/Objects/fsitem) or an array of [`FSItem`](/Objects/fsitem) objects, depending on how many directories were selected by the user. 
 
 ## Examples
 

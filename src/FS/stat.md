@@ -17,7 +17,7 @@ The path to the file or directory to get information about.
 If `path` is not absolute, it will be resolved relative to the app's root directory.
 
 ## Return value
-A `Promise` that resolves to the [`fsitem`](/Objects/fsitem/) of the specified file or directory.
+A `Promise` that resolves to the [`FSItem`](/Objects/fsitem) object of the specified file or directory.
 
 ## Examples
 

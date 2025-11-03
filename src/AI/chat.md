@@ -104,21 +104,10 @@ Providing a messages array is especially useful for building chatbots where you 
 
 ## Return value
 
-When `stream` is set to `false` (default):
+Returns a `Promise` that resolves to either:
 
-- Will resolve to a response object containing the completion message, with the following format:
-  - `message` (Object):
-    - `role` (String) - Indicates who is speaking in the conversation
-    - `content` (String) - The actual text response from the chat
-- If a function call is made, the response will include `tool_calls` array containing:
-  - `id` (String) - Unique identifier for the function call
-  - `function` (Object):
-    - `name` (String) - Name of function to call
-    - `arguments` (String) - JSON string of function arguments
-
-When `stream` is set to `true`:
-
-- Returns an async iterable object that you can use with a `for await...of` loop to receive the response in parts as they become available.
+- A [`ChatResponse`](/Objects/chatresponse) object containing the chat response data, or
+- An async iterable object of [`ChatResponseChunk`](/Objects/chatresponsechunk) (when `stream` is set to `true`) that you can use with a `for await...of` loop to receive the response in parts as they become available.
 
 In case of an error, the `Promise` will reject with an error message.
 

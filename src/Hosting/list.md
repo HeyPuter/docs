@@ -14,7 +14,7 @@ puter.hosting.list()
 None
 
 ## Return value
-A `Promise` that will resolve to an array of all [`subdomain`s](/Objects/subdomain/) belonging to the user that this app has access to. 
+A `Promise` that will resolve to an array of all [`Subdomain`](/Objects/subdomain/) objects belonging to the user that this app has access to. 
 
 ## Examples
 

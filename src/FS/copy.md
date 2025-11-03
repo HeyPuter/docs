@@ -32,7 +32,7 @@ The options for the `copy` operation. The following options are supported:
 
 ## Return value
 
-A `Promise` that will resolve to the copied file or directory. If the source file or directory does not exist, the promise will be rejected with an error.
+A `Promise` that will resolve to the [`FSItem`](/Objects/fsitem) object of the copied file or directory. If the source file or directory does not exist, the promise will be rejected with an error.
 
 ## Examples
 

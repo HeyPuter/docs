@@ -26,7 +26,7 @@ The options for the `move` operation. The following options are supported:
 - `createMissingParents` (Boolean) - Whether to create missing parent directories. Defaults to `false`.
 
 ## Return value
-A `Promise` that will resolve to the moved file or directory. If the source file or directory does not exist, the promise will be rejected with an error.
+A `Promise` that will resolve to the [`FSItem`](/Objects/fsitem) object of the moved file or directory. If the source file or directory does not exist, the promise will be rejected with an error.
 
 ## Examples
 

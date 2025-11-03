@@ -19,7 +19,7 @@ If `path` is not absolute, it will be resolved relative to the app's root direct
 The new name of the file or directory.
 
 ## Return value
-Returns a promise that resolves to the file or directory object of the renamed file or directory.
+Returns a promise that resolves to the [`FSItem`](/Objects/fsitem) object of the renamed file or directory.
 
 ## Examples
 
