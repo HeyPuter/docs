@@ -1,6 +1,7 @@
 ---
 title: puter.fs.write()
 description: Write data to files in Puter file system.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Writes data to a specified file path. This method is useful for creating new files or modifying existing ones in the Puter cloud storage.

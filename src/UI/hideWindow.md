@@ -1,6 +1,7 @@
 ---
 title: puter.ui.hideWindow()
 description: Hides the window of your application.
+platforms: [apps]
 ---
 
 The `hideWindow` method allows you to hide the window of your application.

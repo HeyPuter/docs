@@ -1,6 +1,7 @@
 ---
 title: puter.hosting.update()
 description: Update a subdomain to point to a new directory.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Updates a subdomain to point to a new directory. If directory is not specified, the subdomain will be disconnected from its directory.

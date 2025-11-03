@@ -1,6 +1,7 @@
 ---
 title: puter.ui.showOpenFilePicker()
 description: Presents a file picker dialog for selecting files from Puter cloud storage.
+platforms: [websites, apps]
 ---
 
 Presents the user with a file picker dialog allowing them to pick a file from their Puter cloud storage.

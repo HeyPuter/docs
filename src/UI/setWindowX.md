@@ -1,6 +1,7 @@
 ---
 title: puter.ui.setWindowX()
 description: Sets the X position of the window.
+platforms: [apps]
 ---
 
 Sets the X position of the window.

@@ -1,6 +1,7 @@
 ---
 title: puter.ai.img2txt()
 description: Extract text from images using OCR to read printed text, handwriting, and any text-based content.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Given an image will return the text contained in the image. Also known as OCR (Optical Character Recognition), this API can be used to extract text from images of printed text, handwriting, or any other text-based content.

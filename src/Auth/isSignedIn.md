@@ -1,6 +1,7 @@
 ---
 title: puter.auth.isSignedIn()
 description: Check if a user is currently signed into the application with their Puter account.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Checks whether the user is signed into the application.

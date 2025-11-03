@@ -1,6 +1,7 @@
 ---
 title: puter.hosting.delete()
 description: Delete a subdomain from your account.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Deletes a subdomain from your account. The subdomain will no longer be served by the hosting service. If the subdomain has a directory, it will be disconnected from the subdomain. The associated directory will not be deleted.

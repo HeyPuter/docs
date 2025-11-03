@@ -1,6 +1,7 @@
 ---
 title: puter.appID
 description: Returns the App ID of the running application.
+platforms: [websites, apps]
 ---
 
 A property of the `puter` object that returns the App ID of the running application.

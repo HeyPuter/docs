@@ -1,6 +1,7 @@
 ---
 title: puter.fs.read()
 description: Read data from files in Puter file system.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Reads data from a file.

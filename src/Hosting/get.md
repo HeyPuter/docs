@@ -1,6 +1,7 @@
 ---
 title: puter.hosting.get()
 description: Get information on a subdomain hosted on Puter.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Returns a subdomain. If the subdomain does not exist, the promise will be rejected with an error.

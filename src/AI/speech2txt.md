@@ -1,6 +1,7 @@
 ---
 title: puter.ai.speech2txt()
 description: Transcribe or translate audio into text using OpenAI speech-to-text models.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Converts spoken audio into text with optional English translation and diarization support. This helper wraps the Puter driver-backed OpenAI transcription API so you can work with local files, remote URLs, or in-memory blobs from the browser.

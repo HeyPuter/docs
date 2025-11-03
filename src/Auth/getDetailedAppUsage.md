@@ -1,6 +1,7 @@
 ---
 title: puter.auth.getDetailedAppUsage()
 description: Get detailed usage statistics for an application the user has accessed.
+platforms: [websites, apps]
 ---
 
 Get detailed usage statistics for an application.

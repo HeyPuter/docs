@@ -1,6 +1,7 @@
 ---
 title: puter.apps.create()
 description: Create apps in the Puter desktop environment.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Creates a Puter app with the given name. The app will be created in the user's apps, and will be accessible to this app. The app will be created with no permissions, and will not be able to access any data until permissions are granted to it.

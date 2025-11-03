@@ -1,6 +1,7 @@
 ---
 title: puter.ui.setWindowY()
 description: Sets the y position of the window.
+platforms: [apps]
 ---
 
 Sets the y position of the window.

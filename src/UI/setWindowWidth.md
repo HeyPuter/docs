@@ -1,6 +1,7 @@
 ---
 title: puter.ui.setWindowWidth()
 description: Dynamically sets the width of the window.
+platforms: [apps]
 ---
 
 Allows the user to dynamically set the width of the window.

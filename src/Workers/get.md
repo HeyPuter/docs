@@ -1,6 +1,7 @@
 ---
 title: puter.workers.get()
 description: Get information about a specific worker.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Gets the information for a specific worker.

@@ -1,6 +1,7 @@
 ---
 title: puter.fs.rename()
 description: Rename files or directories in Puter file system.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Renames a file or directory to a new name. This method allows you to change the name of a file or directory in the Puter cloud storage.

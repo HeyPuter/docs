@@ -1,6 +1,7 @@
 ---
 title: puter.workers.create()
 description: Create and deploy workers from JavaScript files.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Creates and deploys a new worker from a JavaScript file containing [router](../router) code.

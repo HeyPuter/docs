@@ -1,6 +1,7 @@
 ---
 title: puter.workers.exec()
 description: Execute workers as an authenticated user.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Sends a request to a worker endpoint while automatically passing your authentication credentials.

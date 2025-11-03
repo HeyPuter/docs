@@ -1,6 +1,7 @@
 ---
 title: puter.fs.copy()
 description: Copy files or directories in Puter file system.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Copies a file or directory from one location to another.

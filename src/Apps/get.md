@@ -1,6 +1,7 @@
 ---
 title: puter.apps.get()
 description: Retrieve details of your Puter app.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Returns an app with the given name. If the app does not exist, the promise will be rejected.
