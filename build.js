@@ -207,6 +207,40 @@ function parseFrontMatter(fileContent) {
     return { frontMatter: {}, content: fileContent };
 }
 
+function generatePlatformCompatibilityHTML(frontMatter) {
+    if (!frontMatter.platforms || !Array.isArray(frontMatter.platforms)) {
+        return '';
+    }
+
+    const allPlatforms = ['websites', 'apps', 'nodejs', 'workers'];
+    const platformLabels = {
+        'websites': 'Websites',
+        'apps': 'Puter Apps',
+        'nodejs': 'Node.js',
+        'workers': 'Workers'
+    };
+
+    let html = '<div class="platform-compatibility">';
+
+    const check = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>`;
+    const minus = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus-icon lucide-minus"><path d="M5 12h14"/></svg>`;
+
+    allPlatforms.forEach(platform => {
+        const isSupported = frontMatter.platforms.includes(platform);
+        const label = platformLabels[platform] || platform;
+        const checkmark = isSupported ? check : minus;
+        const className = isSupported ? 'supported' : 'unsupported';
+
+        html += `<span class="platform-badge ${className}">`;
+        html += `<span class="platform-checkmark">${checkmark}</span> `;
+        html += `<span class="platform-name">${label}</span>`;
+        html += `</span>`;
+    });
+
+    html += '</div>';
+    return html;
+}
+
 // Function to process each markdown file
 function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
     const markdown = fs.readFileSync(filePath, 'utf-8');
@@ -358,6 +392,8 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                     html += generateMenuHTML();
 
                     html += `<h1>${page.icon ? `<img src="/${baseURL}${page.icon}" style="opacity:0.5; width: 24px; height: 24px; margin-right: 10px;">` : '' }${page.page_title ?? page.title}${page.gui_only ? '<span class="gui-only-badge" title="This method only works when the app is being used within the Puter GUI environment">GUI</span>' : ''}</h1>`;
+                    // Platform compatibility badges
+                    html += generatePlatformCompatibilityHTML(frontMatter);
                     html += `<hr class="hr-inset">`;                    
                     
                     // Beta notice banner
