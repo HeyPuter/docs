@@ -52,19 +52,26 @@ $(document).on('click', 'a:not(.skip-insta-load):not([target="_blank"])', functi
         console.error('Error: Failed to push state.', e);
     }
 
+    let progressTimer;
+
     $.ajax({
         url: $(this).attr('href'),
-        xhr: function () {
-            var xhr = new window.XMLHttpRequest();
-            xhr.onprogress = function (e) {
-                if (e.lengthComputable) {
-                    var percentComplete = e.loaded / e.total * 100;
-                    $('#progress-bar').css('width', percentComplete + '%');
+        beforeSend: function () {
+            let progress = 0;
+
+            progressTimer = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress >= 90) {
+                    progress = 90;
+                    clearInterval(progressTimer);
                 }
-            };
-            return xhr;
+                $('#progress-bar').css('width', progress + '%');
+            }, 150);
         }
     }).done(function (data) {
+        clearInterval(progressTimer);
+        $('#progress-bar').css('width', '100%');
+
         $('.docs-content').html($(data).find('.docs-content').html());
         $('#toc-wrapper').html($(data).find('#toc-wrapper').html());
 
@@ -104,6 +111,9 @@ $(document).on('click', 'a:not(.skip-insta-load):not([target="_blank"])', functi
         }, 1000);
         $.event.trigger("pathchange")
     }).fail(function (e) {
+        clearInterval(progressTimer);
+        $('#progress-bar').css('width', '100%');
+
         // Handle the error here
         console.error('Error: Failed to load the content.', e);
         // Optionally, display an error message to the user
