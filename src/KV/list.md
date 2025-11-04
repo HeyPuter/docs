@@ -8,10 +8,10 @@ Returns an array of all keys in the user's key-value store for the current app. 
 ## Syntax
 
 ```js
-puter.kv.list();
-puter.kv.list(pattern);
-puter.kv.list((returnValues = false));
-puter.kv.list(pattern, (returnValues = false));
+puter.kv.list()
+puter.kv.list(pattern)
+puter.kv.list(returnValues = false)
+puter.kv.list(pattern, returnValues = false)
 ```
 
 ## Parameters

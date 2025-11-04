@@ -8,8 +8,8 @@ Given a prompt, generate an image using AI.
 ## Syntax
 
 ```js
-puter.ai.txt2img(prompt, (testMode = false));
-puter.ai.txt2img(prompt, (options = {}));
+puter.ai.txt2img(prompt, (testMode = false))
+puter.ai.txt2img(prompt, (options = {}))
 ```
 
 ## Parameters
