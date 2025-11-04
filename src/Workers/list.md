@@ -8,7 +8,7 @@ Lists all workers in your account with their details.
 ## Syntax
 
 ```js
-puter.workers.list()
+puter.workers.list();
 ```
 
 ## Parameters
@@ -17,7 +17,8 @@ None.
 
 ## Return Value
 
-A `Promise` that resolves to a JavaScript array with each worker's information
+A `Promise` that resolves to a [`WorkerInfo`](/Objects/workerinfo) array with each worker's information
+
 ### Example Output Structure
 
 ```js
@@ -31,7 +32,7 @@ A `Promise` that resolves to a JavaScript array with each worker's information
   },
   {
     "name": "blog-backend",
-    "url": "https://blog-backend.puter.work", 
+    "url": "https://blog-backend.puter.work",
     "file_path": "/username/Desktop/blog.js",
     "file_uid": "de15baba-b685-408d-a7b9-e080fe10e455"
     "created_at": "2023-01-02T00:00:00.000Z"

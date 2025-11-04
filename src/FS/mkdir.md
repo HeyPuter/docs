@@ -23,7 +23,7 @@ The options for the `mkdir` operation. The following options are supported:
 - `createMissingParents` (boolean) - Whether to create missing parent directories. Defaults to `false`.
 
 ## Return value
-Returns a promise that resolves to the directory object of the created directory.
+Returns a `Promise` that resolves to the [`FSItem`](/Objects/fsitem) object of the created directory.
 
 ## Examples
 

@@ -25,7 +25,7 @@ A set of key/value pairs that configure the upload process.
 
 
 ## Return value
-Returns a promise that resolves to:
+Returns a `Promise` that resolves to:
 - A single [`FSItem`](/Objects/fsitem/) object if `items` parameter contains one item
 - An array of [`FSItem`](/Objects/fsitem/) objects if `items` parameter contains multiple items
 

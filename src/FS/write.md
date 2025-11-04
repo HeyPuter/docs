@@ -28,7 +28,7 @@ The options for the `write` operation. The following options are supported:
 - `createMissingParents` (boolean) - Whether to create missing parent directories. Defaults to `false`.
 
 ## Return value
-Returns a promise that resolves to the file object of the written file.
+Returns a `Promise` that resolves to the [`FSItem`](/Objects/fsitem) object of the written file.
 
 ## Examples
 

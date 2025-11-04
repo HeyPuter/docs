@@ -18,7 +18,7 @@ The name of the worker to get the information for.
 
 ## Return Value
 
-A `Promise` that resolves to the worker's information as an object.
+A `Promise` that resolves to the [`WorkerInfo`](/Objects/workerinfo) object containing the worker's information.
 
 ## Examples
 

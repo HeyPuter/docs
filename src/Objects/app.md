@@ -1,7 +1,9 @@
 ---
 title: App
-description: The app object containing Puter app details.
+description: The App object containing Puter app details.
 ---
+
+The `App` object containing Puter app details.
 
 ## Attributes
 

@@ -23,7 +23,7 @@ The number of seconds until the URL expires. If not provided, the URL will expir
 
 ## Returns
 
-A promise that resolves to a URL that can be used to read the file.
+A promise that resolves to a URL string that can be used to read the file.
 
 ## Example
 

@@ -29,15 +29,7 @@ The path to a JavaScript file in your Puter account that contains your [router](
 
 ## Return Value
 
-A `Promise` that resolves to an object on success:
-
-```js
-{
-    success: true,
-    url: "https://worker-name.puter.work",
-    errors: []
-}
-```
+A `Promise` that resolves to a [`WorkerDeployment`](/Objects/workerdeployment) object on success.
 
 On failure, throws an `Error` with the reason.
 

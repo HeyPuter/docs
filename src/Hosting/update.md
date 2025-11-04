@@ -23,7 +23,7 @@ A string containing the path to the directory you want to serve. If not specifie
 
 ## Return value
 
-A `Promise` that will resolve to a [`subdomain`](/Objects/subdomain/) object when the subdomain has been updated. If a subdomain with the given name does not exist, the promise will be rejected with an error. If the path does not exist, the promise will be rejected with an error.
+A `Promise` that will resolve to a [`Subdomain`](/Objects/subdomain/) object when the subdomain has been updated. If a subdomain with the given name does not exist, the promise will be rejected with an error. If the path does not exist, the promise will be rejected with an error.
 
 ## Examples
 

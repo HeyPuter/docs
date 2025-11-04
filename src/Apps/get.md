@@ -28,7 +28,7 @@ An object containing the following properties:
 
 ## Return value
 
-A `Promise` that will resolve to the [`app`](/Objects/app/) with the given name.
+A `Promise` that will resolve to the [`App`](/Objects/app/) object with the given name.
 
 ## Examples
 

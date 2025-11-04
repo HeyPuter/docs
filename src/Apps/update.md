@@ -25,7 +25,7 @@ An object containing the attributes to update. The object can contain the follow
 - `filetypeAssociations` (optional): An array of strings representing the filetypes that the app can open. Defaults to `[]`. File extentions and MIME types are supported; For example, `[".txt", ".md", "application/pdf"]` would allow the app to open `.txt`, `.md`, and PDF files.
 
 ## Return value
-A `Promise` that will resolve to the [`app`](/Objects/app/) that was updated.
+A `Promise` that will resolve to the [`App`](/Objects/app/) object that was updated.
 
 ## Examples
 

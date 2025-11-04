@@ -1,10 +1,10 @@
 ---
 title: FSItem
-description: An fsitem object represents a file or a directory in the file system of a Puter. 
+description: An FSItem object represents a file or a directory in the file system of a Puter. 
 ---
 
 
-An fsitem object represents a file or a directory in the file system of a Puter. 
+An `FSItem` object represents a file or a directory in the file system of a Puter. 
 
 ## Attributes
 

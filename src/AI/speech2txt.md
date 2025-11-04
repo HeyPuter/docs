@@ -50,7 +50,7 @@ When `true`, skips the live API call and returns a static sample transcript so y
 Returns a `Promise` that resolves to either:
 
 - A string (when `response_format: "text"` or you pass a shorthand `source` with no options), or
-- An object containing the transcription payload (including diarization segments, timestamps, etc., depending on the selected model and format).
+- An object of [`Speech2TxtResult`](/Objects/speech2txtresult) containing the transcription payload (including diarization segments, timestamps, etc., depending on the selected model and format).
 
 ## Examples
 

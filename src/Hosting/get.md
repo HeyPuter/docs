@@ -16,7 +16,7 @@ puter.hosting.get(subdomain)
 A string containing the name of the subdomain you want to retrieve.
 
 ## Return value
-A `Promise` that will resolve to a [`subdomain`](/Objects/subdomain/) object when the subdomain has been retrieved. If a subdomain with the given name does not exist, the promise will be rejected with an error.
+A `Promise` that will resolve to a [`Subdomain`](/Objects/subdomain/) object when the subdomain has been retrieved. If a subdomain with the given name does not exist, the promise will be rejected with an error.
 
 ## Examples
 
