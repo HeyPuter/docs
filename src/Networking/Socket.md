@@ -1,7 +1,7 @@
 ---
 title: Socket
 description: Create a raw TCP socket directly in the browser.
-platforms: [websites, apps, nodejs, workers]
+platforms: [websites, apps]
 ---
 
 The Socket API lets you create a raw TCP socket which can be used directly in the browser.

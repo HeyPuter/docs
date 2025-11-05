@@ -1,7 +1,7 @@
 ---
 title: puter.auth.getMonthlyUsage()
 description: Get the user's current monthly resource usage in the Puter ecosystem.
-platforms: [websites, apps]
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Get the user's current monthly resource usage in the Puter ecosystem.

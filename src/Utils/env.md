@@ -1,7 +1,7 @@
 ---
 title: puter.env
 description: Returns the environment in which Puter.js is being used.
-platforms: [websites, apps]
+platforms: [websites, apps, nodejs, workers]
 ---
 
 A property of the `puter` object that returns the environment in which Puter.js is being used.

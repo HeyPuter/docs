@@ -1,7 +1,7 @@
 ---
 title: puter.ai.txt2vid()
 description: Generate short-form videos with OpenAI Sora models through Puter.js.
-platforms: [websites, apps, nodejs, workers]
+platforms: [websites, apps]
 ---
 
 Create AI-generated video clips directly from text prompts.
