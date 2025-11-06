@@ -9,7 +9,7 @@ Deletes a subdomain from your account. The subdomain will no longer be served by
 ## Syntax
 
 ```js
-puter.hosting.delete(subdomain);
+puter.hosting.delete(subdomain)
 ```
 
 ## Parameters
