@@ -9,8 +9,8 @@ Returns an array of all apps belonging to the user and that this app has access 
 ## Syntax
 
 ```js
-puter.apps.list();
-puter.apps.list(options);
+puter.apps.list()
+puter.apps.list(options)
 ```
 
 ## Parameters
