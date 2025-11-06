@@ -9,7 +9,7 @@ Signs the user out of the application.
 ## Syntax
 
 ```js
-puter.auth.signOut();
+puter.auth.signOut()
 ```
 
 ## Parameters

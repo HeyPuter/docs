@@ -9,7 +9,7 @@ Get the user's current monthly resource usage in the Puter ecosystem.
 ## Syntax
 
 ```js
-puter.auth.getMonthlyUsage();
+puter.auth.getMonthlyUsage()
 ```
 
 ## Parameters

@@ -17,8 +17,8 @@ The `puter.auth.signIn()` function must be triggered by a user action (such as a
 ## Syntax
 
 ```js
-puter.auth.signIn();
-puter.auth.signIn(options);
+puter.auth.signIn()
+puter.auth.signIn(options)
 ```
 
 ## Parameters
