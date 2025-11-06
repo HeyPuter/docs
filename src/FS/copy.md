@@ -9,8 +9,8 @@ Copies a file or directory from one location to another.
 ## Syntax
 
 ```js
-puter.fs.copy(source, destination);
-puter.fs.copy(source, destination, options);
+puter.fs.copy(source, destination)
+puter.fs.copy(source, destination, options)
 ```
 
 ## Parameters

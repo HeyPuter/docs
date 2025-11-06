@@ -7,9 +7,10 @@ platforms: [websites, apps, nodejs, workers]
 Generates a URL that can be used to read a file.
 
 ## Syntax
-```javascript
-puter.fs.getReadURL(path);
-puter.fs.getReadURL(path, expiresIn);
+
+```js
+puter.fs.getReadURL(path)
+puter.fs.getReadURL(path, expiresIn)
 ```
 
 ## Parameters
