@@ -713,6 +713,10 @@ ol li::before {
 	height: 30px;
 }
 
+.info p {
+    margin: 5px 0;
+}
+
 .example-group {
 	border-radius: 5px;
 	display: flex;
