@@ -1527,3 +1527,36 @@ footer .copyright-notice{
 	font-size: 12px;
 }
 
+/* Platform Compatibility Badges */
+.platform-compatibility {
+	display: flex;
+	gap: 24px;
+	margin-top: 32px;
+	flex-wrap: wrap;
+}
+
+.platform-badge {
+	display: inline-flex;
+	align-items: center;
+	font-size: 13px;
+	padding: 4px 0;
+}
+
+.platform-badge.supported {
+	color: #43A047;
+}
+
+.platform-badge.unsupported {
+	color: #999;
+	opacity: 0.6;
+}
+
+.platform-checkmark {
+	font-weight: 600;
+	margin-right: 4px;
+}
+
+.platform-name {
+	font-weight: 500;
+}
+

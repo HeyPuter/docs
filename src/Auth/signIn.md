@@ -1,6 +1,7 @@
 ---
 title: puter.auth.signIn()
 description: Initiate sign in process in your application with user's Puter account.
+platforms: [websites, apps]
 ---
 
 Initiates the sign in process for the user. This will open a popup window with the appropriate authentication method. Puter automatically handles the authentication process and will resolve the promise when the user has signed in.

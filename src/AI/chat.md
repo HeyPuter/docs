@@ -1,6 +1,7 @@
 ---
 title: puter.ai.chat()
 description: Chat with AI models, analyze images, and perform function calls using 500+ models from OpenAI, Anthropic, Google, and more.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Given a prompt returns the completion that best matches the prompt.

@@ -1,6 +1,7 @@
 ---
 title: puter.apps.list()
 description: List all apps in your Puter account.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Returns an array of all apps belonging to the user and that this app has access to. If the user has no apps, the array will be empty.

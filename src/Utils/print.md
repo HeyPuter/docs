@@ -1,6 +1,7 @@
 ---
 title: puter.print()
 description: Prints a string by appending it to the body of the document.
+platforms: [websites, apps]
 ---
 
 Prints a string by appending it to the body of the document. This is useful for debugging and testing purposes and is not recommended for production use.

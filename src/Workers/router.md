@@ -1,6 +1,7 @@
 ---
 title: router
 description: Handle HTTP requests with the router object with Puter Serverless Workers.
+platforms: [workers]
 ---
 
 Puter workers use a router-based system to handle HTTP requests. The `router` object is automatically available in your worker code and provides methods to define API endpoints.

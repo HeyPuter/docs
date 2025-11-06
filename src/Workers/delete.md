@@ -1,6 +1,7 @@
 ---
 title: puter.workers.delete()
 description: Delete workers and stop their execution.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Deletes an existing worker and stops its execution.

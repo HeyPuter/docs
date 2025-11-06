@@ -1,6 +1,7 @@
 ---
 title: puter.ui.showSaveFilePicker()
 description: Presents a file picker dialog for specifying where and with what name to save a file.
+platforms: [websites, apps]
 ---
 
 Presents the user with a file picker dialog allowing them to specify where and with what name to save a file.

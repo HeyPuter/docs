@@ -1,6 +1,7 @@
 ---
 title: puter.apps.update()
 description: Update app properties including name, title, icon, URL, and file associations
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Updates attributes of the app with the given name.

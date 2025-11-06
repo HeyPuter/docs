@@ -1,6 +1,7 @@
 ---
 title: puter.auth.getUser()
 description: Retrieve the authenticated user basic information.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Returns the user's basic information.

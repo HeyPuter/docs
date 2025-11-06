@@ -1,6 +1,7 @@
 ---
 title: puter.net.fetch()
 description: Fetch web resources securely without being bound by CORS restrictions.
+platforms: [websites, apps]
 ---
 
 The puter fetch API lets you securely fetch a http/https resource without being bound by CORS restrictions.

@@ -1,6 +1,7 @@
 ---
 title: puter.apps.delete()
 description: Delete apps from your Puter account.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Deletes an app with the given name.

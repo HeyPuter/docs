@@ -1,6 +1,7 @@
 ---
 title: TLS Socket
 description: Create a TLS protected TCP socket connection directly in the browser.
+platforms: [websites, apps]
 ---
 
 The TLS Socket API lets you create a TLS protected TCP socket connection which can be used directly in the browser. The interface is exactly the same as the normal <a href="/Networking/Socket/">`puter.net.Socket`</a> but connections are encrypted instead of being in plain text.

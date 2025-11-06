@@ -1,6 +1,7 @@
 ---
 title: puter.ui.onLaunchedWithItems()
 description: Executes a callback function if the app is launched with items.
+platforms: [apps]
 ---
 
 Specify a callback function to execute if the app is launched with items. `onLaunchedWithItems` will be called if one or more items are opened via double-clicking on items, right-clicking on items and choosing the app from the 'Open With...' submenu.

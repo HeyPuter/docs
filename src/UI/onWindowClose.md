@@ -1,6 +1,7 @@
 ---
 title: puter.ui.onWindowClose()
 description: Executes a function when the window is about to close.
+platforms: [apps]
 ---
 
 Specify a function to execute when the window is about to close. For example the provided function will run right after  the 'X' button of the window has been pressed.

@@ -1,6 +1,7 @@
 ---
 title: puter.workers.list()
 description: List all workers in your account.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Lists all workers in your account with their details.

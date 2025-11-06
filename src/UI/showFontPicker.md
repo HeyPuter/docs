@@ -1,6 +1,7 @@
 ---
 title: puter.ui.showFontPicker()
 description: Presents a list of fonts for previewing and selecting.
+platforms: [apps]
 ---
 
 Presents the user with a list of fonts allowing them to preview and select a font.

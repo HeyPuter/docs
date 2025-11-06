@@ -1,6 +1,7 @@
 ---
 title: puter.ui.createWindow()
 description: Creates and displays a window.
+platforms: [apps]
 ---
 
 Creates and displays a window.

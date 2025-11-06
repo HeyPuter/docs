@@ -1,6 +1,7 @@
 ---
 title: puter.ui.getLanguage()
 description: Retrieves the current language/locale code from the Puter environment.
+platforms: [apps]
 ---
 
 Retrieves the current language/locale code from the Puter environment. This function communicates with the host environment to get the active language setting.

@@ -1,6 +1,7 @@
 ---
 title: puter.fs.upload()
 description: Upload local files to Puter file system.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 Given a number of local items, upload them to the Puter filesystem.

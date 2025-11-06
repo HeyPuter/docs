@@ -1,6 +1,7 @@
 ---
 title: puter.exit()
 description: Terminates the running application and closes its window.
+platforms: [apps]
 ---
 
 Will terminate the running application and close its window.

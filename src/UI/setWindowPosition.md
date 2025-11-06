@@ -1,6 +1,7 @@
 ---
 title: puter.ui.setWindowPosition()
 description: Sets the position of the window.
+platforms: [apps]
 ---
 
 Allows the user to set the position of the window.

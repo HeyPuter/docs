@@ -1,6 +1,7 @@
 ---
 title: puter.kv.set()
 description: Save or update values in key-value store.
+platforms: [websites, apps, nodejs, workers]
 ---
 
 When passed a key and a value, will add it to the user's key-value store, or update that key's value if it already exists.
