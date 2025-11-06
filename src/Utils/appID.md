@@ -9,7 +9,7 @@ A property of the `puter` object that returns the App ID of the running applicat
 ## Syntax
 
 ```js
-puter.appID;
+puter.appID
 ```
 
 ## Examples
