@@ -9,7 +9,7 @@ Sends a request to a worker endpoint while automatically passing your authentica
 ## Syntax
 
 ```js
-puter.workers.exec(workerURL, options);
+puter.workers.exec(workerURL, options)
 ```
 
 ## Parameters

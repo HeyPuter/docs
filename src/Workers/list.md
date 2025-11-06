@@ -9,7 +9,7 @@ Lists all workers in your account with their details.
 ## Syntax
 
 ```js
-puter.workers.list();
+puter.workers.list()
 ```
 
 ## Parameters
