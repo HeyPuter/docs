@@ -9,7 +9,7 @@ The `hideWindow` method allows you to hide the window of your application.
 ## Syntax
 
 ```javascript
-puter.ui.hideWindow();
+puter.ui.hideWindow()
 ```
 
 ## Parameters
