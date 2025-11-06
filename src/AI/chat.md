@@ -9,12 +9,12 @@ Given a prompt returns the completion that best matches the prompt.
 ## Syntax
 
 ```js
-puter.ai.chat(prompt);
-puter.ai.chat(prompt, (options = {}));
-puter.ai.chat(prompt, (testMode = false), (options = {}));
-puter.ai.chat(prompt, imageURL, (testMode = false), (options = {}));
-puter.ai.chat(prompt, [imageURLArray], (testMode = false), (options = {}));
-puter.ai.chat([messages], (testMode = false), (options = {}));
+puter.ai.chat(prompt)
+puter.ai.chat(prompt, options = {})
+puter.ai.chat(prompt, testMode = false, options = {})
+puter.ai.chat(prompt, imageURL, testMode = false, options = {})
+puter.ai.chat(prompt, [imageURLArray], testMode = false, options = {})
+puter.ai.chat([messages], testMode = false, options = {})
 ```
 
 ## Parameters
