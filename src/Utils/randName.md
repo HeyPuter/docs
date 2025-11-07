@@ -9,8 +9,8 @@ A function that generates a domain-safe name by combining a random adjective, a 
 ## Syntax
 
 ```js
-puter.randName();
-puter.randName(separator);
+puter.randName()
+puter.randName(separator)
 ```
 
 ## Parameters

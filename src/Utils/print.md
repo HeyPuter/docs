@@ -9,7 +9,7 @@ Prints a string by appending it to the body of the document. This is useful for 
 ## Syntax
 
 ```js
-puter.print(text);
+puter.print(text)
 ```
 
 ## Parameters

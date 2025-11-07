@@ -9,9 +9,9 @@ Increments the value of a key. If the key does not exist, it is initialized with
 ## Syntax
 
 ```js
-puter.kv.incr(key);
-puter.kv.incr(key, amount);
-puter.kv.incr(key, pathAndAmount);
+puter.kv.incr(key)
+puter.kv.incr(key, amount)
+puter.kv.incr(key, pathAndAmount)
 ```
 
 ## Parameters

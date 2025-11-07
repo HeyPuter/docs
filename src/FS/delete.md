@@ -9,8 +9,8 @@ Deletes a file or directory.
 ## Syntax
 
 ```js
-puter.fs.delete(path);
-puter.fs.delete(path, options);
+puter.fs.delete(path)
+puter.fs.delete(path, options)
 ```
 
 ## Parameters

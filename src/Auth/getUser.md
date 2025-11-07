@@ -9,7 +9,7 @@ Returns the user's basic information.
 ## Syntax
 
 ```js
-puter.auth.getUser();
+puter.auth.getUser()
 ```
 
 ## Parameters

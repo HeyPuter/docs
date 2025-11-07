@@ -9,7 +9,7 @@ A property of the `puter` object that returns the environment in which Puter.js 
 ## Syntax
 
 ```js
-puter.env;
+puter.env
 ```
 
 ## Return value

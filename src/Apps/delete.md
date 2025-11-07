@@ -9,7 +9,7 @@ Deletes an app with the given name.
 ## Syntax
 
 ```js
-puter.apps.delete(name);
+puter.apps.delete(name)
 ```
 
 ## Parameters

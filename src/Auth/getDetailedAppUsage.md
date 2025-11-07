@@ -15,7 +15,7 @@ Users can only see the usage of applications they have accessed before.
 ## Syntax
 
 ```js
-puter.auth.getDetailedAppUsage(appId);
+puter.auth.getDetailedAppUsage(appId)
 ```
 
 ## Parameters

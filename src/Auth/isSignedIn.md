@@ -9,7 +9,7 @@ Checks whether the user is signed into the application.
 ## Syntax
 
 ```js
-puter.auth.isSignedIn();
+puter.auth.isSignedIn()
 ```
 
 ## Parameters

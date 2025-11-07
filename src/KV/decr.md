@@ -9,9 +9,9 @@ Decrements the value of a key. If the key does not exist, it is initialized with
 ## Syntax
 
 ```js
-puter.kv.decr(key);
-puter.kv.decr(key, amount);
-puter.kv.decr(key, pathAndAmount);
+puter.kv.decr(key)
+puter.kv.decr(key, amount)
+puter.kv.decr(key, pathAndAmount)
 ```
 
 ## Parameters

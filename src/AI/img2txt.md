@@ -9,7 +9,7 @@ Given an image will return the text contained in the image. Also known as OCR (O
 ## Syntax
 
 ```js
-puter.ai.img2txt(image, (testMode = false));
+puter.ai.img2txt(image, testMode = false)
 ```
 
 ## Parameters

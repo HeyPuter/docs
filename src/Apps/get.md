@@ -9,8 +9,8 @@ Returns an app with the given name. If the app does not exist, the promise will 
 ## Syntax
 
 ```js
-puter.apps.get(name);
-puter.apps.get(name, options);
+puter.apps.get(name)
+puter.apps.get(name, options)
 ```
 
 ## Parameters

@@ -9,10 +9,10 @@ Creates a Puter app with the given name. The app will be created in the user's a
 ## Syntax
 
 ```js
-puter.apps.create(name, indexURL);
-puter.apps.create(name, indexURL, title);
-puter.apps.create(name, indexURL, title, description);
-puter.apps.create(options);
+puter.apps.create(name, indexURL)
+puter.apps.create(name, indexURL, title)
+puter.apps.create(name, indexURL, title, description)
+puter.apps.create(options)
 ```
 
 ## Parameters

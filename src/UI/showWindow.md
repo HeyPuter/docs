@@ -9,7 +9,7 @@ The `showWindow` method allows you to show the window of your application.
 ## Syntax
 
 ```javascript
-puter.ui.showWindow();
+puter.ui.showWindow()
 ```
 
 ## Parameters
