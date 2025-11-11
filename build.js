@@ -627,6 +627,18 @@ function generateSitemap() {
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml);
 }
 
+function getDescriptionFromMarkdown(sourcePath) {
+    try {
+        const currentDir = process.cwd();
+        const fullPath = path.join(currentDir, 'src', sourcePath);
+        const fileContent = fs.readFileSync(fullPath, 'utf-8');
+        const { frontMatter } = parseFrontMatter(fileContent);
+        return frontMatter.description || '';
+    } catch (error) {
+        return '';
+    }
+}
+
 function generateLLMs() {
     let content = '# Puter.js Documentation\n\n';
     content += 'Build serverless applications with cloud storage, databases, and AI using Puter.js.\n\n';
@@ -637,14 +649,24 @@ function generateLLMs() {
         content += `## ${sectionTitle}\n\n`;
 
         if (section.path) {
-            content += `- [${sectionTitle}](${site}${section.path}/index.md)\n`;
+            const description = section.source ? getDescriptionFromMarkdown(section.source) : '';
+            content += `- [${sectionTitle}](${site}${section.path}/index.md)`;
+            if (description) {
+                content += `: ${description}`;
+            }
+            content += '\n';
         }
 
         if (section.children && Array.isArray(section.children)) {
             section.children.forEach((child) => {
                 if (child.path) {
                     const childTitle = child.title_tag ?? child.title;
-                    content += `- [${childTitle}](${site}${child.path}/index.md)\n`;
+                    const description = child.source ? getDescriptionFromMarkdown(child.source) : '';
+                    content += `- [${childTitle}](${site}${child.path}/index.md)`;
+                    if (description) {
+                        content += `: ${description}`;
+                    }
+                    content += '\n';
                 }
             });
         }
