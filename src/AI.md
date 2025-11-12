@@ -63,7 +63,7 @@ You can use AI models from various providers to perform tasks such as chat, text
 <body>
     <script src="https://js.puter.com/v2/"></script>
     <script>
-        puter.ai.img2txt('https://cdn.handwrytten.com/www/2020/02/home-hero-photo2%402x.png').then(puter.print);
+        puter.ai.img2txt('https://assets.puter.site/letter.png').then(puter.print);
     </script>
 </body>
 </html>

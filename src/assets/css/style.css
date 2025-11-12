@@ -200,6 +200,42 @@ ul code {
 	/* So our .anchor can be positioned absolutely */
 }
 
+.docs-content table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 24px 0;
+	font-size: 14px;
+}
+
+.docs-content table thead, .docs-content table tr:first-child {
+	background: #f5f6fb;
+}
+
+.docs-content table th,
+.docs-content table td {
+	padding: 10px 14px;
+	border: 1px solid #e2e4ef;
+	text-align: left;
+}
+
+.docs-content table tbody tr:nth-child(even) {
+	background: #fbfbfe;
+}
+
+.dark-mode .docs-content table thead,
+.dark-mode .docs-content table tr:first-child {
+	background: rgba(255,255,255,0.05);
+}
+
+.dark-mode .docs-content table tbody tr:nth-child(even) {
+	background: rgba(255,255,255,0.03);
+}
+
+.dark-mode .docs-content table th,
+.dark-mode .docs-content table td {
+	border-color: rgba(255,255,255,0.08);
+}
+
 .anchored-heading:target {
 	background-color: #ffffbe;
 }
@@ -1559,4 +1595,3 @@ footer .copyright-notice{
 .platform-name {
 	font-weight: 500;
 }
-
