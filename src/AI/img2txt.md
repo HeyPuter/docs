@@ -36,7 +36,6 @@ An options object with the following properties:
 - `imageMinSize` (Number) (Optional) - Set minimum size for images to be analyzed (Mistral).
 - `bboxAnnotationFormat` (String) (Optional) - Mistral: format for bounding-box annotations (e.g., `yolo`, `xyxy`).
 - `documentAnnotationFormat` (String) (Optional) - Mistral: request document-level annotations/markdown variants.
-- `testMode` (Boolean) (Optional) - Same as positional argument; also works inside the options object.
 
 ## Return value
 
