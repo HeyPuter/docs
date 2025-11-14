@@ -1,6 +1,60 @@
 const fs = require('fs');
 const path = require('path');
 
+// Function to generate sidebar HTML
+const generateSidebarHtml = (examples) => {
+    const categories = {
+        'Introduction': [],
+        'AI': [],
+        'FileSystem': [],
+        'Key-Value Store': [],
+        'Networking': [],
+        'Hosting': [],
+        'Authentication': [],
+        'Apps': [],
+        'Workers': []
+    };
+
+    // Group examples by category based on slug prefix
+    examples.forEach(example => {
+        if (example.slug.startsWith('intro-')) {
+            categories['Introduction'].push(example);
+        } else if (example.slug.startsWith('ai-')) {
+            categories['AI'].push(example);
+        } else if (example.slug.startsWith('fs-')) {
+            categories['FileSystem'].push(example);
+        } else if (example.slug.startsWith('kv-')) {
+            categories['Key-Value Store'].push(example);
+        } else if (example.slug.startsWith('net-')) {
+            categories['Networking'].push(example);
+        } else if (example.slug.startsWith('hosting-')) {
+            categories['Hosting'].push(example);
+        } else if (example.slug.startsWith('auth-')) {
+            categories['Authentication'].push(example);
+        } else if (example.slug.startsWith('app-')) {
+            categories['Apps'].push(example);
+        } else if (example.slug.startsWith('workers-')) {
+            categories['Workers'].push(example);
+        }
+    });
+
+    let sidebarHtml = '<div class="sidebar-content">';
+
+    Object.keys(categories).forEach(categoryName => {
+        if (categories[categoryName].length > 0) {
+            sidebarHtml += `<div class="sidebar-category">`;
+            sidebarHtml += `<div class="sidebar-category-title">${categoryName}</div>`;
+            categories[categoryName].forEach(example => {
+                sidebarHtml += `<a href="/playground/${example.slug}" class="sidebar-item">${example.title}</a>`;
+            });
+            sidebarHtml += `</div>`;
+        }
+    });
+
+    sidebarHtml += '</div>';
+    return sidebarHtml;
+};
+
 const playgroundHtml = `
 <html>
 
@@ -204,6 +258,87 @@ const playgroundHtml = `
         .resizer.dragging {
             background: #ccc;
         }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            left: -300px;
+            top: 50px;
+            width: 300px;
+            height: calc(100vh - 50px);
+            background: #f8f9fa;
+            border-right: 1px solid #e1e1e1;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            z-index: 1001;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-toggle:hover {
+            background: #f0f0f0;
+        }
+
+        .sidebar-content {
+            padding: 20px;
+        }
+
+        .sidebar-category {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-category-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-item {
+            display: block;
+            padding: 8px 12px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .sidebar-item:hover {
+            background: #e9ecef;
+            color: #2563eb;
+        }
+
+        .sidebar-item.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 250px;
+                left: -250px;
+            }
+        }
     </style>
 </head>
 
@@ -214,6 +349,14 @@ const playgroundHtml = `
         integrity="sha512-ZG31AN9z/CQD1YDDAK4RUAvogwbJHv6bHrumrnMLzdCrVu4HeAqrUX7Jsal/cbUwXGfaMUNmQU04tQ8XXl5Znw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://js.puter.com/v2/"></script>
+
+    <!-- Sidebar toggle button -->
+    <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        {{SIDEBAR}}
+    </div>
 
     <div style="height: 50px; padding: 10px; background-color: #474e5d; display: flex; flex-direction: row;">
         <h1 class="logo"><a href="/playground/">Puter.js Playground</a></h1>
@@ -389,6 +532,30 @@ const playgroundHtml = `
                 if (iframe) {
                     iframe.style.pointerEvents = 'auto';
                 }
+            }
+        });
+
+        // Sidebar toggle functionality
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target) && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Highlight active example in sidebar
+        const currentPath = window.location.pathname;
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        sidebarItems.forEach(item => {
+            if (item.getAttribute('href') === currentPath) {
+                item.classList.add('active');
             }
         });
     </script>
@@ -809,15 +976,19 @@ const examples = [
 ]
 
 const generatePlayground = () => {
+    // Generate sidebar HTML once for all examples
+    const sidebarHtml = generateSidebarHtml(examples);
+
     examples.forEach(example => {
         // Read source file from src/ directory
         const sourcePath = path.join('src', example.source);
         const sourceContent = fs.readFileSync(sourcePath, 'utf8');
 
         // Copy playgroundHtml to avoid tainting the original
-        const htmlTemplate = playgroundHtml.slice();
+        let htmlTemplate = playgroundHtml.slice();
 
-        // Replace {{CODE}} in the copied template with the source content
+        // Replace {{SIDEBAR}} and {{CODE}} in the template
+        htmlTemplate = htmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
         const finalHtml = htmlTemplate.replace('{{CODE}}', sourceContent);
 
         // Create output directory
