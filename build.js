@@ -8,6 +8,7 @@ const { encode } =  require('html-entities');
 const { JSDOM } = require('jsdom');
 const yaml = require('js-yaml');
 const esbuild = require('esbuild');
+const { generatePlayground } = require('./src/playground')
 
 const site = "https://docs.puter.com";
 
@@ -689,6 +690,7 @@ generateDocumentation('./src');
 generateRedirects();
 generateSitemap();
 generateLLMs();
+generatePlayground();
 
 if (anyErrors) {
     process.exit(1);
