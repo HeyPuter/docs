@@ -125,7 +125,6 @@ const playgroundHtml = `
             width: 250px;
             background: #f8f9fa;
             border-right: 1px solid #e1e1e1;
-            transition: width 0.3s ease, margin-left 0.3s ease;
             overflow: hidden;
             flex-shrink: 0;
             display: flex;
@@ -133,9 +132,13 @@ const playgroundHtml = `
         }
 
         #sidebar-container.collapsed {
-            width: 0;
+            width: 50px;
             margin-left: 0;
-            border-right: none;
+        }
+
+        #sidebar-container.collapsed .sidebar-title,
+        #sidebar-container.collapsed .sidebar {
+            display: none;
         }
 
         #code-container {
@@ -225,8 +228,8 @@ const playgroundHtml = `
             }
 
             #sidebar-container.collapsed {
-                height: 0;
-                max-height: 0;
+                height: 50px;
+                max-height: 50px;
             }
 
             #code-container {
@@ -554,12 +557,10 @@ const playgroundHtml = `
             const isCollapsed = sidebarContainer.classList.toggle('collapsed');
             // Update button text based on state
             sidebarToggle.textContent = isCollapsed ? '☰' : '☰';
-            // Re-layout editor after sidebar animation
-            setTimeout(() => {
-                if (editor) {
-                    editor.layout();
-                }
-            }, 300);
+            // Re-layout editor
+            if (editor) {
+                editor.layout();
+            }
         });
 
         // Highlight active example in sidebar
