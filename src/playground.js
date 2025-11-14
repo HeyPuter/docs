@@ -1,54 +1,18 @@
 const fs = require('fs');
 const path = require('path');
+const examples = require('./examples')
 
 // Function to generate sidebar HTML
-const generateSidebarHtml = (examples) => {
-    const categories = {
-        'Introduction': [],
-        'AI': [],
-        'FileSystem': [],
-        'Key-Value Store': [],
-        'Networking': [],
-        'Hosting': [],
-        'Authentication': [],
-        'Apps': [],
-        'Workers': []
-    };
-
-    // Group examples by category based on slug prefix
-    examples.forEach(example => {
-        if (example.slug.startsWith('intro-')) {
-            categories['Introduction'].push(example);
-        } else if (example.slug.startsWith('ai-')) {
-            categories['AI'].push(example);
-        } else if (example.slug.startsWith('fs-')) {
-            categories['FileSystem'].push(example);
-        } else if (example.slug.startsWith('kv-')) {
-            categories['Key-Value Store'].push(example);
-        } else if (example.slug.startsWith('net-')) {
-            categories['Networking'].push(example);
-        } else if (example.slug.startsWith('hosting-')) {
-            categories['Hosting'].push(example);
-        } else if (example.slug.startsWith('auth-')) {
-            categories['Authentication'].push(example);
-        } else if (example.slug.startsWith('app-')) {
-            categories['Apps'].push(example);
-        } else if (example.slug.startsWith('workers-')) {
-            categories['Workers'].push(example);
-        }
-    });
-
+const generateSidebarHtml = (sections) => {
     let sidebarHtml = '<div class="sidebar-content">';
 
-    Object.keys(categories).forEach(categoryName => {
-        if (categories[categoryName].length > 0) {
-            sidebarHtml += `<div class="sidebar-category">`;
-            sidebarHtml += `<div class="sidebar-category-title">${categoryName}</div>`;
-            categories[categoryName].forEach(example => {
-                sidebarHtml += `<a href="/playground/${example.slug}" class="sidebar-item">${example.title}</a>`;
-            });
-            sidebarHtml += `</div>`;
-        }
+    sections.forEach(section => {
+        sidebarHtml += `<div class="sidebar-category">`;
+        sidebarHtml += `<div class="sidebar-category-title">${section.title}</div>`;
+        section.children.forEach(example => {
+            sidebarHtml += `<a href="/playground/${example.slug}" class="sidebar-item">${example.title}</a>`;
+        });
+        sidebarHtml += `</div>`;
     });
 
     sidebarHtml += '</div>';
@@ -107,6 +71,10 @@ const playgroundHtml = `
             border: none;
         }
 
+        #code, #output {
+            overflow: hidden;
+        }
+
         #run {
             float: right;
             margin: 10px;
@@ -147,19 +115,45 @@ const playgroundHtml = `
             float: right;
         }
 
+        .main-container {
+            display: flex;
+            height: calc(100vh - 50px);
+            width: 100%;
+        }
+
+        #sidebar-container {
+            width: 250px;
+            background: #f8f9fa;
+            border-right: 1px solid #e1e1e1;
+            transition: width 0.3s ease, margin-left 0.3s ease;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sidebar-container.collapsed {
+            width: 0;
+            margin-left: 0;
+            border-right: none;
+        }
+
         #code-container {
-            width: 50%;
+            flex: 1;
             height: 100%;
-            float: left;
             position: relative;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         #output-container {
-            width: calc(50% - 6px);
-            /* Subtract resizer width */
+            flex: 1;
             height: 100%;
-            float: right;
             position: relative;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         #run span {
@@ -215,19 +209,36 @@ const playgroundHtml = `
                 width: 200px;
                 margin-right: 0;
             }
-
         }
 
         @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            #sidebar-container {
+                width: 100%;
+                height: auto;
+                max-height: 200px;
+                border-right: none;
+                border-bottom: 1px solid #e1e1e1;
+            }
+
+            #sidebar-container.collapsed {
+                height: 0;
+                max-height: 0;
+            }
+
             #code-container {
-                width: 100vw;
-                height: calc(50vh - 100px);
+                width: 100%;
+                height: 50%;
+                flex: none;
             }
 
             #output-container {
-                width: 100vw;
-                height: calc(50vh - 50px);
-                margin-top: 50px;
+                width: 100%;
+                height: 50%;
+                flex: none;
             }
 
             #select-example {
@@ -236,22 +247,17 @@ const playgroundHtml = `
 
             .resizer {
                 display: none;
-                /* Hide resizer on mobile */
             }
         }
 
         .resizer {
             width: 6px;
-            height: 100%;
             background: #e1e1e1;
-            position: absolute;
-            right: 0;
-            top: 0;
             cursor: col-resize;
             z-index: 100;
             transition: background 0.2s ease;
-            height: calc(100vh - 50px);
             user-select: none;
+            flex-shrink: 0;
         }
 
         .resizer:hover,
@@ -261,42 +267,45 @@ const playgroundHtml = `
 
         /* Sidebar styles */
         .sidebar {
-            position: fixed;
-            left: -300px;
-            top: 50px;
-            width: 300px;
-            height: calc(100vh - 50px);
-            background: #f8f9fa;
-            border-right: 1px solid #e1e1e1;
+            flex: 1;
             overflow-y: auto;
-            transition: left 0.3s ease;
-            z-index: 1000;
         }
 
-        .sidebar.open {
-            left: 0;
+        .sidebar-header {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: 1px solid #e1e1e1;
+            background: #fff;
         }
 
         .sidebar-toggle {
-            position: fixed;
-            left: 10px;
-            top: 10px;
-            background: white;
+            background: transparent;
             border: none;
-            padding: 8px 12px;
+            padding: 8px;
             cursor: pointer;
+            font-size: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 4px;
-            z-index: 1001;
-            font-size: 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .sidebar-toggle:hover {
-            background: #f0f0f0;
+            background: #e9ecef;
+        }
+
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            margin-left: 10px;
         }
 
         .sidebar-content {
-            padding: 20px;
+            padding: 15px;
         }
 
         .sidebar-category {
@@ -332,13 +341,6 @@ const playgroundHtml = `
             background: #2563eb;
             color: white;
         }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 250px;
-                left: -250px;
-            }
-        }
     </style>
 </head>
 
@@ -349,14 +351,6 @@ const playgroundHtml = `
         integrity="sha512-ZG31AN9z/CQD1YDDAK4RUAvogwbJHv6bHrumrnMLzdCrVu4HeAqrUX7Jsal/cbUwXGfaMUNmQU04tQ8XXl5Znw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://js.puter.com/v2/"></script>
-
-    <!-- Sidebar toggle button -->
-    <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
-
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        {{SIDEBAR}}
-    </div>
 
     <div style="height: 50px; padding: 10px; background-color: #474e5d; display: flex; flex-direction: row;">
         <h1 class="logo"><a href="/playground/">Puter.js Playground</a></h1>
@@ -372,23 +366,38 @@ const playgroundHtml = `
                 </svg><span class="github-stars"></span></a></h1>
         </div>
     </div>
-    <div style="height: calc(100vh - 100px);">
-        <div id="code-container">
-            <div style="overflow: hidden; height: 50px; display: flex; flex-direction: row; align-items: center;">
-                <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow:1;">Code:
-                </h1>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div id="sidebar-container">
+            <div class="sidebar-header">
+                <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+                <span class="sidebar-title">Examples</span>
             </div>
-            <div id="code" style="height:100%; width: 100%; border-top: 1px solid #CCC;"></div>
-            <iframe id="initial-code" style="display:none;">{{CODE}}</iframe>
-            <div class="resizer"></div>
+            <div class="sidebar">
+                {{SIDEBAR}}
+            </div>
         </div>
+
+        <!-- Code Container -->
+        <div id="code-container">
+            <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
+                <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow:1;">Code:</h1>
+            </div>
+            <div id="code" style="flex: 1; width: 100%;"></div>
+            <iframe id="initial-code" style="display:none;">{{CODE}}</iframe>
+        </div>
+
+        <!-- Resizer -->
+        <div class="resizer"></div>
+
+        <!-- Output Container -->
         <div id="output-container">
-            <div style="overflow: hidden; height: 50px; display: flex; flex-direction: row; align-items: center;">
-                <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow: 1;">
-                    Preview:</h1>
+            <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
+                <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow: 1;">Preview:</h1>
                 <button id="run"><span></span>Run</button>
             </div>
-            <div id="output" style="height: 100%; width: 100%; border: 1px solid #CCC;"></div>
+            <div id="output" style="flex: 1; width: 100%;"></div>
         </div>
     </div>
     <script>
@@ -507,17 +516,19 @@ const playgroundHtml = `
         document.addEventListener('mousemove', (e) => {
             if (!isResizing) return;
 
-            const parentWidth = codeContainer.parentElement.offsetWidth;
+            const mainContainer = codeContainer.parentElement;
+            const sidebarContainer = document.getElementById('sidebar-container');
+            const sidebarWidth = sidebarContainer.offsetWidth;
+            const availableWidth = mainContainer.offsetWidth - sidebarWidth - 6; // minus resizer width
             const diffX = e.pageX - startX;
-            const resizerWidth = 6;
 
-            const newCodeWidth = ((startWidthCode + diffX) / parentWidth * 100);
-            const newOutputWidth = ((startWidthOutput - diffX) / parentWidth * 100);
+            const newCodeWidth = startWidthCode + diffX;
+            const newOutputWidth = startWidthOutput - diffX;
 
-            // Set minimum width to 20%
-            if (newCodeWidth >= 20 && newOutputWidth >= 20) {
-                codeContainer.style.width = \`\${ newCodeWidth }% \`;
-                outputContainer.style.width = \`\${ newOutputWidth }% \`;
+            // Set minimum width to 200px
+            if (newCodeWidth >= 200 && newOutputWidth >= 200) {
+                codeContainer.style.flex = \`0 0 \${newCodeWidth}px\`;
+                outputContainer.style.flex = \`0 0 \${newOutputWidth}px\`;
                 editor.layout(); // Resize Monaco editor
             }
         });
@@ -537,17 +548,18 @@ const playgroundHtml = `
 
         // Sidebar toggle functionality
         const sidebarToggle = document.getElementById('sidebar-toggle');
-        const sidebar = document.getElementById('sidebar');
+        const sidebarContainer = document.getElementById('sidebar-container');
 
         sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-        });
-
-        // Close sidebar when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target) && sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-            }
+            const isCollapsed = sidebarContainer.classList.toggle('collapsed');
+            // Update button text based on state
+            sidebarToggle.textContent = isCollapsed ? '☰' : '☰';
+            // Re-layout editor after sidebar animation
+            setTimeout(() => {
+                if (editor) {
+                    editor.layout();
+                }
+            }, 300);
         });
 
         // Highlight active example in sidebar
@@ -563,444 +575,37 @@ const playgroundHtml = `
 
 </html>`
 
-const examples = [
-    // Introduction
-    {
-        title: 'Chat with GPT-5 nano',
-        slug: 'intro-chatgpt',
-        source: '/playground/examples/intro-chatgpt.html'
-    },
-    {
-        title: 'Image Analysis',
-        slug: 'intro-gpt-vision',
-        source: '/playground/examples/intro-gpt-vision.html'
-    },
-    {
-        title: 'Cloud Storage',
-        slug: 'intro-fs-write',
-        source: '/playground/examples/intro-fs-write.html'
-    },
-    {
-        title: 'Key-Value Store',
-        slug: 'intro-kv-set',
-        source: '/playground/examples/intro-kv-set.html'
-    },
-    {
-        title: 'Publish a Website',
-        slug: 'intro-hosting',
-        source: '/playground/examples/intro-hosting.html'
-    },
-    {
-        title: 'Authentication',
-        slug: 'intro-auth',
-        source: '/playground/examples/intro-auth.html'
-    },
-    // AI
-    {
-        title: 'Chat with GPT-5 nano',
-        slug: 'ai-chatgpt',
-        source: '/playground/examples/ai-chatgpt.html'
-    },
-    {
-        title: 'Image Analysis',
-        slug: 'ai-gpt-vision',
-        source: '/playground/examples/ai-gpt-vision.html'
-    },
-    {
-        title: 'Stream the response',
-        slug: 'ai-chat-stream',
-        source: '/playground/examples/ai-chat-stream.html'
-    },
-    {
-        title: 'Function Calling',
-        slug: 'ai-function-calling',
-        source: '/playground/examples/ai-function-calling.html'
-    },
-    {
-        title: 'AI Resume Analyzer (File handling)',
-        slug: 'ai-resume-analyzer',
-        source: '/playground/examples/ai-resume-analyzer.html'
-    },
-    {
-        title: 'Chat with OpenAI o3-mini',
-        slug: 'ai-chat-openai-o3-mini',
-        source: '/playground/examples/ai-chat-openai-o3-mini.html'
-    },
-    {
-        title: 'Chat with Claude Sonnet',
-        slug: 'ai-chat-claude',
-        source: '/playground/examples/ai-chat-claude.html'
-    },
-    {
-        title: 'Chat with DeepSeek',
-        slug: 'ai-chat-deepseek',
-        source: '/playground/examples/ai-chat-deepseek.html'
-    },
-    {
-        title: 'Chat with Gemini',
-        slug: 'ai-chat-gemini',
-        source: '/playground/examples/ai-chat-gemini.html'
-    },
-    {
-        title: 'Chat with xAI (Grok)',
-        slug: 'ai-xai',
-        source: '/playground/examples/ai-xai.html'
-    },
-    {
-        title: 'Extract Text from Image',
-        slug: 'ai-img2txt',
-        source: '/playground/examples/ai-img2txt.html'
-    },
-    {
-        title: 'Text to Image',
-        slug: 'ai-txt2img',
-        source: '/playground/examples/ai-txt2img.html'
-    },
-    {
-        title: 'Text to Image with options',
-        slug: 'ai-txt2img-options',
-        source: '/playground/examples/ai-txt2img-options.html'
-    },
-    {
-        title: 'Text to Image with image-to-image generation',
-        slug: 'ai-txt2img-image-to-image',
-        source: '/playground/examples/ai-txt2img-image-to-image.html'
-    },
-    {
-        title: 'Text to Speech',
-        slug: 'ai-txt2speech',
-        source: '/playground/examples/ai-txt2speech.html'
-    },
-    {
-        title: 'Text to Speech with options',
-        slug: 'ai-txt2speech-options',
-        source: '/playground/examples/ai-txt2speech-options.html'
-    },
-    {
-        title: 'Text to Speech with engines',
-        slug: 'ai-txt2speech-engines',
-        source: '/playground/examples/ai-txt2speech-engines.html'
-    },
-    {
-        title: 'Text to Speech with OpenAI',
-        slug: 'ai-txt2speech-openai',
-        source: '/playground/examples/ai-txt2speech-openai.html'
-    },
-    {
-        title: 'Text to Video',
-        slug: 'ai-txt2vid',
-        source: '/playground/examples/ai-txt2vid.html'
-    },
-    {
-        title: 'Text to Video with options',
-        slug: 'ai-txt2vid-options',
-        source: '/playground/examples/ai-txt2vid-options.html'
-    },
-    // FileSystem
-    {
-        title: 'Write File',
-        slug: 'fs-write',
-        source: '/playground/examples/fs-write.html'
-    },
-    {
-        title: 'Read File',
-        slug: 'fs-read',
-        source: '/playground/examples/fs-read.html'
-    },
-    {
-        title: 'Make a Directory',
-        slug: 'fs-mkdir',
-        source: '/playground/examples/fs-mkdir.html'
-    },
-    {
-        title: 'Delete',
-        slug: 'fs-delete',
-        source: '/playground/examples/fs-delete.html'
-    },
-    {
-        title: 'Read Directory',
-        slug: 'fs-readdir',
-        source: '/playground/examples/fs-readdir.html'
-    },
-    {
-        title: 'Rename',
-        slug: 'fs-rename',
-        source: '/playground/examples/fs-rename.html'
-    },
-    {
-        title: 'Get File/Directory Info',
-        slug: 'fs-stat',
-        source: '/playground/examples/fs-stat.html'
-    },
-    {
-        title: 'Copy File/Directory',
-        slug: 'fs-copy',
-        source: '/playground/examples/fs-copy.html'
-    },
-    {
-        title: 'Move File/Directory',
-        slug: 'fs-move',
-        source: '/playground/examples/fs-move.html'
-    },
-    {
-        title: 'Upload',
-        slug: 'fs-upload',
-        source: '/playground/examples/fs-upload.html'
-    },
-    {
-        title: 'Write a file with deduplication',
-        slug: 'fs-write-dedupe',
-        source: '/playground/examples/fs-write-dedupe.html'
-    },
-    {
-        title: 'Create a new file with input coming from a file input',
-        slug: 'fs-write-from-input',
-        source: '/playground/examples/fs-write-from-input.html'
-    },
-    {
-        title: 'Create a file in a directory that does not exist',
-        slug: 'fs-write-create-missing-parents',
-        source: '/playground/examples/fs-write-create-missing-parents.html'
-    },
-    {
-        title: 'Create a directory with deduplication',
-        slug: 'fs-mkdir-dedupe',
-        source: '/playground/examples/fs-mkdir-dedupe.html'
-    },
-    {
-        title: 'Create a directory with missing parent directories',
-        slug: 'fs-mkdir-create-missing-parents',
-        source: '/playground/examples/fs-mkdir-create-missing-parents.html'
-    },
-    {
-        title: 'Move a file with missing parent directories',
-        slug: 'fs-move-create-missing-parents',
-        source: '/playground/examples/fs-move-create-missing-parents.html'
-    },
-    {
-        title: 'Delete a directory',
-        slug: 'fs-delete-directory',
-        source: '/playground/examples/fs-delete-directory.html'
-    },
-    // Key-Value Store
-    {
-        title: 'Set',
-        slug: 'kv-set',
-        source: '/playground/examples/kv-set.html'
-    },
-    {
-        title: 'Get',
-        slug: 'kv-get',
-        source: '/playground/examples/kv-get.html'
-    },
-    {
-        title: 'Increment',
-        slug: 'kv-incr',
-        source: '/playground/examples/kv-incr.html'
-    },
-    {
-        title: 'Increment (Object value)',
-        slug: 'kv-incr-nested',
-        source: '/playground/examples/kv-incr-nested.html'
-    },
-    {
-        title: 'Decrement',
-        slug: 'kv-decr',
-        source: '/playground/examples/kv-decr.html'
-    },
-    {
-        title: 'Decrement (Object value)',
-        slug: 'kv-decr-nested',
-        source: '/playground/examples/kv-decr-nested.html'
-    },
-    {
-        title: 'Delete',
-        slug: 'kv-del',
-        source: '/playground/examples/kv-del.html'
-    },
-    {
-        title: 'List',
-        slug: 'kv-list',
-        source: '/playground/examples/kv-list.html'
-    },
-    {
-        title: 'Flush',
-        slug: 'kv-flush',
-        source: '/playground/examples/kv-flush.html'
-    },
-    {
-        title: "What's your name?",
-        slug: 'kv-name',
-        source: '/playground/examples/kv-name.html'
-    },
-    // Networking
-    {
-        title: 'Basic TCP Socket',
-        slug: 'net-basic',
-        source: '/playground/examples/net-basic.html'
-    },
-    {
-        title: 'TLS Socket',
-        slug: 'net-tls',
-        source: '/playground/examples/net-tls.html'
-    },
-    {
-        title: 'Fetch',
-        slug: 'net-fetch',
-        source: '/playground/examples/net-fetch.html'
-    },
-    // Hosting
-    {
-        title: 'Create a simple website displaying "Hello world!"',
-        slug: 'hosting-create',
-        source: '/playground/examples/hosting-create.html'
-    },
-    {
-        title: 'Create 3 random websites and then list them',
-        slug: 'hosting-list',
-        source: '/playground/examples/hosting-list.html'
-    },
-    {
-        title: 'Create a random website then delete it',
-        slug: 'hosting-delete',
-        source: '/playground/examples/hosting-delete.html'
-    },
-    {
-        title: 'Update a subdomain to point to a new directory',
-        slug: 'hosting-update',
-        source: '/playground/examples/hosting-update.html'
-    },
-    {
-        title: 'Retrieve information about a subdomain',
-        slug: 'hosting-get',
-        source: '/playground/examples/hosting-get.html'
-    },
-    // Authentication
-    {
-        title: 'Sign in',
-        slug: 'auth-sign-in',
-        source: '/playground/examples/auth-sign-in.html'
-    },
-    {
-        title: 'Sign out',
-        slug: 'auth-sign-out',
-        source: '/playground/examples/auth-sign-out.html'
-    },
-    {
-        title: 'Check sign in',
-        slug: 'auth-is-signed-in',
-        source: '/playground/examples/auth-is-signed-in.html'
-    },
-    {
-        title: 'Get user',
-        slug: 'auth-get-user',
-        source: '/playground/examples/auth-get-user.html'
-    },
-    {
-        title: "Get user's monthly usage",
-        slug: 'auth-get-monthly-usage',
-        source: '/playground/examples/auth-get-monthly-usage.html'
-    },
-    // Apps
-    {
-        title: 'To-Do List',
-        slug: 'app-todo',
-        source: '/playground/examples/app-todo.html'
-    },
-    {
-        title: 'AI Chat',
-        slug: 'app-ai-chat',
-        source: '/playground/examples/app-ai-chat.html'
-    },
-    {
-        title: 'Camera Photo Describer',
-        slug: 'app-camera',
-        source: '/playground/examples/app-camera.html'
-    },
-    {
-        title: 'Text Summarizer',
-        slug: 'app-summarizer',
-        source: '/playground/examples/app-summarizer.html'
-    },
-    {
-        title: 'Create an app pointing to example.com',
-        slug: 'app-create',
-        source: '/playground/examples/app-create.html'
-    },
-    {
-        title: 'Create 3 random apps and then list them',
-        slug: 'app-list',
-        source: '/playground/examples/app-list.html'
-    },
-    {
-        title: 'Create a random app then delete it',
-        slug: 'app-delete',
-        source: '/playground/examples/app-delete.html'
-    },
-    {
-        title: 'Create a random app then change its title',
-        slug: 'app-update',
-        source: '/playground/examples/app-update.html'
-    },
-    {
-        title: 'Create a random app then get it',
-        slug: 'app-get',
-        source: '/playground/examples/app-get.html'
-    },
-    // Workers
-    {
-        title: 'Create a worker',
-        slug: 'workers-create',
-        source: '/playground/examples/workers-create.html'
-    },
-    {
-        title: 'List workers',
-        slug: 'workers-list',
-        source: '/playground/examples/workers-list.html'
-    },
-    {
-        title: 'Get a worker',
-        slug: 'workers-get',
-        source: '/playground/examples/workers-get.html'
-    },
-    {
-        title: 'Workers Management',
-        slug: 'workers-management',
-        source: '/playground/examples/workers-management.html'
-    },
-    {
-        title: 'Authenticated Worker Requests',
-        slug: 'workers-exec',
-        source: '/playground/examples/workers-exec.html'
-    }
-]
-
 const generatePlayground = () => {
     // Generate sidebar HTML once for all examples
     const sidebarHtml = generateSidebarHtml(examples);
 
-    examples.forEach(example => {
-        // Read source file from src/ directory
-        const sourcePath = path.join('src', example.source);
-        const sourceContent = fs.readFileSync(sourcePath, 'utf8');
+    let totalExamples = 0;
 
-        // Copy playgroundHtml to avoid tainting the original
-        let htmlTemplate = playgroundHtml.slice();
+    examples.forEach(section => {
+        section.children.forEach(example => {
+            // Read source file from src/ directory
+            const sourcePath = path.join('src', example.source);
+            const sourceContent = fs.readFileSync(sourcePath, 'utf8');
 
-        // Replace {{SIDEBAR}} and {{CODE}} in the template
-        htmlTemplate = htmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
-        const finalHtml = htmlTemplate.replace('{{CODE}}', sourceContent);
+            // Copy playgroundHtml to avoid tainting the original
+            let htmlTemplate = playgroundHtml.slice();
 
-        // Create output directory
-        const outputDir = path.join('dist', 'playground', example.slug);
-        fs.mkdirSync(outputDir, { recursive: true });
+            // Replace {{SIDEBAR}} and {{CODE}} in the template
+            htmlTemplate = htmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
+            const finalHtml = htmlTemplate.replace('{{CODE}}', sourceContent);
 
-        // Write the file
-        const outputPath = path.join(outputDir, 'index.html');
-        fs.writeFileSync(outputPath, finalHtml, 'utf8');
+            // Create output directory
+            const outputDir = path.join('dist', 'playground', example.slug);
+            fs.mkdirSync(outputDir, { recursive: true });
 
+            // Write the file
+            const outputPath = path.join(outputDir, 'index.html');
+            fs.writeFileSync(outputPath, finalHtml, 'utf8');
+
+            totalExamples++;
+        });
     });
-    console.log(`Generated ${examples.length} playground examples.`);
+    console.log(`Generated ${totalExamples} playground examples.`);
 }
 
 module.exports = { generatePlayground };
