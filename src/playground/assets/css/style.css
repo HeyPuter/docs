@@ -91,7 +91,7 @@ body {
 }
 
 #code-container {
-  flex: 1;
+  width: 50%;
   height: 100%;
   position: relative;
   min-width: 0;
@@ -100,7 +100,7 @@ body {
 }
 
 #output-container {
-  flex: 1;
+  width: 50%;
   height: 100%;
   position: relative;
   min-width: 0;

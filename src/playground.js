@@ -86,27 +86,29 @@ const playgroundHtml = `
             </div>
         </div>
 
-        <!-- Code Container -->
-        <div id="code-container">
-            <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
-                <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow:1;">Code:</h1>
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <!-- Code Container -->
+            <div id="code-container">
+                <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
+                    <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow:1;">Code:</h1>
+                </div>
+                <div id="code" style="width: 100%; height: 100%;"></div>
             </div>
-            <div id="code" style="flex: 1; width: 100%;"></div>
-            <iframe id="initial-code" style="display:none;">{{CODE}}</iframe>
-        </div>
+                
+            <!-- Resizer -->
+            <div class="resizer"></div>
 
-        <!-- Resizer -->
-        <div class="resizer"></div>
-
-        <!-- Output Container -->
-        <div id="output-container">
-            <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
-                <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow: 1;">Preview:</h1>
-                <button id="run"><span></span>Run</button>
+            <!-- Output Container -->
+            <div id="output-container">
+                <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
+                    <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow: 1;">Preview:</h1>
+                    <button id="run"><span></span>Run</button>
+                </div>
+                <div id="output" style="width: 100%; height: 100%;"></div>
             </div>
-            <div id="output" style="flex: 1; width: 100%;"></div>
         </div>
     </div>
+    <iframe id="initial-code" style="display:none;">{{CODE}}</iframe>
     <script src="/playground/assets/js/app.js"></script>
 </body>
 

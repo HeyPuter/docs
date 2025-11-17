@@ -113,19 +113,16 @@ resizer.addEventListener('mousedown', (e) => {
 document.addEventListener('mousemove', (e) => {
     if (!isResizing) return;
 
-    const mainContainer = codeContainer.parentElement;
-    const sidebarContainer = document.getElementById('sidebar-container');
-    const sidebarWidth = sidebarContainer.offsetWidth;
-    const availableWidth = mainContainer.offsetWidth - sidebarWidth - 6; // minus resizer width
+    const parentWidth = codeContainer.parentElement.offsetWidth;
     const diffX = e.pageX - startX;
 
-    const newCodeWidth = startWidthCode + diffX;
-    const newOutputWidth = startWidthOutput - diffX;
+    const newCodeWidth = ((startWidthCode + diffX) / parentWidth * 100);
+    const newOutputWidth = ((startWidthOutput - diffX) / parentWidth * 100);
 
-    // Set minimum width to 200px
-    if (newCodeWidth >= 200 && newOutputWidth >= 200) {
-        codeContainer.style.flex = `0 0 \${newCodeWidth}px`;
-        outputContainer.style.flex = `0 0 \${newOutputWidth}px`;
+    // Set minimum width to 20%
+    if (newCodeWidth >= 20 && newOutputWidth >= 20) {
+        codeContainer.style.width = `${newCodeWidth}%`;
+        outputContainer.style.width = `${newOutputWidth}%`;
         editor.layout(); // Resize Monaco editor
     }
 });
