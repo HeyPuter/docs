@@ -29,6 +29,19 @@ const playgroundHtml = `
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:black,bold,medium,regular,light,thin" rel="stylesheet">
     <title>{{TITLE}}</title>
+    <meta name="title" content="{{TITLE}}" />
+
+    <link rel="canonical" href="{{CANONICAL}}">
+
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:type" content="website" />
+    <meta name="og:image" content="https://assets.puter.site/twitter.png">
+    <meta name="og:url" content="{{CANONICAL}}">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@HeyPuter" />
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:image" content="https://assets.puter.site/twitter.png">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
@@ -92,7 +105,7 @@ const playgroundHtml = `
             <!-- Code Container -->
             <div id="code-container">
                 <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
-                    <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow:1;">Code:</h1>
+                    <span style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow:1;">Code</span>
                 </div>
                 <div id="code" style="width: 100%; height: 100%;"></div>
             </div>
@@ -103,7 +116,7 @@ const playgroundHtml = `
             <!-- Output Container -->
             <div id="output-container">
                 <div style="overflow: hidden; height: 50px; flex-shrink: 0; display: flex; flex-direction: row; align-items: center; background: #fff; border-bottom: 1px solid #CCC;">
-                    <h1 style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow: 1;">Preview:</h1>
+                    <span style="user-select: none; margin:0; float:left; font-size: 20px; padding: 10px; flex-grow: 1;">Preview</span>
                     <button id="run"><span></span>Run</button>
                 </div>
                 <div id="output" style="width: 100%; height: 100%;"></div>
@@ -131,10 +144,11 @@ const generatePlayground = () => {
             // Copy playgroundHtml to avoid tainting the original
             let htmlTemplate = playgroundHtml.slice();
 
-            // Replace {{SIDEBAR}} and {{CODE}} in the template
             htmlTemplate = htmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
             const pageTitle = example.slug === '' ? 'Puter.js Playground' : `${example.title} | Puter.js Playground`;
-            htmlTemplate = htmlTemplate.replace('{{TITLE}}', pageTitle);
+            htmlTemplate = htmlTemplate.replaceAll('{{TITLE}}', pageTitle);
+            const canonicalUrl = `https://docs.puter.com/playground/${example.slug ? example.slug + '/' : ''}`;
+            htmlTemplate = htmlTemplate.replaceAll('{{CANONICAL}}', canonicalUrl);
             const finalHtml = htmlTemplate.replace('{{CODE}}', sourceContent);
 
             // Create output directory
