@@ -6,14 +6,11 @@ const examples = require('./examples')
 const generateSidebarHtml = (sections) => {
     let sidebarHtml = '<div class="sidebar-content">';
 
-    // Add index page as first item without category
-    sidebarHtml += `<a href="/playground/" class="sidebar-item">Hello World</a>`;
-
     sections.forEach(section => {
         sidebarHtml += `<div class="sidebar-category">`;
         sidebarHtml += `<div class="sidebar-category-title">${section.title}</div>`;
         section.children.forEach(example => {
-            sidebarHtml += `<a href="/playground/${example.slug}/" class="sidebar-item">${example.title}</a>`;
+            sidebarHtml += `<a href="/playground/${example.slug ? example.slug + '/' : ''}" class="sidebar-item">${example.title}</a>`;
         });
         sidebarHtml += `</div>`;
     });

@@ -71,7 +71,7 @@ body {
 }
 
 #sidebar-container {
-  width: 250px;
+  width: 280px;
   background: #f8f9fa;
   border-right: 1px solid #e1e1e1;
   overflow: hidden;
@@ -221,6 +221,8 @@ body {
 .sidebar {
   flex: 1;
   overflow-y: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .sidebar-header {
@@ -257,39 +259,37 @@ body {
 }
 
 .sidebar-content {
-  padding: 15px;
+  padding-top: 20px;
 }
 
 .sidebar-category {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .sidebar-category-title {
-  font-weight: bold;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #012238;
+  margin-bottom: 20px;
+}
+
+.sidebar-category:first-child .sidebar-category-title {
+  padding-top: 0;
 }
 
 .sidebar-item {
   display: block;
-  padding: 8px 12px;
-  color: #555;
+  color: #5f5f5f;
   text-decoration: none;
-  border-radius: 4px;
-  margin-bottom: 4px;
-  font-size: 14px;
-  transition: background 0.2s ease;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  font-size: 15px;
 }
 
 .sidebar-item:hover {
-  background: #e9ecef;
-  color: #2563eb;
+  text-decoration: underline;
 }
 
 .sidebar-item.active {
-  background: #2563eb;
-  color: white;
+  text-decoration: underline;
 }
