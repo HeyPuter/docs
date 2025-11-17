@@ -81,8 +81,8 @@ body {
 }
 
 #sidebar-container.collapsed {
-  width: 50px;
   margin-left: 0;
+  width: auto;
 }
 
 #sidebar-container.collapsed .sidebar-title,
@@ -229,7 +229,7 @@ body {
   height: 50px;
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 10px;
   border-bottom: 1px solid #e1e1e1;
   background: #fff;
 }
@@ -237,7 +237,6 @@ body {
 .sidebar-toggle {
   background: transparent;
   border: none;
-  padding: 8px;
   cursor: pointer;
   font-size: 20px;
   color: #333;
