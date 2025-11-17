@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Load initial code from iframe
         editor.setValue(document.getElementById('initial-code').textContent);
+        // auto run?
+        var urlParams = new URLSearchParams(window.location.search);
+        var autoRun = urlParams.get('autorun');
+        if (autoRun) {
+            loadStringInIframe(editor.getValue());
+        }
     });
 
     function fetchGitHubData() {

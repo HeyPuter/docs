@@ -47,7 +47,7 @@ marked.use({
             html += '<div class="code-buttons">';
                 // "Run"
                 if (exampleID)
-                    html += `<a href="/playground/index.html?example=${exampleID}&autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
+                    html += `<a href="/playground/${exampleID}/?autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
 
                 // "Copy"
                 html += '<div class="code-button copy-code-button"><span class="copy"></span></div>';
