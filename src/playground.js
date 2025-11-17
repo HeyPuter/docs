@@ -10,7 +10,7 @@ const generateSidebarHtml = (sections) => {
         sidebarHtml += `<div class="sidebar-category">`;
         sidebarHtml += `<div class="sidebar-category-title">${section.title}</div>`;
         section.children.forEach(example => {
-            sidebarHtml += `<a href="/playground/${example.slug}" class="sidebar-item">${example.title}</a>`;
+            sidebarHtml += `<a href="/playground/${example.slug}/" class="sidebar-item">${example.title}</a>`;
         });
         sidebarHtml += `</div>`;
     });
