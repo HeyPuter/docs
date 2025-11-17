@@ -28,7 +28,7 @@ const playgroundHtml = `
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:black,bold,medium,regular,light,thin" rel="stylesheet">
-    <title>Puter.js Playground</title>
+    <title>{{TITLE}}</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
@@ -118,30 +118,6 @@ const generatePlayground = () => {
     // Generate sidebar HTML once for all examples
     const sidebarHtml = generateSidebarHtml(examples);
 
-    // Generate index page with empty code
-    let indexHtmlTemplate = playgroundHtml.slice();
-    indexHtmlTemplate = indexHtmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
-    const indexHtml = indexHtmlTemplate.replace('{{CODE}}', `<html>
-<body>
-    <script src="https://js.puter.com/v2/"></script>
-    <script>
-        // Loading ...
-        puter.print(\`Loading...\`);
-
-        // Chat with GPT-5 nano
-        puter.ai.chat(\`What is life?\`, {
-            model: 'gpt-5-nano',
-        }).then(puter.print);
-    </script>
-</body>
-</html>`);
-
-    const indexOutputDir = path.join('dist', 'playground');
-    fs.mkdirSync(indexOutputDir, { recursive: true });
-
-    const indexOutputPath = path.join(indexOutputDir, 'index.html');
-    fs.writeFileSync(indexOutputPath, indexHtml, 'utf8');
-
     let totalExamples = 0;
 
     examples.forEach(section => {
@@ -155,6 +131,8 @@ const generatePlayground = () => {
 
             // Replace {{SIDEBAR}} and {{CODE}} in the template
             htmlTemplate = htmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
+            const pageTitle = example.slug === '' ? 'Puter.js Playground' : `${example.title} | Puter.js Playground`;
+            htmlTemplate = htmlTemplate.replace('{{TITLE}}', pageTitle);
             const finalHtml = htmlTemplate.replace('{{CODE}}', sourceContent);
 
             // Create output directory
