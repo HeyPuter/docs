@@ -150,10 +150,13 @@ document.addEventListener('mouseup', () => {
 const sidebarToggle = document.getElementById('sidebar-toggle');
 const sidebarContainer = document.getElementById('sidebar-container');
 
+// Collapse sidebar by default on mobile
+if (window.innerWidth <= 768) {
+    sidebarContainer.classList.add('collapsed');
+}
+
 sidebarToggle.addEventListener('click', () => {
-    const isCollapsed = sidebarContainer.classList.toggle('collapsed');
-    // Update button text based on state
-    sidebarToggle.textContent = isCollapsed ? '☰' : '☰';
+    sidebarContainer.classList.toggle('collapsed');
     // Re-layout editor
     if (editor) {
         editor.layout();

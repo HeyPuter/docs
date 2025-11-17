@@ -78,7 +78,9 @@ const playgroundHtml = `
         <!-- Sidebar -->
         <div id="sidebar-container">
             <div class="sidebar-header">
-                <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+                <button class="sidebar-toggle" id="sidebar-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+                </button>
                 <span class="sidebar-title">Examples</span>
             </div>
             <div class="sidebar">

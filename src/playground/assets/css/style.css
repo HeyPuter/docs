@@ -73,7 +73,7 @@ body {
 #sidebar-container {
   width: 280px;
   background: #f8f9fa;
-  border-right: 1px solid #e1e1e1;
+  border-right: 1px solid #ccc;
   overflow: hidden;
   flex-shrink: 0;
   display: flex;
@@ -161,6 +161,15 @@ body {
     width: 200px;
     margin-right: 0;
   }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+    margin-right: 10px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -169,28 +178,52 @@ body {
   }
 
   #sidebar-container {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: auto;
-    max-height: 200px;
+    height: 50px;
     border-right: none;
-    border-bottom: 1px solid #e1e1e1;
+    z-index: 1000;
+    background: #f8f9fa;
   }
 
-  #sidebar-container.collapsed {
-    height: 50px;
-    max-height: 50px;
+  /* Always show the sidebar title on mobile */
+  #sidebar-container .sidebar-title {
+    display: block !important;
+  }
+
+  /* When sidebar is open on mobile, it overlays the content */
+  #sidebar-container:not(.collapsed) {
+    height: calc(100vh - 50px);
+  }
+
+  /* When sidebar is collapsed, only the header is shown */
+  #sidebar-container.collapsed .sidebar {
+    display: none;
+  }
+
+  /* Wrapper for code and output - stack vertically on mobile */
+  .main-container > div:last-child {
+    flex-direction: column !important;
+    flex: 1;
+    min-height: 0;
+    margin-top: 50px;
   }
 
   #code-container {
-    width: 100%;
+    width: 100% !important;
     height: 50%;
-    flex: none;
+    flex: 1;
+    min-height: 0;
   }
 
   #output-container {
-    width: 100%;
+    width: 100% !important;
     height: 50%;
-    flex: none;
+    flex: 1;
+    min-height: 0;
   }
 
   #select-example {
@@ -230,7 +263,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 10px;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #ccc;
   background: #fff;
 }
 
@@ -239,11 +272,11 @@ body {
   border: none;
   cursor: pointer;
   font-size: 20px;
+  padding: 5px;
   color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
 }
 
 .sidebar-toggle:hover {
@@ -251,9 +284,9 @@ body {
 }
 
 .sidebar-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  color: #666;
+  color: #555;
   margin-left: 10px;
 }
 
