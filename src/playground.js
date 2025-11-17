@@ -6,6 +6,9 @@ const examples = require('./examples')
 const generateSidebarHtml = (sections) => {
     let sidebarHtml = '<div class="sidebar-content">';
 
+    // Add index page as first item without category
+    sidebarHtml += `<a href="/playground/" class="sidebar-item">Hello World</a>`;
+
     sections.forEach(section => {
         sidebarHtml += `<div class="sidebar-category">`;
         sidebarHtml += `<div class="sidebar-category-title">${section.title}</div>`;
@@ -117,6 +120,30 @@ const playgroundHtml = `
 const generatePlayground = () => {
     // Generate sidebar HTML once for all examples
     const sidebarHtml = generateSidebarHtml(examples);
+
+    // Generate index page with empty code
+    let indexHtmlTemplate = playgroundHtml.slice();
+    indexHtmlTemplate = indexHtmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
+    const indexHtml = indexHtmlTemplate.replace('{{CODE}}', `<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        // Loading ...
+        puter.print(\`Loading...\`);
+
+        // Chat with GPT-5 nano
+        puter.ai.chat(\`What is life?\`, {
+            model: 'gpt-5-nano',
+        }).then(puter.print);
+    </script>
+</body>
+</html>`);
+
+    const indexOutputDir = path.join('dist', 'playground');
+    fs.mkdirSync(indexOutputDir, { recursive: true });
+
+    const indexOutputPath = path.join(indexOutputDir, 'index.html');
+    fs.writeFileSync(indexOutputPath, indexHtml, 'utf8');
 
     let totalExamples = 0;
 

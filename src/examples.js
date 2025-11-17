@@ -3,11 +3,6 @@ const examples = [
         title: 'Introduction',
         children: [
             {
-                title: 'Chat with GPT-5 nano',
-                slug: 'intro-chatgpt',
-                source: '/playground/examples/intro-chatgpt.html'
-            },
-            {
                 title: 'Image Analysis',
                 slug: 'intro-gpt-vision',
                 source: '/playground/examples/intro-gpt-vision.html'
