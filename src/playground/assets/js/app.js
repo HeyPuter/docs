@@ -164,10 +164,167 @@ sidebarToggle.addEventListener('click', () => {
 });
 
 // Highlight active example in sidebar
-const currentPath = window.location.pathname;
-const sidebarItems = document.querySelectorAll('.sidebar-item');
-sidebarItems.forEach(item => {
-    if (item.getAttribute('href') === currentPath) {
-        item.classList.add('active');
+function updateActiveSidebarItem() {
+    const currentPath = window.location.pathname;
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    sidebarItems.forEach(item => {
+        if (item.getAttribute('href') === currentPath) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
+updateActiveSidebarItem();
+
+// Client-side routing for sidebar links
+document.addEventListener('click', function (e) {
+    // Check if clicked element is a sidebar item
+    const sidebarItem = e.target.closest('.sidebar-item');
+    if (!sidebarItem) return;
+
+    // Don't intercept if modifier keys are pressed
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    const href = sidebarItem.getAttribute('href');
+    if (!href) return;
+
+    // Don't intercept external links or current page
+    try {
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        if (url.pathname === window.location.pathname) return;
+    } catch (err) {
+        return;
+    }
+
+    e.preventDefault();
+
+    // Update history
+    window.history.pushState({ reload: true }, '', href);
+
+    // Clear the preview/output
+    const output = document.getElementById('output');
+    if (output) {
+        output.innerHTML = '';
+    }
+
+    // Fetch the new page
+    $.ajax({
+        url: href,
+        method: 'GET'
+    }).done(function (data) {
+        // Parse the HTML response
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+
+        // Extract code content from the initial-code iframe
+        const initialCodeIframe = doc.getElementById('initial-code');
+        if (initialCodeIframe && editor) {
+            const newCode = initialCodeIframe.textContent;
+            editor.setValue(newCode);
+        }
+
+        // Update page title
+        const newTitle = doc.querySelector('title');
+        if (newTitle) {
+            document.title = newTitle.textContent;
+        }
+
+        // Update meta description
+        const newDescription = doc.querySelector('meta[name="description"]');
+        if (newDescription) {
+            let descriptionMeta = document.querySelector('meta[name="description"]');
+            if (!descriptionMeta) {
+                descriptionMeta = document.createElement('meta');
+                descriptionMeta.setAttribute('name', 'description');
+                document.head.appendChild(descriptionMeta);
+            }
+            descriptionMeta.setAttribute('content', newDescription.getAttribute('content'));
+        }
+
+        // Update canonical URL
+        const newCanonical = doc.querySelector('link[rel="canonical"]');
+        if (newCanonical) {
+            let canonical = document.querySelector('link[rel="canonical"]');
+            if (!canonical) {
+                canonical = document.createElement('link');
+                canonical.setAttribute('rel', 'canonical');
+                document.head.appendChild(canonical);
+            }
+            canonical.setAttribute('href', newCanonical.getAttribute('href'));
+        }
+
+        // Update Open Graph tags
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) {
+            let ogTitleMeta = document.querySelector('meta[property="og:title"]');
+            if (!ogTitleMeta) {
+                ogTitleMeta = document.createElement('meta');
+                ogTitleMeta.setAttribute('property', 'og:title');
+                document.head.appendChild(ogTitleMeta);
+            }
+            ogTitleMeta.setAttribute('content', ogTitle.getAttribute('content'));
+        }
+
+        const ogDescription = doc.querySelector('meta[property="og:description"]');
+        if (ogDescription) {
+            let ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+            if (!ogDescriptionMeta) {
+                ogDescriptionMeta = document.createElement('meta');
+                ogDescriptionMeta.setAttribute('property', 'og:description');
+                document.head.appendChild(ogDescriptionMeta);
+            }
+            ogDescriptionMeta.setAttribute('content', ogDescription.getAttribute('content'));
+        }
+
+        const ogUrl = doc.querySelector('meta[name="og:url"]');
+        if (ogUrl) {
+            let ogUrlMeta = document.querySelector('meta[name="og:url"]');
+            if (!ogUrlMeta) {
+                ogUrlMeta = document.createElement('meta');
+                ogUrlMeta.setAttribute('name', 'og:url');
+                document.head.appendChild(ogUrlMeta);
+            }
+            ogUrlMeta.setAttribute('content', ogUrl.getAttribute('content'));
+        }
+
+        // Update Twitter Card tags
+        const twitterTitle = doc.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle) {
+            let twitterTitleMeta = document.querySelector('meta[name="twitter:title"]');
+            if (!twitterTitleMeta) {
+                twitterTitleMeta = document.createElement('meta');
+                twitterTitleMeta.setAttribute('name', 'twitter:title');
+                document.head.appendChild(twitterTitleMeta);
+            }
+            twitterTitleMeta.setAttribute('content', twitterTitle.getAttribute('content'));
+        }
+
+        const twitterDescription = doc.querySelector('meta[name="twitter:description"]');
+        if (twitterDescription) {
+            let twitterDescriptionMeta = document.querySelector('meta[name="twitter:description"]');
+            if (!twitterDescriptionMeta) {
+                twitterDescriptionMeta = document.createElement('meta');
+                twitterDescriptionMeta.setAttribute('name', 'twitter:description');
+                document.head.appendChild(twitterDescriptionMeta);
+            }
+            twitterDescriptionMeta.setAttribute('content', twitterDescription.getAttribute('content'));
+        }
+
+        // Update active sidebar item
+        updateActiveSidebarItem();
+
+    }).fail(function (error) {
+        console.error('Failed to load page:', error);
+        // On error, do a full page load
+        window.location.href = href;
+    });
+});
+
+// Handle popstate (back/forward navigation) with reload
+window.addEventListener('popstate', function () {
+    if (window.history.state && window.history.state.reload) {
+        window.location.href = window.location.href;
     }
 });
