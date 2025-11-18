@@ -30,10 +30,12 @@ const playgroundHtml = `
     <link href="https://fonts.googleapis.com/css?family=Roboto:black,bold,medium,regular,light,thin" rel="stylesheet">
     <title>{{TITLE}}</title>
     <meta name="title" content="{{TITLE}}" />
+    <meta name="description" content="{{DESCRIPTION}}" />
 
     <link rel="canonical" href="{{CANONICAL}}">
 
     <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}" />
     <meta property="og:type" content="website" />
     <meta name="og:image" content="https://assets.puter.site/twitter.png">
     <meta name="og:url" content="{{CANONICAL}}">
@@ -41,6 +43,7 @@ const playgroundHtml = `
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@HeyPuter" />
     <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION}}" />
     <meta name="twitter:image" content="https://assets.puter.site/twitter.png">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
@@ -147,6 +150,8 @@ const generatePlayground = () => {
             htmlTemplate = htmlTemplate.replace('{{SIDEBAR}}', sidebarHtml);
             const pageTitle = example.slug === '' ? 'Puter.js Playground' : `${example.title} | Puter.js Playground`;
             htmlTemplate = htmlTemplate.replaceAll('{{TITLE}}', pageTitle);
+            const pageDescription = example.description || 'Try Puter.js instantly with interactive examples in your browser. Run, edit, and experiment with code - no installation or setup required.';
+            htmlTemplate = htmlTemplate.replaceAll('{{DESCRIPTION}}', pageDescription);
             const canonicalUrl = `https://docs.puter.com/playground/${example.slug ? example.slug + '/' : ''}`;
             htmlTemplate = htmlTemplate.replaceAll('{{CANONICAL}}', canonicalUrl);
             const finalHtml = htmlTemplate.replace('{{CODE}}', sourceContent);
