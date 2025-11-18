@@ -46,7 +46,9 @@ marked.use({
             // toolbar
             html += '<div class="code-buttons">';
                 // "Run"
-                if (exampleID)
+                if (exampleID == "intro-chatgpt")
+                    html += `<a href="/playground/?autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
+                else
                     html += `<a href="/playground/${exampleID}/?autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
 
                 // "Copy"
