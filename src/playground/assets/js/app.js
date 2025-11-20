@@ -1,4 +1,3 @@
-
 let editor;
 // on document load
 document.addEventListener('DOMContentLoaded', function () {
@@ -176,6 +175,17 @@ function updateActiveSidebarItem() {
     });
 }
 updateActiveSidebarItem();
+
+// Scroll sidebar to center the active item on first load
+const sidebar = document.querySelector('.sidebar');
+const activeItem = document.querySelector('.sidebar-item.active');
+if (sidebar && activeItem) {
+    const sidebarRect = sidebar.getBoundingClientRect();
+    const activeItemRect = activeItem.getBoundingClientRect();
+    const scrollOffset = activeItemRect.top - sidebarRect.top + sidebar.scrollTop
+        - sidebar.clientHeight / 2 + activeItem.clientHeight / 2;
+    sidebar.scrollTop = scrollOffset;
+}
 
 // Client-side routing for sidebar links
 document.addEventListener('click', function (e) {

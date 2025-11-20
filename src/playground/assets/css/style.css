@@ -324,4 +324,5 @@ body {
 
 .sidebar-item.active {
   text-decoration: underline;
+  font-weight: 500;
 }
