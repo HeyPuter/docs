@@ -8,6 +8,7 @@ const { encode } =  require('html-entities');
 const { JSDOM } = require('jsdom');
 const yaml = require('js-yaml');
 const esbuild = require('esbuild');
+const { generatePlayground } = require('./src/playground')
 
 const site = "https://docs.puter.com";
 
@@ -45,8 +46,10 @@ marked.use({
             // toolbar
             html += '<div class="code-buttons">';
                 // "Run"
-                if (exampleID)
-                    html += `<a href="/playground/index.html?example=${exampleID}&autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
+                if (exampleID == "intro-chatgpt")
+                    html += `<a href="/playground/?autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
+                else
+                    html += `<a href="/playground/${exampleID}/?autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
 
                 // "Copy"
                 html += '<div class="code-button copy-code-button"><span class="copy"></span></div>';
@@ -689,6 +692,7 @@ generateDocumentation('./src');
 generateRedirects();
 generateSitemap();
 generateLLMs();
+generatePlayground();
 
 if (anyErrors) {
     process.exit(1);
