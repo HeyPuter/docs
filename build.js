@@ -48,7 +48,7 @@ marked.use({
                 // "Run"
                 if (exampleID == "intro-chatgpt")
                     html += `<a href="/playground/?autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
-                else
+                else if (exampleID)
                     html += `<a href="/playground/${exampleID}/?autorun=1" class="code-button run-code-button" target="_blank"><span class="run"></span></a>`;
 
                 // "Copy"
