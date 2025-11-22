@@ -49,7 +49,7 @@ A `Promise` that resolves to an `HTMLAudioElement`. Call `audio.play()` or use t
 
 <strong class="example-title">Change the voice of a sample clip</strong>
 
-```html
+```html;ai-speech2speech-url
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
@@ -69,7 +69,7 @@ A `Promise` that resolves to an `HTMLAudioElement`. Call `audio.play()` or use t
 
 <strong class="example-title">Convert a recording stored on Puter</strong>
 
-```html
+```html;ai-speech2speech-puter
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
