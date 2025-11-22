@@ -14,6 +14,7 @@ You can use AI models from various providers to perform tasks such as chat, text
     <div class="example-group" data-section="text-to-image"><span>Text to Image</span></div>
     <div class="example-group" data-section="image-to-text"><span>Image to Text</span></div>
     <div class="example-group" data-section="text-to-speech"><span>Text to Speech</span></div>
+    <div class="example-group" data-section="voice-changer"><span>Voice Changer</span></div>
     <div class="example-group" data-section="text-to-video"><span>Text to Video</span></div>
 </div>
 
@@ -93,6 +94,34 @@ You can use AI models from various providers to perform tasks such as chat, text
 
 </div>
 
+<div class="example-content" data-section="voice-changer">
+
+#### Swap a sample clip into a new voice
+
+```html;ai-speech2speech
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <button id="swap">Convert voice</button>
+    <script>
+        document.getElementById('swap').addEventListener('click', async ()=>{
+            const audio = await puter.ai.speech2speech(
+                'https://puter-sample-data.puter.site/tts_example.mp3',
+                {
+                    voice: '21m00Tcm4TlvDq8ikWAM',
+                    model: 'eleven_multilingual_sts_v2',
+                    output_format: 'mp3_44100_128'
+                }
+            );
+            audio.play();
+        });
+    </script>
+</body>
+</html>
+```
+
+</div>
+
 <div class="example-content" data-section="text-to-video">
 
 #### Generate a sample Sora clip
@@ -123,6 +152,7 @@ These AI features are supported out of the box when using Puter.js:
 - **[`puter.ai.txt2img()`](/AI/txt2img/)** - Generate images from text descriptions
 - **[`puter.ai.img2txt()`](/AI/img2txt/)** - Extract text from images (OCR)
 - **[`puter.ai.txt2speech()`](/AI/txt2speech/)** - Convert text to speech
+- **[`puter.ai.speech2speech()`](/AI/speech2speech/)** - Convert speech in one voice to another voice
 - **[`puter.ai.txt2vid()`](/AI/txt2vid/)** - Generate short videos with OpenAI Sora models
 - **[`puter.ai.speech2txt()`](/AI/speech2txt/)** - Transcribe or translate audio recordings into text
 
@@ -152,6 +182,7 @@ You can see various Puter.js AI features in action from the following examples:
   - [Text to Speech with options](/playground/?example=ai-txt2speech-options)
   - [Text to Speech with engines](/playground/?example=ai-txt2speech-engines)
   - [Text to Speech with OpenAI voices](/playground/?example=ai-txt2speech-openai)
+  - [Voice changer with ElevenLabs](/playground/?example=ai-speech2speech-elevenlabs)
   - [Transcribe audio with `speech2txt`](/AI/speech2txt/)
 - Text to Video
   - [Generate a sample Sora clip](/AI/txt2vid/)

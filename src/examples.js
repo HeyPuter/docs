@@ -158,6 +158,18 @@ const examples = [
                 source: '/playground/examples/ai-txt2speech-elevenlabs.html'
             },
             {
+                title: 'ElevenLabs Voice changer with a sample clip',
+                description: 'Transform an audio clip into a new voice using Puter.js speech-to-speech helper.',
+                slug: 'ai-speech2speech-url',
+                source: '/playground/examples/ai-speech2speech-url.html'
+            },
+            {
+                title: 'ElevenLabs Voice changer with a recording stored as a file',
+                description: 'Transform an audio clip into a new voice using Puter.js speech-to-speech helper.',
+                slug: 'ai-speech2speech-file',
+                source: '/playground/examples/ai-speech2speech-file.html'
+            },
+            {
                 title: 'Text to Video',
                 description: 'Generate videos from text with Puter.js AI API. Run and experiment with this text-to-video example in the playground.',
                 slug: 'ai-txt2vid',
