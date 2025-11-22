@@ -24,12 +24,16 @@ A string containing the text you want to convert to speech. The text must be les
 An object containing the following optional properties:
 
 - `language` (String): Language code for speech synthesis (AWS Polly only). Defaults to `en-US`.
-- `voice` (String): Voice ID used for synthesis. Defaults to `Joanna` (AWS) or `alloy` (OpenAI).
+- `voice` (String): Voice ID used for synthesis. Defaults to `Joanna` (AWS), `alloy` (OpenAI), or `21m00Tcm4TlvDq8ikWAM` (ElevenLabs sample voice).
 - `engine` (String): AWS Polly engine. Can be `standard`, `neural`, `long-form`, or `generative`. Defaults to `standard`.
-- `provider` (String): TTS provider to use. Supports `'aws-polly'` (default) and `'openai'`.
-- `model` (String): OpenAI text-to-speech model (`gpt-4o-mini-tts`, `tts-1`, `tts-1-hd`, ...). Defaults to `gpt-4o-mini-tts`.
-- `response_format` (String): Desired OpenAI output format (`mp3`, `wav`, `opus`, `aac`, `flac`, `pcm`). Defaults to `mp3`.
+- `provider` (String): TTS provider to use. Supports `'aws-polly'` (default), `'openai'`, and `'elevenlabs'`.
+- `model` (String): Model identifier for the chosen provider. Examples:
+  - OpenAI: `gpt-4o-mini-tts` (default), `tts-1`, `tts-1-hd`
+  - ElevenLabs: `eleven_multilingual_v2` (default), `eleven_flash_v2_5`, `eleven_turbo_v2_5`, `eleven_v3`
+- `response_format` (String): Output format for OpenAI voices (`mp3`, `wav`, `opus`, `aac`, `flac`, `pcm`). Defaults to `mp3`.
+- `output_format` (String): Output format for ElevenLabs voices (e.g. `mp3_44100_128`). Defaults to `mp3_44100_128` when using ElevenLabs.
 - `instructions` (String): Additional guidance for OpenAI voices (tone, pacing, style, etc.).
+- `voice_settings` (Object): ElevenLabs voice tuning options (e.g. stability, similarity boost, speed).
 
 #### `language` (String) (optional)
 *AWS Polly only.*
@@ -75,10 +79,11 @@ The language to use for speech synthesis. Defaults to `en-US`. The following lan
 - Welsh (`cy-GB`)
 
 #### `voice` (String) (optional)
-The voice to use for speech synthesis. Defaults to `Joanna` when `provider` is `aws-polly`, or `alloy` when using the OpenAI provider.
+The voice to use for speech synthesis. Defaults to `Joanna` when `provider` is `aws-polly`, `alloy` when using the OpenAI provider, or `21m00Tcm4TlvDq8ikWAM` when using ElevenLabs.
 
 - **AWS Polly voices:** See the [AWS Polly voice list](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for available IDs and languages.
 - **OpenAI voices:** Built-in options include `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `nova`, `onyx`, `sage`, and `shimmer`.
+- **ElevenLabs voices:** Use any ElevenLabs voice ID from your account (for example `21m00Tcm4TlvDq8ikWAM` for the public "Rachel" sample voice).
 
 #### `engine` (String) (optional)
 *AWS Polly only.*
@@ -86,17 +91,23 @@ The voice to use for speech synthesis. Defaults to `Joanna` when `provider` is `
 The speech synthesis engine to use. Can be `standard`, `neural`, `long-form`, or `generative`. Defaults to `standard`. Higher-end engines provide better quality but may incur higher usage costs.
 
 #### `provider` (String) (optional)
-Selects which backend performs the synthesis. Use `'aws-polly'` (default) for the existing AWS voices, or `'openai'` to access the GPT-4o mini TTS family.
+Selects which backend performs the synthesis. Use `'aws-polly'` (default) for the existing AWS voices, `'openai'` to access the GPT-4o mini TTS family, or `'elevenlabs'` to use ElevenLabs voices.
 
 #### `model` (String) (optional)
-*OpenAI provider only.*
+Specifies which TTS model to use for the selected provider.
 
-Specifies which OpenAI TTS model to use. Defaults to `gpt-4o-mini-tts`. Other available models include `tts-1` and `tts-1-hd`.
+- *OpenAI:* Defaults to `gpt-4o-mini-tts`. Other available models include `tts-1` and `tts-1-hd`.
+- *ElevenLabs:* Defaults to `eleven_multilingual_v2`. Other available models include `eleven_flash_v2_5`, `eleven_turbo_v2_5`, and `eleven_v3`.
 
 #### `response_format` (String) (optional)
 *OpenAI provider only.*
 
 Controls the output format when using OpenAI. Defaults to `mp3`, but you can request `wav`, `opus`, `aac`, `flac`, or `pcm` for different latency/quality characteristics.
+
+#### `output_format` (String) (optional)
+*ElevenLabs provider only.*
+
+Controls the output format when using ElevenLabs. Defaults to `mp3_44100_128`. See the ElevenLabs docs for supported presets (e.g. `pcm_16000`, `ulaw_8000`).
 
 #### `instructions` (String) (optional)
 *OpenAI provider only.*
@@ -165,6 +176,31 @@ A `Promise` that resolves to an `HTMLAudioElement`. The element’s `src` points
                     voice: "alloy",
                     response_format: "mp3",
                     instructions: "Sound cheerful but not overly fast."
+                }
+            );
+            audio.play();
+        });
+    </script>
+</body>
+</html>
+```
+
+<strong class="example-title">Use ElevenLabs voices</strong>
+
+```html;ai-txt2speech-elevenlabs
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <button id="play">Use ElevenLabs voice</button>
+    <script>
+        document.getElementById('play').addEventListener('click', async ()=>{
+            const audio = await puter.ai.txt2speech(
+                "Hello! This sample uses an ElevenLabs voice.",
+                {
+                    provider: "elevenlabs",
+                    model: "eleven_multilingual_v2",
+                    voice: "21m00Tcm4TlvDq8ikWAM",
+                    output_format: "mp3_44100_128"
                 }
             );
             audio.play();
