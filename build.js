@@ -4,6 +4,7 @@ const marked = require('marked');
 let sidebar = require('./src/sidebar');
 const redirects = require('./src/redirects');
 const menuItems = require('./src/menu.js');
+const examples = require('./src/examples');
 const { encode } =  require('html-entities');
 const { JSDOM } = require('jsdom');
 const yaml = require('js-yaml');
@@ -597,14 +598,13 @@ function generateRedirects() {
 function generateSitemap() {
     const urls = [
         `${site}/`,
-        `${site}/playground/`,
     ];
-    
+
     sidebar.forEach((item) => {
         if (item.path) {
             urls.push(`${site}${item.path}/`);
         }
-        
+
         if (item.children && Array.isArray(item.children)) {
             item.children.forEach((child) => {
                 if (child.path) {
@@ -613,18 +613,32 @@ function generateSitemap() {
             });
         }
     });
-    
+
+    examples.forEach((category) => {
+        if (category.children && Array.isArray(category.children)) {
+            category.children.forEach((example) => {
+                if (example.slug !== undefined) {
+                    if (example.slug === '') {
+                        urls.push(`${site}/playground/`);
+                    } else {
+                        urls.push(`${site}/playground/${example.slug}/`);
+                    }
+                }
+            });
+        }
+    });
+
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-    
+
     urls.forEach((url) => {
         xml += "  <url>\n";
         xml += `    <loc>${url}</loc>\n`;
         xml += "  </url>\n";
     });
-    
+
     xml += "</urlset>";
-    
+
     const currentDir = process.cwd();
     const distDir = path.join(currentDir, 'dist');
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml);
