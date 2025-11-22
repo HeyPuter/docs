@@ -164,10 +164,10 @@ const examples = [
                 source: '/playground/examples/ai-speech2speech-url.html'
             },
             {
-                title: 'ElevenLabs Voice changer with a recording stored on Puter',
+                title: 'ElevenLabs Voice changer with a recording stored as a file',
                 description: 'Transform an audio clip into a new voice using Puter.js speech-to-speech helper.',
-                slug: 'ai-speech2speech-puter',
-                source: '/playground/examples/ai-speech2speech-puter.html'
+                slug: 'ai-speech2speech-file',
+                source: '/playground/examples/ai-speech2speech-file.html'
             },
             {
                 title: 'Text to Video',
