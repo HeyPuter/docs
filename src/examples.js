@@ -152,6 +152,12 @@ const examples = [
                 source: '/playground/examples/ai-txt2speech-openai.html'
             },
             {
+                title: 'Text to Speech with ElevenLabs',
+                description: 'Generate speech with ElevenLabs voices using Puter.js AI API. Run and experiment with this TTS example in the playground.',
+                slug: 'ai-txt2speech-elevenlabs',
+                source: '/playground/examples/ai-txt2speech-elevenlabs.html'
+            },
+            {
                 title: 'Text to Video',
                 description: 'Generate videos from text with Puter.js AI API. Run and experiment with this text-to-video example in the playground.',
                 slug: 'ai-txt2vid',
