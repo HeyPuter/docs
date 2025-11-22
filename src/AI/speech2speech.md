@@ -47,7 +47,27 @@ A `Promise` that resolves to an `HTMLAudioElement`. Call `audio.play()` or use t
 
 ## Examples
 
-<strong class="example-title">Convert a local recording</strong>
+<strong class="example-title">Change the voice of a sample clip</strong>
+
+```html
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        (async () => {
+            const sampleUrl = 'https://puter-sample-data.puter.site/tts_example.mp3';
+            const audio = await puter.ai.speech2speech(sampleUrl, {
+                voice: '21m00Tcm4TlvDq8ikWAM',
+                outputFormat: 'opus_48000_64',
+            });
+            audio.play();
+        })();
+    </script>
+</body>
+</html>
+```
+
+<strong class="example-title">Convert a recording stored on Puter</strong>
 
 ```html
 <html>
@@ -71,26 +91,6 @@ A `Promise` that resolves to an `HTMLAudioElement`. Call `audio.play()` or use t
             document.getElementById('player').src = audio.toString();
             audio.play();
         };
-    </script>
-</body>
-</html>
-```
-
-<strong class="example-title">Use a hosted sample clip</strong>
-
-```html
-<html>
-<body>
-    <script src="https://js.puter.com/v2/"></script>
-    <script>
-        (async () => {
-            const sampleUrl = 'https://puter-sample-data.puter.site/tts_example.mp3';
-            const audio = await puter.ai.speech2speech(sampleUrl, {
-                voice: '21m00Tcm4TlvDq8ikWAM',
-                outputFormat: 'opus_48000_64',
-            });
-            audio.play();
-        })();
     </script>
 </body>
 </html>
