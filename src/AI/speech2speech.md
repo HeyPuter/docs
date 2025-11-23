@@ -55,10 +55,8 @@ A `Promise` that resolves to an `HTMLAudioElement`. Call `audio.play()` or use t
     <script src="https://js.puter.com/v2/"></script>
     <script>
         (async () => {
-            const sampleUrl = 'https://puter-sample-data.puter.site/tts_example.mp3';
-            const audio = await puter.ai.speech2speech(sampleUrl, {
+            const audio = await puter.ai.speech2speech('https://assets.puter.site/example.mp3', {
                 voice: '21m00Tcm4TlvDq8ikWAM',
-                outputFormat: 'opus_48000_64',
             });
             audio.play();
         })();
