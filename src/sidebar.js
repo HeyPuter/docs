@@ -46,6 +46,14 @@ let sidebar = [
                 path: '/AI/chat',
             },
             {
+                title: '<code>listModels()</code>',
+                page_title: '<code>puter.ai.listModels()</code>',
+                title_tag: 'puter.ai.listModels()',
+                icon:'/assets/img/function.svg',
+                source: '/AI/listModels.md',
+                path: '/AI/listModels',
+            },
+            {
                 title: '<code>txt2img()</code>',
                 page_title: '<code>puter.ai.txt2img()</code>',
                 title_tag: 'puter.ai.txt2img()',

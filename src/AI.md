@@ -155,6 +155,7 @@ These AI features are supported out of the box when using Puter.js:
 - **[`puter.ai.speech2speech()`](/AI/speech2speech/)** - Convert speech in one voice to another voice
 - **[`puter.ai.txt2vid()`](/AI/txt2vid/)** - Generate short videos with OpenAI Sora models
 - **[`puter.ai.speech2txt()`](/AI/speech2txt/)** - Transcribe or translate audio recordings into text
+- **[`puter.ai.listModels()`](/AI/listModels/)** and **`puter.ai.listModelProviders()`** - Discover available chat/completion models and provider IDs
 
 ## Examples
 
