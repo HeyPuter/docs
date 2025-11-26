@@ -221,14 +221,14 @@ These Key-Value Store features are supported out of the box when using Puter.js:
 
 You can see various Puter.js Key-Value Store features in action from the following examples:
 
-- [Set](/playground/?example=kv-set)
-- [Get](/playground/?example=kv-get)
-- [Increment](/playground/?example=kv-incr)
-- [Decrement](/playground/?example=kv-decr)
-- [Delete](/playground/?example=kv-del)
-- [List](/playground/?example=kv-list)
-- [Flush](/playground/?example=kv-flush)
-- [What's your name?](/playground/?example=kv-name)
+- [Set](/playground/kv-set/)
+- [Get](/playground/kv-get/)
+- [Increment](/playground/kv-incr/)
+- [Decrement](/playground/kv-decr/)
+- [Delete](/playground/kv-del/)
+- [List](/playground/kv-list/)
+- [Flush](/playground/kv-flush/)
+- [What's your name?](/playground/kv-name/)
 
 ## Tutorials
 

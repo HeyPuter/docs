@@ -113,9 +113,9 @@ These networking features are supported out of the box when using Puter.js:
 
 You can see various Puter.js networking features in action from the following examples:
 
-- [Basic TCP Socket](/playground/?example=net-basic)
-- [TLS Socket](/playground/?example=net-tls)
-- [Fetch](/playground/?example=net-fetch)
+- [Basic TCP Socket](/playground/net-basic/)
+- [TLS Socket](/playground/net-tls/)
+- [Fetch](/playground/net-fetch/)
 
 ## Tutorials
 

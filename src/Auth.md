@@ -106,7 +106,7 @@ These authentication features are supported out of the box when using Puter.js:
 
 You can see various Puter.js authentication features in action from the following examples:
 
-- [Sign in](/playground/?example=auth-sign-in)
-- [Sign Out](/playground/?example=auth-sign-out)
-- [Check Sign In](/playground/?example=auth-is-signed-in)
-- [Get User Information](/playground/?example=auth-get-user)
+- [Sign in](/playground/auth-sign-in/)
+- [Sign Out](/playground/auth-sign-out/)
+- [Check Sign In](/playground/auth-is-signed-in/)
+- [Get User Information](/playground/auth-get-user/)
