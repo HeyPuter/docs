@@ -130,8 +130,8 @@ These workers management features are supported out of the box when using Puter.
 
 You can see various Puter.js workers management features in action from the following examples:
 
-- [Create a worker](/playground/?example=workers-create)
-- [List workers](/playground/?example=workers-list)
-- [Get a worker](/playground/?example=workers-get)
-- [Workers Management](/playground/?example=workers-management)
-- [Authenticated Worker Requests](/playground/?example=workers-exec)
+- [Create a worker](/playground/workers-create/)
+- [List workers](/playground/workers-list/)
+- [Get a worker](/playground/workers-get/)
+- [Workers Management](/playground/workers-management/)
+- [Authenticated Worker Requests](/playground/workers-exec/)

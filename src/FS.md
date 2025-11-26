@@ -310,26 +310,26 @@ These cloud storage features are supported out of the box when using Puter.js:
 You can see various Puter.js Cloud Storage features in action from the following examples:
 
 - Write
-  - [Write File](/playground/?example=fs-write)
-  - [Write a file with deduplication](/playground/?example=fs-write-dedupe)
-  - [Create a new file with input coming from a file input](/playground/?example=fs-write-from-input)
-  - [Create a file in a directory that does not exist](/playground/?example=fs-write-create-missing-parents)
-- [Read File](/playground/?example=fs-read)
+  - [Write File](/playground/fs-write/)
+  - [Write a file with deduplication](/playground/fs-write-dedupe/)
+  - [Create a new file with input coming from a file input](/playground/fs-write-from-input/)
+  - [Create a file in a directory that does not exist](/playground/fs-write-create-missing-parents/)
+- [Read File](/playground/fs-read/)
 - Create Directory
-  - [Make a Directory](/playground/?example=fs-mkdir)
-  - [Create a directory with deduplication](/playground/?example=fs-mkdir-dedupe)
-  - [Create a directory with missing parent directories](/playground/?example=fs-mkdir-create-missing-parents)
-- [Read Directory](/playground/?example=fs-readdir)
-- [Rename](/playground/?example=fs-rename)
-- [Copy File/Directory](/playground/?example=fs-copy)
+  - [Make a Directory](/playground/fs-mkdir/)
+  - [Create a directory with deduplication](/playground/fs-mkdir-dedupe/)
+  - [Create a directory with missing parent directories](/playground/fs-mkdir-create-missing-parents/)
+- [Read Directory](/playground/fs-readdir/)
+- [Rename](/playground/fs-rename/)
+- [Copy File/Directory](/playground/fs-copy/)
 - Move
-  - [Move File/Directory](/playground/?example=fs-move)
-  - [Move a file with missing parent directories](/playground/?example=fs-move-create-missing-parents)
-- [Get File/Directory Info](/playground/?example=fs-stat)
+  - [Move File/Directory](/playground/fs-move/)
+  - [Move a file with missing parent directories](/playground/fs-move-create-missing-parents/)
+- [Get File/Directory Info](/playground/fs-stat/)
 - Delete
-  - [Delete a file](/playground/?example=fs-delete)
-  - [Delete a directory](/playground/?example=fs-delete-directory)
-- [Upload](/playground/?example=fs-upload)
+  - [Delete a file](/playground/fs-delete/)
+  - [Delete a directory](/playground/fs-delete-directory/)
+- [Upload](/playground/fs-upload/)
 
 ## Tutorials
 

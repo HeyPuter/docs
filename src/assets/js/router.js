@@ -38,11 +38,21 @@ function isExternalLink(href) {
     }
 }
 
+function isPlaygroundLink(href) {
+    try {
+        const url = new URL(href, window.location.href);
+        return url.pathname.startsWith("/playground/")
+    } catch (e) {
+        return false;
+    }
+}
+
 $(document).on('click', 'a:not(.skip-insta-load):not([target="_blank"])', function (e) {
     // modifier keys
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     // special case handling
-    if (isCurrentPage($(this).attr('href')) || isExternalLink($(this).attr('href'))) return;
+    const href = $(this).attr('href');
+    if (isCurrentPage(href) || isExternalLink(href) || isPlaygroundLink(href)) return;
 
     e.preventDefault();
 

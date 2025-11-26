@@ -192,17 +192,17 @@ These Apps API are supported out of the box when using Puter.js:
 You can see various Puter.js Apps API in action from the following examples:
 
 - Create
-  - [Create an app pointing to https://example.com](/playground/?example=app-create)
+  - [Create an app pointing to https://example.com](/playground/app-create/)
 - List
-  - [Create 3 random apps and then list them](/playground/?example=app-list)
+  - [Create 3 random apps and then list them](/playground/app-list/)
 - Delete
-  - [Create a random app then delete it](/playground/?example=app-delete)
+  - [Create a random app then delete it](/playground/app-delete/)
 - Update
-  - [Create a random app then change its title](/playground/?example=app-update)
+  - [Create a random app then change its title](/playground/app-update/)
 - Get
-  - [Create a random app then get it](/playground/?example=app-get)
+  - [Create a random app then get it](/playground/app-get/)
 - Sample Apps
-  - [To-Do List](/playground/?example=app-todo)
-  - [AI Chat](/playground/?example=app-ai-chat)
-  - [Camera Photo Describer](/playground/?example=app-camera)
-  - [Text Summarizer](/playground/?example=app-summarizer)
+  - [To-Do List](/playground/app-todo/)
+  - [AI Chat](/playground/app-ai-chat/)
+  - [Camera Photo Describer](/playground/app-camera/)
+  - [Text Summarizer](/playground/app-summarizer/)

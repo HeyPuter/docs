@@ -196,8 +196,8 @@ These hosting features are supported out of the box when using Puter.js:
 
 You can see various Puter.js hosting features in action from the following examples:
 
-- [Create a simple website displaying "Hello world!"](/playground/?example=hosting-create)
-- [Create 3 random websites and then list them](/playground/?example=hosting-list)
-- [Create a random website then delete it](/playground/?example=hosting-delete)
-- [Update a subdomain to point to a new directory](/playground/?example=hosting-update)
-- [Retrieve information about a subdomain](/playground/?example=hosting-get)
+- [Create a simple website displaying "Hello world!"](/playground/hosting-create/)
+- [Create 3 random websites and then list them](/playground/hosting-list/)
+- [Create a random website then delete it](/playground/hosting-delete/)
+- [Update a subdomain to point to a new directory](/playground/hosting-update/)
+- [Retrieve information about a subdomain](/playground/hosting-get/)
