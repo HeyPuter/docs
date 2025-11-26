@@ -64,6 +64,13 @@ const playgroundHtml = `
     <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <script defer data-domain="docs.puter.com" src="https://plausible.io/js/script.js"></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "ubxybtas0w");
+    </script>
     <link rel="stylesheet" href="/playground/assets/css/style.css">
 </head>
 
