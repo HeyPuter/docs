@@ -322,9 +322,10 @@ document.addEventListener('click', function (e) {
             twitterDescriptionMeta.setAttribute('content', twitterDescription.getAttribute('content'));
         }
 
+        clarity("identify", (sessionStorage.cid ??= crypto.randomUUID()));
+
         // Update active sidebar item
         updateActiveSidebarItem();
-
     }).fail(function (error) {
         console.error('Failed to load page:', error);
         // On error, do a full page load

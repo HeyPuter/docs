@@ -124,6 +124,7 @@ $(document).on('click', 'a:not(.skip-insta-load):not([target="_blank"])', functi
         setTimeout(() => {
             $('#progress-bar').fadeOut(100);
         }, 1000);
+        clarity("identify", (sessionStorage.cid ??= crypto.randomUUID()));
         $.event.trigger("pathchange")
     }).fail(function (e) {
         clearInterval(progressTimer);
