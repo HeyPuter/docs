@@ -57,14 +57,14 @@ Returns a `Promise` that resolves to either:
 
 <strong class="example-title">Transcribe a file</strong>
 
-```html
+```html;ai-speech2txt
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
     <script>
         (async () => {
-            const transcript = await puter.ai.speech2txt('~/test.mp3');
-            console.log('Transcript:', transcript.text ?? transcript);
+            const transcript = await puter.ai.speech2txt('https://assets.puter.site/example.mp3');
+            puter.print('Transcript:', transcript.text ?? transcript);
         })();
     </script>
 </body>

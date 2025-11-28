@@ -170,6 +170,12 @@ const examples = [
                 source: '/playground/examples/ai-speech2speech-file.html'
             },
             {
+                title: 'Transcribe an audio recording into text',
+                description: 'Transcribe an audio recording into text using Puter.js AI API. Run and experiment with this example directly in the playground.',
+                slug: 'ai-speech2txt',
+                source: '/playground/examples/ai-speech2txt.html'
+            },
+            {
                 title: 'Text to Video',
                 description: 'Generate videos from text with Puter.js AI API. Run and experiment with this text-to-video example in the playground.',
                 slug: 'ai-txt2vid',

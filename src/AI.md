@@ -16,6 +16,8 @@ You can use AI models from various providers to perform tasks such as chat, text
     <div class="example-group" data-section="text-to-speech"><span>Text to Speech</span></div>
     <div class="example-group" data-section="voice-changer"><span>Voice Changer</span></div>
     <div class="example-group" data-section="text-to-video"><span>Text to Video</span></div>
+    <div class="example-group" data-section="speech-to-speech"><span>Speech to Speech</span></div>
+    <div class="example-group" data-section="speech-to-text"><span>Speech to Text</span></div>
 </div>
 
 <div class="example-content" data-section="ai-chat" style="display:block;">
@@ -98,7 +100,7 @@ You can use AI models from various providers to perform tasks such as chat, text
 
 #### Swap a sample clip into a new voice
 
-```html;ai-speech2speech
+```html;ai-voice-changer
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
@@ -144,18 +146,59 @@ You can use AI models from various providers to perform tasks such as chat, text
 
 </div>
 
+<div class="example-content" data-section="speech-to-speech">
+
+#### Convert speech in one voice to another voice
+
+```html;ai-speech2speech-url
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        puter.ai.speech2speech('https://assets.puter.site/example.mp3', {
+            voice: '21m00Tcm4TlvDq8ikWAM',
+            model: 'eleven_multilingual_sts_v2',
+            output_format: 'mp3_44100_128'
+        }).then(puter.print);
+    </script>
+</body>
+</html>
+```
+
+</div>
+
+<div class="example-content" data-section="speech-to-text">
+
+#### Transcribe or translate audio recordings into text
+
+```html;ai-speech2txt
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+    (async () => {
+        const transcript = await puter.ai.speech2txt('https://assets.puter.site/example.mp3');
+        puter.print('Transcript:', transcript.text ?? transcript);
+    })();
+    </script>
+</body>
+</html>
+```
+
+</div>
+
 ## Functions
 
 These AI features are supported out of the box when using Puter.js:
 
 - **[`puter.ai.chat()`](/AI/chat/)** - Chat with AI models like Claude, GPT, and others
+- **[`puter.ai.listModels()`](/AI/listModels/)** - List available AI chat models (and providers) that Puter currently exposes.
 - **[`puter.ai.txt2img()`](/AI/txt2img/)** - Generate images from text descriptions
 - **[`puter.ai.img2txt()`](/AI/img2txt/)** - Extract text from images (OCR)
 - **[`puter.ai.txt2speech()`](/AI/txt2speech/)** - Convert text to speech
 - **[`puter.ai.speech2speech()`](/AI/speech2speech/)** - Convert speech in one voice to another voice
 - **[`puter.ai.txt2vid()`](/AI/txt2vid/)** - Generate short videos with OpenAI Sora models
 - **[`puter.ai.speech2txt()`](/AI/speech2txt/)** - Transcribe or translate audio recordings into text
-- **[`puter.ai.listModels()`](/AI/listModels/)** and **`puter.ai.listModelProviders()`** - Discover available chat/completion models and provider IDs
 
 ## Examples
 
@@ -183,10 +226,14 @@ You can see various Puter.js AI features in action from the following examples:
   - [Text to Speech with options](/playground/ai-txt2speech-options/)
   - [Text to Speech with engines](/playground/ai-txt2speech-engines/)
   - [Text to Speech with OpenAI voices](/playground/ai-txt2speech-openai/)
-  - [Voice changer with ElevenLabs](/playground/ai-speech2speech-elevenlabs/)
   - [Transcribe audio with `speech2txt`](/AI/speech2txt/)
 - Text to Video
   - [Generate a sample Sora clip](/AI/txt2vid/)
+- Speech to Speech
+  - [Convert speech in one voice to another voice](/playground/ai-speech2speech-url/)
+  - [Convert speech in one voice to another voice with a recording stored as a file](/playground/ai-speech2speech-file/)
+- Speech to Text
+  - [Transcribe or translate audio recordings into text](/playground/ai-speech2txt/)
 
 ## Tutorials
 
