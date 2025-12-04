@@ -16,7 +16,7 @@ Choose the install method that fits your project. The npm module is recommended 
 
 #### Install
 
-```
+```plaintext
 npm install @heyputer/puter.js
 ```
 
