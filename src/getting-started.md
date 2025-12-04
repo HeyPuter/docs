@@ -14,7 +14,7 @@ Choose the install method that fits your project. The npm module is recommended 
 
 <div class="example-content" data-section="npm" style="display:block;">
 
-### Install
+#### Install
 
 ```plaintext
 npm install @heyputer/puter.js
@@ -22,7 +22,7 @@ npm install @heyputer/puter.js
 
 <br>
 
-### Use in the browser
+#### Use in the browser
 
 ```js
 // ESM
@@ -41,7 +41,7 @@ puter.ai.chat(`Why did the chicken cross the road?`).then(console.log);
 
 <br>
 
-### Use in Node.js
+#### Use in Node.js
 
 ```js
 // CJS
@@ -60,7 +60,7 @@ const puterEsm = init(process.env.puterAuthToken);
 
 <div class="example-content" data-section="cdn">
 
-### Include the script
+#### Include the script
 
 ```html
 <script src="https://js.puter.com/v2/"></script>
@@ -68,7 +68,7 @@ const puterEsm = init(process.env.puterAuthToken);
 
 <br>
 
-### Use in the browser
+#### Use in the browser
 
 ```html
 <html>
