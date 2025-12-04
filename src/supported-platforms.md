@@ -20,7 +20,7 @@ You can use it across all kinds of web development technologies, from static HTM
 
 #### Installation via NPM
 
-```
+```plaintext
 npm install @heyputer/puter.js
 ```
 
