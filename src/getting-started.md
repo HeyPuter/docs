@@ -3,19 +3,66 @@ title: Getting Started
 description: Get started with Puter.js for building your applications. No backend code, just add Puter.js and you're ready to start.
 ---
 
-## Installation
+## Installation & basic usage
 
-To begin using Puter.js, simply add it to your HTML file using the following script tag:
+Choose the install method that fits your project. The npm module is recommended for modern build setups, while the script tag works for quick experiments.
+
+<div style="overflow:hidden; margin-top: 30px;">
+    <div class="example-group active" data-section="npm"><span>NPM module (recommended)</span></div>
+    <div class="example-group" data-section="cdn"><span>CDN (script tag)</span></div>
+</div>
+
+<div class="example-content" data-section="npm" style="display:block;">
+
+#### Install
+
+```
+npm install @heyputer/puter.js
+```
+
+#### Use in the browser
+
+```js
+// ESM
+import { puter } from "@heyputer/puter.js";
+// or
+import puter from "@heyputer/puter.js";
+
+// CommonJS
+const { puter } = require("@heyputer/puter.js");
+// or
+const puter = require("@heyputer/puter.js");
+
+// Example
+puter.ai.chat(`Why did the chicken cross the road?`).then(console.log);
+```
+
+#### Use in Node.js
+
+```js
+// CJS
+const { init } = require("@heyputer/puter.js/src/init.cjs");
+const puter = init(process.env.puterAuthToken);
+
+// Example
+puter.ai.chat("What color was Napoleon's white horse?").then(console.log);
+
+// ESM
+import { init } from "@heyputer/puter.js/src/init.cjs";
+const puterEsm = init(process.env.puterAuthToken);
+```
+
+</div>
+
+<div class="example-content" data-section="cdn">
+
+#### Include the script
 
 ```html
 <script src="https://js.puter.com/v2/"></script>
 ```
 
-That's it! You're now ready to start using Puter.js in your web application. No need to install any dependencies or set up a server. No API keys or configuration required.
-
-## Basic Usage
-
-Once you've added the Puter.js script to your web application, a global `puter` object will be available for you to use. This object contains all of the functionality provided by Puter.js. For example, to use GPT-5 nano, you can call the `puter.ai.chat` function:
+#### Use in the browser
 
 ```html
 <html>
@@ -28,7 +75,16 @@ Once you've added the Puter.js script to your web application, a global `puter` 
 </html>
 ```
 
-This is all you need to use GPT-5 nano in your app. No backend code, no configuration, and no API keys. Just include the Puter.js script, and you're ready to start.
+</div>
+
+## Starter templates
+
+- [Angular](https://github.com/HeyPuter/angular)
+- [React](https://github.com/HeyPuter/react)
+- [Next.js](https://github.com/HeyPuter/next.js)
+- [Vue.js](https://github.com/HeyPuter/vue.js)
+- [Vanilla JS](https://github.com/HeyPuter/vanilla.js)
+- [Node.js + Express](https://github.com/HeyPuter/node.js-express.js)
 
 ## Where to Go From Here
 
