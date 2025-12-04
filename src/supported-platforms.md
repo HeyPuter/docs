@@ -18,13 +18,15 @@ You can use it across all kinds of web development technologies, from static HTM
 
 <div class="example-content" data-section="npm" style="display:block;">
 
-#### Installation via NPM
+### Installation via NPM
 
 ```plaintext
 npm install @heyputer/puter.js
 ```
 
-#### Importing Puter.js
+<br>
+
+### Importing Puter.js
 
 ```js
 // ESM
@@ -42,7 +44,7 @@ const puter = require("@heyputer/puter.js");
 
 <div class="example-content" data-section="cdn">
 
-#### Usage via CDN
+### Usage via CDN
 
 ```html;ai-chatgpt
 <html>
