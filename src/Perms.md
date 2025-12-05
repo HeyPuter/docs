@@ -128,7 +128,7 @@ When requesting permissions, users will be prompted to grant or deny access. If 
 These permission features are supported out of the box when using Puter.js:
 
 ### General Permissions
-- **[`puter.perms.requestPermission()`](/Perms/requestPermission/)** - Request a specific permission string
+- **[`puter.perms.request()`](/Perms/request/)** - Request a specific permission string
 
 ### User Data
 - **[`puter.perms.requestEmail()`](/Perms/requestEmail/)** - Request access to the user's email address

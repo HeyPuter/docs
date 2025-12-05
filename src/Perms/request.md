@@ -1,5 +1,5 @@
 ---
-title: puter.perms.requestPermission()
+title: puter.perms.request()
 description: Request a specific permission string to be granted.
 platforms: [apps]
 ---
@@ -9,7 +9,7 @@ Request a specific permission string to be granted. Note that some permission st
 ## Syntax
 
 ```js
-puter.perms.requestPermission(permission)
+puter.perms.request(permission)
 ```
 
 ## Parameters
@@ -38,7 +38,7 @@ A `Promise` that resolves to `true` if the permission was granted, or `false` ot
             const user = await puter.auth.getUser();
             const permission = `user:${user.uuid}:email:read`;
             
-            const granted = await puter.perms.requestPermission(permission);
+            const granted = await puter.perms.request(permission);
             if (granted) {
                 puter.print('Permission granted');
             } else {

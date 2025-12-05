@@ -217,12 +217,12 @@ let sidebar = [
         path: '/Perms',
         children: [
             {
-                title: '<code>requestPermission()</code>',
-                page_title: '<code>puter.perms.requestPermission()</code>',
-                title_tag: 'puter.perms.requestPermission()',
+                title: '<code>request()</code>',
+                page_title: '<code>puter.perms.request()</code>',
+                title_tag: 'puter.perms.request()',
                 icon:'/assets/img/function.svg',
-                source: '/Perms/requestPermission.md',
-                path: '/Perms/requestPermission',
+                source: '/Perms/request.md',
+                path: '/Perms/request',
             },
             {
                 title: '<code>requestEmail()</code>',
