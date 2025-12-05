@@ -1,4 +1,4 @@
-Puter.js brings free, serverless, Cloud and AI directly to your frontend JavaScript with no backend code or API keys required. Just include a single `<script>` tag in your HTML file and you can instantly use file storage, databases, Claude, GPT, Gemini, and more right from your frontend code.
+Puter.js brings free, serverless, Cloud and AI directly to your frontend JavaScript with no backend code or API keys required. Use the `@heyputer/puter.js` npm module or drop in a single `<script>` tag to instantly access file storage, databases, Claude, GPT, Gemini, and more right from your frontend code.
 
 <div class="browser-window">
     <div class="titlebar">

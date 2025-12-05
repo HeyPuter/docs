@@ -12,36 +12,21 @@ Use Puter.js in your websites to add powerful features like AI, databases, and c
 You can use it across all kinds of web development technologies, from static HTML sites and single-page applications (React, Vue, Angular) to full-stack frameworks like Next.js, Nuxt, and SvelteKit, or any JavaScript-based web application.
 
 <div style="overflow:hidden; margin-top: 30px;">
-    <div class="example-group active" data-section="cdn"><span>CDN (script tag)</span></div>
-    <div class="example-group" data-section="npm"><span>NPM module</span></div>
+    <div class="example-group active" data-section="npm"><span>NPM module</span></div>
+    <div class="example-group" data-section="cdn"><span>CDN (script tag)</span></div>
 </div>
 
-<div class="example-content" data-section="cdn" style="display:block;">
+<div class="example-content" data-section="npm" style="display:block;">
 
-#### Usage via CDN
+### Installation via NPM
 
-```html;ai-chatgpt
-<html>
-<body>
-    <script src="https://js.puter.com/v2/"></script>
-    <script>
-        puter.ai.chat(`What is life?`, { model: "gpt-5-nano" }).then(puter.print);
-    </script>
-</body>
-</html>
-```
-
-</div>
-
-<div class="example-content" data-section="npm">
-
-#### Installation via NPM
-
-```
+```plaintext
 npm install @heyputer/puter.js
 ```
 
-#### Importing Puter.js
+<br>
+
+### Importing Puter.js
 
 ```js
 // ESM
@@ -56,6 +41,31 @@ const puter = require("@heyputer/puter.js");
 ```
 
 </div>
+
+<div class="example-content" data-section="cdn">
+
+### Usage via CDN
+
+```html;ai-chatgpt
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        puter.ai.chat(`What is life?`, { model: "gpt-5-nano" }).then(puter.print);
+    </script>
+</body>
+</html>
+```
+
+</div>
+
+### Starter templates for web
+
+- [Angular](https://github.com/HeyPuter/angular)
+- [React](https://github.com/HeyPuter/react)
+- [Next.js](https://github.com/HeyPuter/next.js)
+- [Vue.js](https://github.com/HeyPuter/vue.js)
+- [Vanilla JS](https://github.com/HeyPuter/vanilla.js)
 
 ## **Puter Apps**
 
@@ -93,6 +103,8 @@ puter.ai.chat("What color was Napoleon's white horse?").then((response) => {
   puter.print(response);
 });
 ```
+
+Get started quickly with the [Node.js + Express template](https://github.com/HeyPuter/node.js-express.js).
 
 ## **Serverless Workers**
 
