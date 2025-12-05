@@ -5,7 +5,7 @@ description: Get started with Puter.js for building your applications. No backen
 
 ## Quick Start
 
-Choose the install method that fits your project. The npm module is recommended for modern build setups, while the script tag works for quick experiments.
+Choose the install method that fits your project. The NPM module is recommended for modern build setups, while the script tag works for quick experiments.
 
 <div style="overflow:hidden; margin-top: 30px;">
     <div class="example-group active" data-section="npm"><span>NPM module (recommended)</span></div>
