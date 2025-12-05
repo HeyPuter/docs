@@ -25,17 +25,9 @@ npm install @heyputer/puter.js
 #### Use in the browser
 
 ```js
-// ESM
 import { puter } from "@heyputer/puter.js";
-// or
-import puter from "@heyputer/puter.js";
 
-// CommonJS
-const { puter } = require("@heyputer/puter.js");
-// or
-const puter = require("@heyputer/puter.js");
-
-// Example
+// Example: Use AI to answer a question
 puter.ai.chat(`Why did the chicken cross the road?`).then(console.log);
 ```
 
@@ -44,16 +36,11 @@ puter.ai.chat(`Why did the chicken cross the road?`).then(console.log);
 #### Use in Node.js
 
 ```js
-// CJS
-const { init } = require("@heyputer/puter.js/src/init.cjs");
+import { init } from "@heyputer/puter.js/src/init.cjs";
 const puter = init(process.env.puterAuthToken);
 
-// Example
+// Example: Use AI to answer a question
 puter.ai.chat("What color was Napoleon's white horse?").then(console.log);
-
-// ESM
-import { init } from "@heyputer/puter.js/src/init.cjs";
-const puterEsm = init(process.env.puterAuthToken);
 ```
 
 </div>
