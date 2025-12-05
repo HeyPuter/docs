@@ -12,7 +12,7 @@ Use Puter.js in your websites to add powerful features like AI, databases, and c
 You can use it across all kinds of web development technologies, from static HTML sites and single-page applications (React, Vue, Angular) to full-stack frameworks like Next.js, Nuxt, and SvelteKit, or any JavaScript-based web application.
 
 <div style="overflow:hidden; margin-top: 30px;">
-    <div class="example-group active" data-section="npm"><span>NPM module (recommended)</span></div>
+    <div class="example-group active" data-section="npm"><span>NPM module</span></div>
     <div class="example-group" data-section="cdn"><span>CDN (script tag)</span></div>
 </div>
 
