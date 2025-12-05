@@ -5,7 +5,7 @@ description: Get started with Puter.js for building your applications. No backen
 
 ## Quick Start
 
-Choose the install method that fits your project.
+Install Puter.js using NPM or include it directly via CDN.
 
 <div style="overflow:hidden; margin-top: 30px;">
     <div class="example-group active" data-section="npm"><span>NPM module</span></div>
