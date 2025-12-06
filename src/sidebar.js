@@ -24,6 +24,11 @@ let sidebar = [
                 path: '/user-pays-model',
             },
             {
+                title: 'Framework Integrations',
+                source: '/frameworks.md',
+                path: '/frameworks',
+            },
+            {
                 title: 'Examples',
                 source: '/examples.md',
                 path: '/examples',
