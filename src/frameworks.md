@@ -110,7 +110,7 @@ Check out our [Angular template](https://github.com/HeyPuter/angular) for a comp
 
 With Vue.js, import Puter.js and call it from your component functions.
 
-```
+```javascript
 <!-- MyComponent.vue -->
 <script setup>
 import puter from "@heyputer/puter.js";
@@ -131,7 +131,7 @@ Check out our [Vue.js template](https://github.com/HeyPuter/vue.js) for a comple
 
 With Svelte, import Puter.js and call it from your component functions.
 
-```
+```typescript
 <!-- MyComponent.svelte -->
 <script>
 import puter from "@heyputer/puter.js";
