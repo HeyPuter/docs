@@ -19,6 +19,26 @@ puter.ai.chat("hello world");
 
 Here are examples for some popular frameworks:
 
+<h2 id="react"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 512 512"><circle cx="256" cy="256" r="36" fill="#61dafb"/><path fill="#61dafb" d="M256 144c-74.4 0-138.6 16.5-176.3 41.5C42.4 210.5 16 243.2 16 256s26.4 45.5 63.7 70.5C117.4 351.5 181.6 368 256 368s138.6-16.5 176.3-41.5c37.3-25 63.7-57.7 63.7-70.5s-26.4-45.5-63.7-70.5C394.6 160.5 330.4 144 256 144zm0 192c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80z" opacity="0"/><ellipse cx="256" cy="256" rx="220" ry="70" fill="none" stroke="#61dafb" stroke-width="16"/><ellipse cx="256" cy="256" rx="220" ry="70" fill="none" stroke="#61dafb" stroke-width="16" transform="rotate(60 256 256)"/><ellipse cx="256" cy="256" rx="220" ry="70" fill="none" stroke="#61dafb" stroke-width="16" transform="rotate(120 256 256)"/></svg>React</h2>
+
+With React, import Puter.js and use it in your component.
+
+```jsx
+// MyComponent.jsx
+import { useEffect } from "react";
+import puter from "@heyputer/puter.js";
+
+export function MyComponent() {
+    ...
+    useEffect(() => {
+        puter.ai.chat("hello");
+    }, [])
+    ...
+}
+```
+
+Check out our [React template](https://github.com/HeyPuter/react) for a complete example.
+
 <h2 id="nextjs"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 180 180"><mask id="a" width="180" height="180" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><circle cx="90" cy="90" r="90" fill="#000"/></mask><g mask="url(#a)"><circle cx="90" cy="90" r="90" fill="#000"/><path fill="url(#b)" d="M149.508 157.52L69.142 54H54v71.97h12.114V69.384l73.885 95.461a90.304 90.304 0 009.509-7.325z"/><path fill="url(#c)" d="M115 54h12v72h-12z"/></g><defs><linearGradient id="b" x1="109" x2="144.5" y1="116.5" y2="160.5" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="c" x1="121" x2="120.799" y1="54" y2="106.875" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs></svg>Next.js</h2>
 
 With Next.js, add the `"use client"` directive at the top of your component file since Puter.js requires browser APIs.
@@ -47,42 +67,6 @@ For Next.js version 15 or earlier, you need to enable Turbopack for Puter.js to 
 Learn how to enable Turbopack here: <https://nextjs.org/docs/15/app/api-reference/turbopack>
 
 </div>
-
-<h2 id="astro"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 128 128"><path fill="#ff5d01" d="M81.504 9.465c.973 1.207 1.469 2.836 2.457 6.09l21.656 71.136a90.079 90.079 0 0 0-25.89-8.765L65.629 30.28a1.833 1.833 0 0 0-3.52.004L48.18 77.902a90.104 90.104 0 0 0-26.003 8.778l21.758-71.14c.996-3.25 1.492-4.876 2.464-6.083a8.023 8.023 0 0 1 3.243-2.398c1.433-.575 3.136-.575 6.535-.575H71.72c3.402 0 5.105 0 6.543.579a7.988 7.988 0 0 1 3.242 2.402z"/><path fill="#ff5d01" d="M84.094 90.074c-3.57 3.054-10.696 5.136-18.903 5.136-10.07 0-18.515-3.137-20.754-7.356-.8 2.418-.98 5.184-.98 6.954 0 0-.527 8.675 5.508 14.71a5.671 5.671 0 0 1 5.672-5.671c5.37 0 5.367 4.683 5.363 8.488v.336c0 5.773 3.527 10.719 8.543 12.805a11.62 11.62 0 0 1-1.172-5.098c0-5.508 3.23-7.555 6.988-9.938 2.989-1.894 6.309-4 8.594-8.222a15.513 15.513 0 0 0 1.875-7.41 15.55 15.55 0 0 0-.734-4.735z"/></svg>Astro</h2>
-
-With Astro, import Puter.js in any client-side script tag.
-
-```html
-<!-- Page.astro -->
-...
-<script>
-    import puter from "@heyputer/puter.js";
-    puter.ai.chat("hello");
-</script>
-...
-```
-
-Check out our [Astro template](https://github.com/HeyPuter/astro) for a complete example.
-
-<h2 id="react"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 512 512"><circle cx="256" cy="256" r="36" fill="#61dafb"/><path fill="#61dafb" d="M256 144c-74.4 0-138.6 16.5-176.3 41.5C42.4 210.5 16 243.2 16 256s26.4 45.5 63.7 70.5C117.4 351.5 181.6 368 256 368s138.6-16.5 176.3-41.5c37.3-25 63.7-57.7 63.7-70.5s-26.4-45.5-63.7-70.5C394.6 160.5 330.4 144 256 144zm0 192c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80z" opacity="0"/><ellipse cx="256" cy="256" rx="220" ry="70" fill="none" stroke="#61dafb" stroke-width="16"/><ellipse cx="256" cy="256" rx="220" ry="70" fill="none" stroke="#61dafb" stroke-width="16" transform="rotate(60 256 256)"/><ellipse cx="256" cy="256" rx="220" ry="70" fill="none" stroke="#61dafb" stroke-width="16" transform="rotate(120 256 256)"/></svg>React</h2>
-
-With React, import Puter.js and use it in your component.
-
-```jsx
-// MyComponent.jsx
-import { useEffect } from "react";
-import puter from "@heyputer/puter.js";
-
-export function MyComponent() {
-    ...
-    useEffect(() => {
-        puter.ai.chat("hello");
-    }, [])
-    ...
-}
-```
-
-Check out our [React template](https://github.com/HeyPuter/react) for a complete example.
 
 <h2 id="angular"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 640 640"><path fill="#dd0031" d="M281.7 332.1L357.9 332.1L319.8 240.5L281.7 332.1zM319.8 96L112 170.4L143.8 446.1L319.8 544L495.8 446.1L527.6 170.4L319.8 96zM450 437.8L401.4 437.8L375.2 372.4L264.6 372.4L238.4 437.8L189.7 437.8L319.8 145.5L450 437.8z"/></svg>Angular</h2>
 
@@ -145,6 +129,22 @@ function handleClick() {
 ```
 
 Check out our [Svelte template](https://github.com/HeyPuter/svelte) for a complete example.
+
+<h2 id="astro"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 128 128"><path fill="#ff5d01" d="M81.504 9.465c.973 1.207 1.469 2.836 2.457 6.09l21.656 71.136a90.079 90.079 0 0 0-25.89-8.765L65.629 30.28a1.833 1.833 0 0 0-3.52.004L48.18 77.902a90.104 90.104 0 0 0-26.003 8.778l21.758-71.14c.996-3.25 1.492-4.876 2.464-6.083a8.023 8.023 0 0 1 3.243-2.398c1.433-.575 3.136-.575 6.535-.575H71.72c3.402 0 5.105 0 6.543.579a7.988 7.988 0 0 1 3.242 2.402z"/><path fill="#ff5d01" d="M84.094 90.074c-3.57 3.054-10.696 5.136-18.903 5.136-10.07 0-18.515-3.137-20.754-7.356-.8 2.418-.98 5.184-.98 6.954 0 0-.527 8.675 5.508 14.71a5.671 5.671 0 0 1 5.672-5.671c5.37 0 5.367 4.683 5.363 8.488v.336c0 5.773 3.527 10.719 8.543 12.805a11.62 11.62 0 0 1-1.172-5.098c0-5.508 3.23-7.555 6.988-9.938 2.989-1.894 6.309-4 8.594-8.222a15.513 15.513 0 0 0 1.875-7.41 15.55 15.55 0 0 0-.734-4.735z"/></svg>Astro</h2>
+
+With Astro, import Puter.js in any client-side script tag.
+
+```html
+<!-- Page.astro -->
+...
+<script>
+    import puter from "@heyputer/puter.js";
+    puter.ai.chat("hello");
+</script>
+...
+```
+
+Check out our [Astro template](https://github.com/HeyPuter/astro) for a complete example.
 
 ## Other Frameworks
 
