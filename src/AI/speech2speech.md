@@ -18,6 +18,7 @@ puter.ai.speech2speech(source, testMode)
 ## Parameters
 
 #### `source` (String | File | Blob) (required unless provided in options)
+
 Audio to convert. Accepts:
 
 - A Puter path such as `~/recordings/line-read.wav`
@@ -26,23 +27,26 @@ Audio to convert. Accepts:
 - A remote HTTPS URL
 
 #### `options` (Object) (optional)
+
 Fine-tune the conversion:
 
-- `audio` / `file` (String | File | Blob): Alternate way to provide the source input.
-- `voice` / `voiceId` / `voice_id` (String): Target ElevenLabs voice ID. Defaults to the configured ElevenLabs voice (Rachel sample if unset).
-- `model` / `modelId` / `model_id` (String): Voice-changer model. Defaults to `eleven_multilingual_sts_v2`. You can also use `eleven_english_sts_v2` for English-only inputs.
-- `output_format` / `outputFormat` (String): Desired output codec and bitrate, e.g. `mp3_44100_128`, `opus_48000_64`, or `pcm_48000`. Defaults to `mp3_44100_128`.
-- `voice_settings` / `voiceSettings` (Object|String): ElevenLabs voice settings payload (e.g. `{"stability":0.5,"similarity_boost":0.75}`).
+- `audio` (String | File | Blob): Alternate way to provide the source input.
+- `voice` (String): Target ElevenLabs voice ID. Defaults to the configured ElevenLabs voice (Rachel sample if unset).
+- `model` (String): Voice-changer model. Defaults to `eleven_multilingual_sts_v2`. You can also use `eleven_english_sts_v2` for English-only inputs.
+- `output_format` (String): Desired output codec and bitrate, e.g. `mp3_44100_128`, `opus_48000_64`, or `pcm_48000`. Defaults to `mp3_44100_128`.
+- `voice_settings` (Object|String): ElevenLabs voice settings payload (e.g. `{"stability":0.5,"similarity_boost":0.75}`).
 - `seed` (Number): Randomization seed for deterministic outputs.
-- `remove_background_noise` / `removeBackgroundNoise` (Boolean): Apply background noise removal.
-- `file_format` / `fileFormat` (String): Input file format hint (e.g. `pcm_s16le_16`) for raw PCM streams.
-- `optimize_streaming_latency` / `optimizeStreamingLatency` (Number): Latency optimization level (0–4) forwarded to ElevenLabs.
-- `enable_logging` / `enableLogging` (Boolean): Forwarded to ElevenLabs to toggle zero-retention logging behavior.
+- `remove_background_noise` (Boolean): Apply background noise removal.
+- `file_format` (String): Input file format hint (e.g. `pcm_s16le_16`) for raw PCM streams.
+- `optimize_streaming_latency` (Number): Latency optimization level (0–4) forwarded to ElevenLabs.
+- `enable_logging` (Boolean): Forwarded to ElevenLabs to toggle zero-retention logging behavior.
 
 #### `testMode` (Boolean) (optional)
+
 When `true`, skips the live API call and returns a sample audio clip so you can build UI without spending credits.
 
 ## Return value
+
 A `Promise` that resolves to an `HTMLAudioElement`. Call `audio.play()` or use the element’s `src` URL to work with the generated voice clip.
 
 ## Examples

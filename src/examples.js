@@ -186,6 +186,18 @@ const examples = [
                 description: 'Generate videos with custom options using Puter.js AI API. Run and experiment with advanced text-to-video parameters in the playground.',
                 slug: 'ai-txt2vid-options',
                 source: '/playground/examples/ai-txt2vid-options.html'
+            },
+            {
+                title: 'List AI models',
+                description: 'Retrieve the available AI chat models (and providers) in Puter.js. Try out this example directly in the playground.',
+                slug: 'ai-list-models',
+                source: '/playground/examples/ai-list-models.html'
+            },
+            {
+                title: 'List AI model providers',
+                description: 'Retrieve the available AI providers that Puter currently exposes. Try out this example directly in the playground.',
+                slug: 'ai-list-model-providers',
+                source: '/playground/examples/ai-list-model-providers.html'
             }
         ]
     },

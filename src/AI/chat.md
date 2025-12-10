@@ -43,7 +43,7 @@ An object containing the following properties:
 
 A boolean indicating whether you want to use the test API. Defaults to `false`. This is useful for testing your code without using up API credits.
 
-#### `imageURL` (String)
+#### `imageURL` (String | File)
 
 A string containing the URL of an image you want to provide as context for the completion. Also known as "GPT Vision".
 

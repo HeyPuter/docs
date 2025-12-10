@@ -9,12 +9,14 @@ Returns the AI chat/completion models that are currently available to your app. 
 ## Syntax
 
 ```js
-puter.ai.listModels()
+puter.ai.listModels(provider = null)
 ```
 
 ## Parameters
 
-None.
+#### `provider` (String) (Optional)
+
+A string containing the provider you want to list the models for.
 
 ## Return value
 
@@ -43,7 +45,7 @@ Example model entry:
 
 ## Examples
 
-```html
+```html;ai-list-models
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
