@@ -11,6 +11,7 @@ Given a prompt, generate an image using AI.
 ```js
 puter.ai.txt2img(prompt, testMode = false)
 puter.ai.txt2img(prompt, options = {})
+puter.ai.txt2img({prompt, ...options})
 ```
 
 ## Parameters
@@ -25,12 +26,63 @@ A boolean indicating whether you want to use the test API. Defaults to `false`. 
 
 #### `options` (Object) (Optional)
 
-An options object with the following properties:
+Additional settings for the generation request. Available options depend on the provider.
 
-- `model` (String) (Optional) - The AI model to use for image generation, it can be `gpt-image-1`, `gpt-image-1-mini`, `gemini-2.5-flash-image-preview` (also known as Nano Banana), or `dall-e-3`. Defaults to `gpt-image-1-mini`.
-- `quality` (String) (Optional) - The quality of the generated image. For `gpt-image-1` and `gpt-image-1-mini`, it can be `high`, `medium` or `low`. Defaults to `low`. There is no quality setting for `gemini-2.5-flash-image-preview`. For `dall-e-3`, it can be `hd` or `standard`. Defaults to `standard`.
-- `input_image` (String) (Optional) (Only works with `gemini-2.5-flash-image-preview`) - Base64 encoded input image for image-to-image generation.
-- `input_image_mime_type` (String) (Optional) (Only if `input_image` is set) - The MIME type of the input image. Could be `image/png`, `image/jpeg`, `image/jpg`, or `image/webp`.
+| Option | Type | Description |
+|--------|------|-------------|
+| `prompt` | `String` | Text description for the image generation |
+| `provider` | `String` | The AI provider to use. `'openai-image-generation' (default) \| 'gemini' \| 'together'` |
+| `model` | `String` | Image model to use (provider-specific). Defaults to `'gpt-image-1-mini'` |
+| `test_mode` | `Boolean` | When `true`, returns a sample image without using credits |
+
+#### OpenAI Options
+
+Available when `provider: 'openai-image-generation'` or inferred from model (`gpt-image-1`, `gpt-image-1-mini`, `dall-e-3`):
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `model` | `String` | Image model to use. Available: `'gpt-image-1'`, `'gpt-image-1-mini'`, `'dall-e-3'` |
+| `quality` | `String` | Image quality. For GPT models: `'high'`, `'medium'`, `'low'` (default: `'low'`). For DALL-E 3: `'hd'`, `'standard'` (default: `'standard'`) |
+| `ratio` | `Object` | Aspect ratio with `w` and `h` properties |
+
+For more details, see the [OpenAI API reference](https://platform.openai.com/docs/api-reference/images/create).
+
+#### Gemini Options
+
+Available when `provider: 'gemini'` or inferred from model (`gemini-2.5-flash-image-preview`, `gemini-3-pro-image-preview`):
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `model` | `String` | Image model to use. |
+| `ratio` | `Object` | Currently only `{ w: 1024, h: 1024 }` is supported |
+| `input_image` | `String` | Base64 encoded input image for image-to-image generation |
+| `input_image_mime_type` | `String` | MIME type of the input image. Options: `'image/png'`, `'image/jpeg'`, `'image/jpg'`, `'image/webp'` |
+
+#### Together Options
+
+Available when `provider: 'together'` or inferred from model:
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `model` | `String` | The model to use for image generation. |
+| `width` | `Number` | Width of the image to generate in number of pixels. Default: `1024` |
+| `height` | `Number` | Height of the image to generate in number of pixels. Default: `1024` |
+| `aspect_ratio` | `String` | Alternative way to specify aspect ratio |
+| `steps` | `Number` | Number of generation steps. Default: `20` |
+| `seed` | `Number` | Seed used for generation. Can be used to reproduce image generations |
+| `negative_prompt` | `String` | The prompt or prompts not to guide the image generation |
+| `n` | `Number` | Number of image results to generate. Default: `1` |
+| `image_url` | `String` | URL of an image to use for image models that support it |
+| `image_base64` | `String` | Base64 encoded input image for image-to-image generation |
+| `mask_image_url` | `String` | URL of mask image for inpainting |
+| `mask_image_base64` | `String` | Base64 encoded mask image for inpainting |
+| `prompt_strength` | `Number` | How strongly the prompt influences the output |
+| `disable_safety_checker` | `Boolean` | If `true`, disables the safety checker for image generation |
+| `response_format` | `String` | Format of the image response. Can be either a base64 string or a URL. Options: `'base64'`, `'url'` |
+
+For more details, see the [Together AI API reference](https://docs.together.ai/reference/post-images-generations).
+
+Any properties not set fall back to provider defaults.
 
 ## Return value
 
