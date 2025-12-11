@@ -12,7 +12,7 @@ Given a prompt returns the completion that best matches the prompt.
 puter.ai.chat(prompt)
 puter.ai.chat(prompt, options = {})
 puter.ai.chat(prompt, testMode = false, options = {})
-puter.ai.chat(prompt, imageURL, testMode = false, options = {})
+puter.ai.chat(prompt, image, testMode = false, options = {})
 puter.ai.chat(prompt, [imageURLArray], testMode = false, options = {})
 puter.ai.chat([messages], testMode = false, options = {})
 ```
@@ -43,9 +43,9 @@ An object containing the following properties:
 
 A boolean indicating whether you want to use the test API. Defaults to `false`. This is useful for testing your code without using up API credits.
 
-#### `imageURL` (String | File)
+#### `image` (String | File)
 
-A string containing the URL of an image you want to provide as context for the completion. Also known as "GPT Vision".
+A string containing the URL or Puter path of the image, or a `File` object containing the image you want to provide as context for the completion.
 
 #### `imageURLArray` (Array)
 
