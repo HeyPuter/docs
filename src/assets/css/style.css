@@ -165,13 +165,19 @@ pre>code.hljs {
 	font-size: 15px;
 }
 
-.docs-content p code, .docs-content h4 code {
+.docs-content p code, .docs-content h4 code, .docs-content table code {
 	border-radius: 5px;
 	padding: 1px 6px;
 	margin: 0 1px;
 	background: #ecedf4;
 	font-weight: 400;
 	color: #353441;
+}
+
+.docs-content table code{
+	background: none;
+	padding: 0;
+	font-weight: 500;
 }
 
 .docs-content h4 code {
@@ -207,7 +213,7 @@ ul code {
 	font-size: 14px;
 }
 
-.docs-content table thead, .docs-content table tr:first-child {
+.docs-content table thead{
 	background: #f5f6fb;
 }
 
@@ -217,13 +223,12 @@ ul code {
 	border: 1px solid #e2e4ef;
 	text-align: left;
 }
-
+/* 
 .docs-content table tbody tr:nth-child(even) {
 	background: #fbfbfe;
-}
+} */
 
-.dark-mode .docs-content table thead,
-.dark-mode .docs-content table tr:first-child {
+.dark-mode .docs-content table thead{
 	background: rgba(255,255,255,0.05);
 }
 
