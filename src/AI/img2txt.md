@@ -4,7 +4,7 @@ description: Extract text from images using OCR to read printed text, handwritin
 platforms: [websites, apps, nodejs, workers]
 ---
 
-Given an image will return the text contained in the image. Also known as OCR (Optical Character Recognition), this API can be used to extract text from images of printed text, handwriting, or any other text-based content. You can choose between AWS Textract (default) or Mistral’s OCR service when you need multilingual or richer annotation output.
+Given an image, returns the text contained in the image. Also known as OCR (Optical Character Recognition), this API can be used to extract text from images of printed text, handwriting, or any other text-based content. You can choose between AWS Textract (default) or Mistral’s OCR service when you need multilingual or richer annotation output.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ puter.ai.img2txt({ source: image, ...options })
 
 #### `image` / `source` (String|File|Blob) (required)
 
-A string containing the URL or Puter path of the image you want to recognize, or a `File`/`Blob` object containing the image. When calling with an options object, pass it as `{ source: ... }`.
+A string containing the URL or Puter path, or a `File`/`Blob` object containing the source image or file. When calling with an options object, pass it as `{ source: ... }`.
 
 #### `testMode` (Boolean) (Optional)
 
@@ -26,16 +26,41 @@ A boolean indicating whether you want to use the test API. Defaults to `false`. 
 
 #### `options` (Object) (Optional)
 
-An options object with the following properties:
+Additional settings for the OCR request. Available options depend on the provider.
 
-- `provider` (String) (Optional) - Choose the OCR backend. Can be `aws-textract` or `mistral`. Defaults to `aws-textract`.
-- `model` (String) (Optional) - Mistral OCR model to use. Defaults to `mistral-ocr-latest`.
-- `pages` (Array) (Optional) - Limit processing to specific page numbers (multi-page PDFs).
-- `includeImageBase64` (Boolean) (Optional) - Mistral-only: requests the base64 of cropped regions in the response.
-- `imageLimit` (Number) (Optional) - Control how many images are analyzed per document (Mistral).
-- `imageMinSize` (Number) (Optional) - Set minimum size for images to be analyzed (Mistral).
-- `bboxAnnotationFormat` (String) (Optional) - Mistral: format for bounding-box annotations (e.g., `yolo`, `xyxy`).
-- `documentAnnotationFormat` (String) (Optional) - Mistral: request document-level annotations/markdown variants.
+| Option | Type | Description |
+|--------|------|-------------|
+| `provider` | `String` | The OCR backend to use. `'aws-textract'` (default) \| `'mistral'` |
+| `model` | `String` | OCR model to use (provider-specific) |
+| `testMode` | `Boolean` | When `true`, returns a sample response without using credits. Defaults to `false` |
+
+#### AWS Textract Options
+
+Available when `provider: 'aws-textract'` (default):
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `pages` | `Array<Number>` | Limit processing to specific page numbers (multi-page PDFs) |
+
+For more details about each option, see the [AWS Textract documentation](https://docs.aws.amazon.com/textract/latest/dg/what-is.html).
+
+#### Mistral Options
+
+Available when `provider: 'mistral'`:
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `model` | `String` | Mistral OCR model to use |
+| `pages` | `Array<Number>` | Specific pages to process. Starts from 0 |
+| `includeImageBase64` | `Boolean` | Include image URLs in response |
+| `imageLimit` | `Number` | Max images to extract |
+| `imageMinSize` | `Number` | Minimum height and width of image to extract |
+| `bboxAnnotationFormat` | `String` | Specify the format that the model must output for bounding-box annotations |
+| `documentAnnotationFormat` | `String` | Specify the format that the model must output for document-level annotations |
+
+For more details about each option, see the [Mistral OCR documentation](https://docs.mistral.ai/api/endpoint/ocr).
+
+Any properties not set fall back to provider defaults.
 
 ## Return value
 
