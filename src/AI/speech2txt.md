@@ -9,15 +9,15 @@ Converts spoken audio into text with optional English translation and diarizatio
 ## Syntax
 
 ```js
-puter.ai.speech2txt(source)
-puter.ai.speech2txt(source, options)
-puter.ai.speech2txt(options)
-puter.ai.speech2txt(source, testMode)
+puter.ai.speech2txt(source, testMode = false)
+puter.ai.speech2txt(source, options, testMode = false)
+puter.ai.speech2txt({ audio: source, ...options })
 ```
 
 ## Parameters
 
 #### `source` (String | File | Blob) (required unless provided in options)
+
 Audio to transcribe. Accepts:
 
 - A Puter path such as `~/Desktop/meeting.mp3`
@@ -28,6 +28,7 @@ Audio to transcribe. Accepts:
 When you omit `source`, supply `options.file` or `options.audio` instead.
 
 #### `options` (Object) (optional)
+
 Fine-tune how transcription runs.
 
 - `file` / `audio` (String | File | Blob): Alternative way to pass the audio input.
@@ -43,11 +44,14 @@ Fine-tune how transcription runs.
 - `known_speaker_names` / `known_speaker_references` (Array): Optional diarization references encoded as data URLs.
 - `extra_body` (Object): Forwarded verbatim to the OpenAI API for experimental flags.
 - `stream` (Boolean): Reserved for future streaming support. Currently rejected when `true`.
+- `test_mode` (Boolean): When `true`, returns a sample response without using credits. Defaults to `false`.
 
 #### `testMode` (Boolean) (optional)
+
 When `true`, skips the live API call and returns a static sample transcript so you can develop without consuming credits.
 
 ## Return value
+
 Returns a `Promise` that resolves to either:
 
 - A string (when `response_format: "text"` or you pass a shorthand `source` with no options), or
