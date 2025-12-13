@@ -38,6 +38,8 @@ An object containing the following properties:
     - `description` (String) - A description of what the function does
     - `parameters` (Object) - JSON Schema object describing the parameters
     - `strict` (Boolean) - Whether to enforce strict parameter validation
+- `reasoning_effort` / `reasoning.effort` (String) (Optional) - Controls how much effort reasoning models spend thinking. Supported values: `none`, `minimal`, `low`, `medium`, `high`, and `xhigh`. Lower values give faster responses with less reasoning. OpenAI models only.
+- `text` / `text_verbosity` (String) (Optional) - Controls how long or short responses are. Supported values: `low`, `medium`, and `high`. Lower values give shorter responses. OpenAI models only.
 
 #### `testMode` (Boolean) (Optional)
 
