@@ -9,10 +9,9 @@ Convert an existing recording into another voice while preserving timing, pacing
 ## Syntax
 
 ```js
-puter.ai.speech2speech(source)
-puter.ai.speech2speech(source, options)
-puter.ai.speech2speech(options)
-puter.ai.speech2speech(source, testMode)
+puter.ai.speech2speech(source, testMode = false)
+puter.ai.speech2speech(source, options, testMode = false)
+puter.ai.speech2speech({ audio: source, ...options })
 ```
 
 ## Parameters
@@ -40,6 +39,7 @@ Fine-tune the conversion:
 - `file_format` (String): Input file format hint (e.g. `pcm_s16le_16`) for raw PCM streams.
 - `optimize_streaming_latency` (Number): Latency optimization level (0–4) forwarded to ElevenLabs.
 - `enable_logging` (Boolean): Forwarded to ElevenLabs to toggle zero-retention logging behavior.
+- `test_mode` (Boolean): When `true`, returns a sample response without using credits. Defaults to `false`.
 
 #### `testMode` (Boolean) (optional)
 
