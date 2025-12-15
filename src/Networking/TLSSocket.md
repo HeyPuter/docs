@@ -28,40 +28,63 @@ A `TLSSocket` object.
 
 ## Methods
 
-#### `socket.on(event, callback)`
-
-Listen to an event from the socket. Possible events are:
-
-- `open` - The socket is open.
-- `data` - Data is received from the socket.
-- `error` - An error occurs on the socket.
-- `close` - The socket is closed.
-
 #### `socket.write(data)`
 
 Write data to the socket.
 
-### Parameters
+##### Parameters
 
-- `data` (String) The data to write to the socket.
+- `data` (`ArrayBuffer | Uint8Array | string`) The data to write to the socket.
+
+#### `socket.close()`
+
+Voluntarily close a TCP Socket.
+
+#### `socket.addListener(event, handler)`
+
+An alternative way to listen to socket events.
+
+##### Parameters
+
+- `event` (`SocketEvent`) The event name to listen for. One of: `"tlsopen"`, `"tlsdata"`, `"tlsclose"`, `"error"`.
+- `handler` (`Function`) The callback function to invoke when the event occurs. The callback parameters depend on the event type (see [Events](#events)).
 
 ## Events
 
-#### `socket.on("open", callback)`
+#### `socket.on("tlsopen", callback)`
 
-Fired when the socket is open.
+Fired when the socket is initialized and ready to send data.
 
-#### `socket.on("data", callback)`
+##### Parameters
 
-Fired when data is received from the socket.
+- `callback` (Function) The callback to fire when the socket is open.
+
+#### `socket.on("tlsdata", callback)`
+
+Fired when the remote server sends data over the created TCP Socket.
+
+##### Parameters
+
+- `callback` (Function) The callback to fire when data is received.
+  - `buffer` (`Uint8Array`) The data received from the socket.
+
+#### `socket.on("tlsclose", callback)`
+
+Fired when the socket is closed.
+
+##### Parameters
+
+- `callback` (Function) The callback to fire when the socket is closed.
+  - `hadError` (`boolean`) Indicates whether the socket was closed due to an error. If true, there was an error.
 
 #### `socket.on("error", callback)`
 
-Fired when an error occurs on the socket.
+Fired when the socket encounters an error. The close event is fired shortly after.
 
-#### `socket.on("close", callback)`
+##### Parameters
 
-Fired when the socket is closed.
+- `callback` (Function) The callback to fire when an error occurs.
+  - `reason` (`string`) A user readable error reason.
 
 The encryption is done by [rustls-wasm](https://github.com/MercuryWorkshop/rustls-wasm/).
 
@@ -75,17 +98,17 @@ The encryption is done by [rustls-wasm](https://github.com/MercuryWorkshop/rustl
     <script src="https://js.puter.com/v2/"></script>
     <script>
     const socket = new puter.net.tls.TLSSocket("example.com", 443);
-    socket.on("open", () => {
+    socket.on("tlsopen", () => {
         socket.write("GET / HTTP/1.1\r\nHost: example.com\r\n\r\n");
     })
     const decoder = new TextDecoder();
-    socket.on("data", (data) => {
+    socket.on("tlsdata", (data) => {
         puter.print(decoder.decode(data), { code: true });
     })
     socket.on("error", (reason) => {
         puter.print("Socket errored with the following reason: ", reason);
     })
-    socket.on("close", (hadError)=> {
+    socket.on("tlsclose", (hadError)=> {
         puter.print("Socket closed. Was there an error? ", hadError);
     })
     </script>

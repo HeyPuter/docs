@@ -81,17 +81,17 @@ The Puter.js Networking API lets you establish network connections directly from
     <script src="https://js.puter.com/v2/"></script>
     <script>
     const socket = new puter.net.tls.TLSSocket("example.com", 443);
-    socket.on("open", () => {
+    socket.on("tlsopen", () => {
         socket.write("GET / HTTP/1.1\r\nHost: example.com\r\n\r\n");
     })
     const decoder = new TextDecoder();
-    socket.on("data", (data) => {
+    socket.on("tlsdata", (data) => {
         puter.print(decoder.decode(data), { code: true });
     })
     socket.on("error", (reason) => {
         puter.print("Socket errored with the following reason: ", reason);
     })
-    socket.on("close", (hadError)=> {
+    socket.on("tlsclose", (hadError)=> {
         puter.print("Socket closed. Was there an error? ", hadError);
     })
     </script>
@@ -107,7 +107,7 @@ These networking features are supported out of the box when using Puter.js:
 
 - **[`puter.net.fetch()`](/Networking/fetch/)** - Make HTTP requests
 - **[`puter.net.Socket()`](/Networking/Socket/)** - Create TCP socket connections
-- **[`puter.net.TLSSocket()`](/Networking/TLSSocket/)** - Create secure TLS socket connections
+- **[`puter.net.tls.TLSSocket()`](/Networking/TLSSocket/)** - Create secure TLS socket connections
 
 ## Examples
 
