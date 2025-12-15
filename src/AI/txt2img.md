@@ -1,6 +1,6 @@
 ---
 title: puter.ai.txt2img()
-description: Generate images from text prompts using AI models like GPT Image, Nano Banana, and DALL-E 3.
+description: Generate images from text prompts using AI models like GPT Image, Nano Banana, DALL-E 3, or Grok Image.
 platforms: [websites, apps, nodejs, workers]
 ---
 
@@ -31,8 +31,8 @@ Additional settings for the generation request. Available options depend on the 
 | Option | Type | Description |
 |--------|------|-------------|
 | `prompt` | `String` | Text description for the image generation |
-| `provider` | `String` | The AI provider to use. `'openai-image-generation' (default) \| 'gemini' \| 'together'` |
-| `model` | `String` | Image model to use (provider-specific). Defaults to `'gpt-image-1-mini'` |
+| `provider` | `String` | The AI provider to use. `'openai-image-generation' (default) \| 'gemini' \| 'together' \| 'xai'` |
+| `model` | `String` | Image model to use (provider-specific). Defaults to `'gpt-image-1-mini'` (OpenAI) or `'grok-2-image'` when `provider: 'xai'` |
 | `test_mode` | `Boolean` | When `true`, returns a sample image without using credits |
 
 #### OpenAI Options
@@ -57,6 +57,15 @@ Available when `provider: 'gemini'` or inferred from model (`gemini-2.5-flash-im
 | `ratio` | `Object` | Currently only `{ w: 1024, h: 1024 }` is supported |
 | `input_image` | `String` | Base64 encoded input image for image-to-image generation |
 | `input_image_mime_type` | `String` | MIME type of the input image. Options: `'image/png'`, `'image/jpeg'`, `'image/jpg'`, `'image/webp'` |
+
+#### xAI (Grok) Options
+
+Available when `provider: 'xai'` or inferred from model (`grok-2-image`, alias `grok-image`):
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `model` | `String` | Image model to use. Available: `'grok-2-image'` (default) |
+| `prompt` | `String` | Text prompt for the image. Grok Image does not support quality/size overrides; pricing is $0.07 per generated image. |
 
 #### Together Options
 
