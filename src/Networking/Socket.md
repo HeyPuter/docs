@@ -32,13 +32,22 @@ A `Socket` object.
 
 Write data to the socket.
 
-### Parameters
+##### Parameters
 
 - `data` (`ArrayBuffer | Uint8Array | string`) The data to write to the socket.
 
 #### `socket.close()`
 
 Voluntarily close a TCP Socket.
+
+#### `socket.addListener(event, handler)`
+
+An alternative way to listen to socket events.
+
+##### Parameters
+
+- `event` (`SocketEvent`) The event name to listen for. One of: `"open"`, `"data"`, `"close"`, `"error"`.
+- `handler` (`Function`) The callback function to invoke when the event occurs. The callback parameters depend on the event type (see [Events](#events)).
 
 ## Events
 
@@ -59,15 +68,6 @@ Fired when the remote server sends data over the created TCP Socket.
 - `callback` (Function) The callback to fire when data is received.
   - `buffer` (`Uint8Array`) The data received from the socket.
 
-#### `socket.on("error", callback)`
-
-Fired when the socket encounters an error. The close event is fired shortly after.
-
-##### Parameters
-
-- `callback` (Function) The callback to fire when an error occurs.
-  - `reason` (`string`) A user readable error reason.
-
 #### `socket.on("close", callback)`
 
 Fired when the socket is closed.
@@ -76,6 +76,15 @@ Fired when the socket is closed.
 
 - `callback` (Function) The callback to fire when the socket is closed.
   - `hadError` (`boolean`) Indicates whether the socket was closed due to an error. If true, there was an error.
+
+#### `socket.on("error", callback)`
+
+Fired when the socket encounters an error. The close event is fired shortly after.
+
+##### Parameters
+
+- `callback` (Function) The callback to fire when an error occurs.
+  - `reason` (`string`) A user readable error reason.
 
 ## Examples
 
