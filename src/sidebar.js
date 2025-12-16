@@ -205,6 +205,14 @@ let sidebar = [
                 path: '/Auth/getUser',
             },
             {
+                title: '<code>whoami()</code>',
+                page_title: '<code>puter.auth.whoami()</code>',
+                title_tag: 'puter.auth.whoami()',
+                icon:'/assets/img/function.svg',
+                source: '/Auth/whoami.md',
+                path: '/Auth/whoami',
+            },
+            {
                 title: '<code>getMonthlyUsage()</code>',
                 page_title: '<code>puter.auth.getMonthlyUsage()</code>',
                 title_tag: 'puter.auth.getMonthlyUsage()',
