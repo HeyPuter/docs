@@ -10,6 +10,7 @@ Will create a new subdomain that will be served by the hosting service. Optional
 
 ```js
 puter.hosting.create(subdomain, dirPath)
+puter.hosting.create(subdomain)
 puter.hosting.create(options)
 ```
 
