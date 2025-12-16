@@ -29,7 +29,7 @@ A string containing the path to the directory you want to serve. If not specifie
 Alternative way to create hosting via options.
 
 - `subdomain` (String) - Name of the subdomain you want to create.
-- `root_dir` (String) (optional) - Path to the directory you want to serve, similar with `dirPath`.
+- `root_dir` (String) (optional) - Path to the directory you want to serve, similar to `dirPath`.
 
 ## Return value
 
