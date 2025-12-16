@@ -367,13 +367,13 @@ const examples = [
             },
             {
                 title: 'Expire',
-                description: 'Set a number of seconds before key expire. Run and experiment with this expire example in the playground.',
+                description: 'Set the time-to-live (TTL) in seconds for a key in the key-value store. Run and experiment with this expire example in the playground.',
                 slug: 'kv-expire',
                 source: '/playground/examples/kv-expire.html'
             },
             {
                 title: 'Expire At',
-                description: 'Set a time when the key should be removed from the key-value store. Run and experiment with this expire example in the playground.',
+                description: 'Set the expiration timestamp (in seconds) for a key in the key-value store. Run and experiment with this expire example in the playground.',
                 slug: 'kv-expireAt',
                 source: '/playground/examples/kv-expireAt.html'
             },

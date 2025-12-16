@@ -1,10 +1,10 @@
 ---
 title: puter.kv.expire()
-description: Set a number of seconds before a key is removed from the key-value store.
+description: Set the time-to-live (TTL) in seconds for a key in the key-value store.
 platforms: [websites, apps, nodejs, workers]
 ---
 
-Set a number of seconds before a key is removed from the key-value store.
+Set the time-to-live (TTL) in seconds for a key in the key-value store.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ A string containing the name of the key.
 
 #### `ttlSeconds` (Number) (required)
 
-The number of seconds before the key is removed from the key-value store.
+The number of seconds until the key is removed from the key-value store.
 
 ## Return value
 
-A `Promise` that will resolve to `true` when the number of seconds have been set.
+A `Promise` that will resolve to `true` when the expiration has been set.
 
 ## Examples
 
-<strong class="example-title">Retrieve the value of a key after expiry in 1 second</strong>
+<strong class="example-title">Retrieve the value of a key after a 1-second expiration</strong>
 
 ```html;kv-expire
 <html>

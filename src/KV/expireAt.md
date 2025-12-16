@@ -1,10 +1,10 @@
 ---
 title: puter.kv.expireAt()
-description: Set a time when the key should be removed from the key-value store.
+description: Set the expiration timestamp (in seconds) for a key in the key-value store.
 platforms: [websites, apps, nodejs, workers]
 ---
 
-Set a time when the key should be removed from the key-value store.
+Set the expiration timestamp (in seconds) for a key in the key-value store.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ A string containing the name of the key.
 
 #### `timestampSeconds` (Number) (required)
 
-The timestamp in seconds when the key should be removed from the key-value store.
+The Unix timestamp (in seconds) at which the key will be removed from the key-value store.
 
 ## Return value
 
@@ -28,7 +28,7 @@ A `Promise` that will resolve to `true` when the expiry time has been set.
 
 ## Examples
 
-<strong class="example-title">Retrieve the value of a key after expiry</strong>
+<strong class="example-title">Retrieve the value of a key after it expires</strong>
 
 ```html;kv-expireAt
 <html>

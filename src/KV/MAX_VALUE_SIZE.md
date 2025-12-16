@@ -1,10 +1,10 @@
 ---
 title: puter.kv.MAX_VALUE_SIZE
-description: Returns the max value size of the value-value store.
+description: Returns the maximum value size (in bytes) for the key-value store.
 platforms: [websites, apps, nodejs, workers]
 ---
 
-A property of the `puter.kv` object that returns the max value size in bytes of the key-value store.
+A property of the `puter.kv` object that returns the maximum value size (in bytes) for the key-value store.
 
 ## Syntax
 
