@@ -37,11 +37,11 @@ Additional settings for the generation request. Available options depend on the 
 
 #### OpenAI Options
 
-Available when `provider: 'openai-image-generation'` or inferred from model (`gpt-image-1`, `gpt-image-1-mini`, `dall-e-3`):
+Available when `provider: 'openai-image-generation'` or inferred from model (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`, `dall-e-3`):
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `model` | `String` | Image model to use. Available: `'gpt-image-1'`, `'gpt-image-1-mini'`, `'dall-e-3'` |
+| `model` | `String` | Image model to use. Available: `'gpt-image-1.5'`, `'gpt-image-1'`, `'gpt-image-1-mini'`, `'dall-e-3'` |
 | `quality` | `String` | Image quality. For GPT models: `'high'`, `'medium'`, `'low'` (default: `'low'`). For DALL-E 3: `'hd'`, `'standard'` (default: `'standard'`) |
 | `ratio` | `Object` | Aspect ratio with `w` and `h` properties |
 
