@@ -609,6 +609,38 @@ let sidebar = [
                 source: '/KV/flush.md',
                 path: '/KV/flush',
             },
+            {
+                title: '<code>expire()</code>',
+                page_title: '<code>puter.kv.expire()</code>',
+                title_tag: 'puter.kv.expire()',
+                icon:'/assets/img/function.svg',
+                source: '/KV/expire.md',
+                path: '/KV/expire',
+            },
+            {
+                title: '<code>expireAt()</code>',
+                page_title: '<code>puter.kv.expireAt()</code>',
+                title_tag: 'puter.kv.expireAt()',
+                icon:'/assets/img/function.svg',
+                source: '/KV/expireAt.md',
+                path: '/KV/expireAt',
+            },
+            {
+                title: '<code>MAX_KEY_SIZE</code>',
+                page_title: '<code>puter.kv.MAX_KEY_SIZE</code>',
+                title_tag: 'puter.kv.MAX_KEY_SIZE',
+                icon:'/assets/img/attr.svg',
+                source: '/KV/MAX_KEY_SIZE.md',
+                path: '/KV/MAX_KEY_SIZE',
+            },
+            {
+                title: '<code>MAX_VALUE_SIZE</code>',
+                page_title: '<code>puter.kv.MAX_VALUE_SIZE</code>',
+                title_tag: 'puter.kv.MAX_VALUE_SIZE',
+                icon:'/assets/img/attr.svg',
+                source: '/KV/MAX_VALUE_SIZE.md',
+                path: '/KV/MAX_VALUE_SIZE',
+            },
         ]
     },
     {

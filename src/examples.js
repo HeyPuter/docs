@@ -366,6 +366,18 @@ const examples = [
                 source: '/playground/examples/kv-flush.html'
             },
             {
+                title: 'Expire',
+                description: 'Set the time-to-live (TTL) in seconds for a key in the key-value store. Run and experiment with this expire example in the playground.',
+                slug: 'kv-expire',
+                source: '/playground/examples/kv-expire.html'
+            },
+            {
+                title: 'Expire At',
+                description: 'Set the expiration timestamp (in seconds) for a key in the key-value store. Run and experiment with this expire example in the playground.',
+                slug: 'kv-expireAt',
+                source: '/playground/examples/kv-expireAt.html'
+            },
+            {
                 title: "What's your name?",
                 description: 'Try a simple name storage app with Puter.js key-value API. Run and experiment with this interactive example in the playground.',
                 slug: 'kv-name',
