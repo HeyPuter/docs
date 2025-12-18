@@ -58,3 +58,47 @@ A number containing the number of users that have access to the app. If the `sta
 #### `metadata` (Object)
 
 An object containing custom metadata for the app. This can be used to store arbitrary key-value pairs associated with the app.
+
+#### `users()` (Async Iteratable)
+
+Iterates over all users of the apps. Each user is represented by an object which contains {username, user_uuid}.
+```js
+for await (const user of (await puter.apps.get("your-app-name")).users()) {
+    console.log(user)
+}
+```
+
+Prints: 
+```
+>>  {
+        "user": "user1",
+        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
+    }
+
+>>  {
+        "user": "user2",
+        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
+    }
+```
+
+#### `getUsers({limit?: number, offset?: number})` (Async Function)
+
+Retrieves list of users one page at a time as defined by limit and offset. Default limit is 100, default offset is 0. Return's an array of users represented by an object which contains {username, user_uuid}.
+
+```js
+const users = await (await puter.apps.get("your-app-name")).getUsers({limit: 2, offset: 0});
+```
+
+Returns: 
+```
+[
+    {
+        "user": "user1",
+        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
+    },
+    {
+        "user": "user2",
+        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
+    }
+]
+```
