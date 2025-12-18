@@ -1128,6 +1128,13 @@ let sidebar = [
                 path: '/Objects/monthlyusage',
             },
             {
+                title: '<code>SignInResult</code>',
+                title_tag: 'SignInResult',
+                icon:'/assets/img/object.svg',
+                source: '/Objects/signinresult.md',
+                path: '/Objects/signinresult',
+            },
+            {
                 title: '<code>Speech2TxtResult</code>',
                 title_tag: 'Speech2TxtResult',
                 icon:'/assets/img/object.svg',
