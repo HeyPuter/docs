@@ -27,14 +27,6 @@ A number value containing the user's free storage.
 
 A string containing the current active app.
 
-#### `feature_flags` (Object)
-
-An internal object containing feature flags.
-
-#### `hasDevAccountAccess` (Boolean)
-
-An internal boolean indicating dev account access.
-
 #### `is_temp` (Boolean)
 
 A boolean value indicating whether the user's account is temporary.
@@ -42,10 +34,6 @@ A boolean value indicating whether the user's account is temporary.
 #### `last_activity_ts` (Number)
 
 A number value indicating the user's last active timestamp.
-
-#### `otp` (Boolean)
-
-An internal boolean indicating OTP status.
 
 #### `paid_storage` (Number)
 
