@@ -1086,6 +1086,13 @@ let sidebar = [
                 path: '/Objects/app',
             },
             {
+                title: '<code>CreateAppResult</code>',
+                title_tag: 'CreateAppResult',
+                icon:'/assets/img/object.svg',
+                source: '/Objects/createappresult.md',
+                path: '/Objects/createappresult',
+            },
+            {
                 title: '<code>ChatResponse</code>',
                 title_tag: 'ChatResponse',
                 icon:'/assets/img/object.svg',

@@ -20,7 +20,7 @@ The name of the app to delete.
 
 ## Return value
 
-A `Promise` that will resolve to the [`App`](/Objects/app/) object that was deleted.
+A `Promise` that will resolve to an object `{ success: true }` indicating whether the deletion was successful.
 
 ## Examples
 

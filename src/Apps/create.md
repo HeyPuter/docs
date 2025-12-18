@@ -11,7 +11,6 @@ Creates a Puter app with the given name. The app will be created in the user's a
 ```js
 puter.apps.create(name, indexURL)
 puter.apps.create(name, indexURL, title)
-puter.apps.create(name, indexURL, title, description)
 puter.apps.create(options)
 ```
 
@@ -36,26 +35,24 @@ The URL of the app's index page. This URL must be accessible to the user. If thi
 
 The title of the app. If this parameter is not provided, the app will be created with `name` as its title.
 
-#### `description` (optional)
-
-The description of the app aimed at the end user.
-
 #### `options` (required)
 
 An object containing the options for the app to create. The object can contain the following properties:
 
-- `name` (required): The name of the app to create. This name must be unique to the user's apps. If an app with this name already exists, the promise will be rejected.
-- `indexURL` (required): The URL of the app's index page. This URL must be accessible to the user. If this parameter is not provided, the app will be created with no index page.
-- `title` (optional): The human-readable title of the app. If this parameter is not provided, the app will be created with `name` as its title.
-- `description` (optional): The description of the app aimed at the end user.
-- `icon` (optional): The new icon of the app.
-- `maximizeOnStart` (optional): Whether the app should be maximized when it is started. Defaults to `false`.
-- `filetypeAssociations` (optional): An array of strings representing the filetypes that the app can open. Defaults to `[]`. File extentions and MIME types are supported; For example, `[".txt", ".md", "application/pdf"]` would allow the app to open `.txt`, `.md`, and PDF files.
-- `dedupeName` (optional) - Whether to deduplicate the app name if it already exists. Defaults to `false`.
+- `name` (String) (required): The name of the app to create. This name must be unique to the user's apps. If an app with this name already exists, the promise will be rejected.
+- `indexURL` (String) (required): The URL of the app's index page. This URL must be accessible to the user. If this parameter is not provided, the app will be created with no index page.
+- `title` (String) (optional): The human-readable title of the app. If this parameter is not provided, the app will be created with `name` as its title.
+- `description` (String) (optional): The description of the app aimed at the end user.
+- `icon` (String) (optional): The new icon of the app.
+- `maximizeOnStart` (Boolean) (optional): Whether the app should be maximized when it is started. Defaults to `false`.
+- `filetypeAssociations` (Array<String>) (optional): An array of strings representing the filetypes that the app can open. Defaults to `[]`. File extentions and MIME types are supported; For example, `[".txt", ".md", "application/pdf"]` would allow the app to open `.txt`, `.md`, and PDF files.
+- `dedupeName` (Boolean) (optional) - Whether to deduplicate the app name if it already exists. Defaults to `false`.
+- `background` (Boolean) (optional) - Whether the app should run in the background. Defaults to `false`.
+- `metadata` (Object) (optional) - An object containing custom metadata for the app. This can be used to store arbitrary key-value pairs associated with the app.
 
 ## Return value
 
-A `Promise` that will resolve to the [`App`](/Objects/app/) object that was created.
+A `Promise` that will resolve to the [`CreateAppResult`](/Objects/createappresult/) object that was created.
 
 ## Examples
 

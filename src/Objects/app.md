@@ -54,3 +54,7 @@ A number containing the number of times the app has been opened. If the `stats_p
 #### `user_count` (Number)
 
 A number containing the number of users that have access to the app. If the `stats_period` option is set to a value other than `all`, this will be the number of users that have access to the app in that period.
+
+#### `metadata` (Object)
+
+An object containing custom metadata for the app. This can be used to store arbitrary key-value pairs associated with the app.
