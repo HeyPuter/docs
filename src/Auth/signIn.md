@@ -31,7 +31,7 @@ puter.auth.signIn(options)
 
 ## Return value
 
-A `Promise` that will resolve to `true` when the user has signed in. The promise will never reject.
+A `Promise` that will resolve to a [`SignInResult`](/Objects/signinresult/) object when the user has signed in.
 
 ## Example
 
