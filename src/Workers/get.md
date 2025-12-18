@@ -15,11 +15,12 @@ puter.workers.get(workerName)
 ## Parameters
 
 #### `workerName` (String)(Required)
+
 The name of the worker to get the information for.
 
 ## Return Value
 
-A `Promise` that resolves to the [`WorkerInfo`](/Objects/workerinfo) object containing the worker's information.
+A `Promise` that resolves to a [`WorkerInfo`](/Objects/workerinfo) object if the worker exists, or `undefined` otherwise.
 
 ## Examples
 
