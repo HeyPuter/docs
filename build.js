@@ -368,7 +368,7 @@ function generateDocsHTML(filePath, rootDir, page, isIndex = false) {
                         // playground link
                         html += `<a target="_blank" href="/playground/" class="download-prompt skip-insta-load" style="margin-top: 10px; font-size: 15px;"><svg style="margin-right: 10px; margin-bottom: -5px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flask-conical-icon lucide-flask-conical"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></svg>Open playground</a>`;
                         // download AI prompt
-                        html += `<a href="/prompt.md" class="download-prompt skip-insta-load" target="_blank"><img src="/assets/img/download.svg"><span style="display: inline-block; margin-top: 3px; font-size: 14px;">Download AI Prompt</span></a>`;
+                        html += `<a href="/llms.txt" class="download-prompt skip-insta-load" target="_blank"><img src="/assets/img/download.svg"><span style="display: inline-block; margin-top: 3px; font-size: 14px; font-family: monospace;">llms.txt</span></a>`;
                         // sections
                         sidebar.forEach(section => {
                             html += '<div class="section-title">';
@@ -746,14 +746,7 @@ const concatMarkdownFiles = (files, outputFile) => {
     let outputContent = '';
 
     const prompt = `
-IMPORTANT: This file contains the concatenated documentation for puter.js, a JavaScript SDK for the Puter Web OS. Use this documentation to answer questions about puter.js, its features, usage, and APIs. 
-WAIT FOR MY QUESTIONS BEFORE PROVIDING ANY INFORMATION. DO NOT SAY ANYTHING UNTIL I START ASKING QUESTIONS.
-
-
-
-
-
-
+IMPORTANT: This file contains the concatenated documentation for puter.js, a JavaScript SDK for the Puter Web OS. Use this documentation to answer questions about puter.js, its features, usage, and APIs.
 
 
 
@@ -848,8 +841,10 @@ const main = () => {
     const currentDir = process.cwd();
     const markdownFiles = getMarkdownFiles(currentDir + '/src');
     const outputFile = path.join(currentDir, 'dist', 'prompt.md');
+    const llmsFile = path.join(currentDir, 'dist', 'llms.txt');
 
     concatMarkdownFiles(markdownFiles, outputFile);
+    concatMarkdownFiles(markdownFiles, llmsFile);
     console.log(`Concatenated ${markdownFiles.length} markdown files into ${outputFile}`);
 
     generateSearchIndex();
