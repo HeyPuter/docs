@@ -10,16 +10,29 @@ Will create a new subdomain that will be served by the hosting service. Optional
 
 ```js
 puter.hosting.create(subdomain, dirPath)
+puter.hosting.create(subdomain)
+puter.hosting.create(options)
 ```
 
 ## Parameters
+
 #### `subdomain` (String) (required)
+
 A string containing the name of the subdomain you want to create.
 
 #### `dirPath` (String) (optional)
+
 A string containing the path to the directory you want to serve. If not specified, the subdomain will be created without a directory.
 
+#### `options` (Object) (optional)
+
+Alternative way to create hosting via options.
+
+- `subdomain` (String) - Name of the subdomain you want to create.
+- `root_dir` (String) (optional) - Path to the directory you want to serve, similar to `dirPath`.
+
 ## Return value
+
 A `Promise` that will resolve to a [`Subdomain`](/Objects/subdomain/) object when the subdomain has been created. If a subdomain with the given name already exists, the promise will be rejected with an error. If the path does not exist, the promise will be rejected with an error.
 
 ## Examples

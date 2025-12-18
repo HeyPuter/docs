@@ -10,6 +10,7 @@ Updates a subdomain to point to a new directory. If directory is not specified, 
 
 ```js
 puter.hosting.update(subdomain, dirPath)
+puter.hosting.update(subdomain)
 ```
 
 ## Parameters
