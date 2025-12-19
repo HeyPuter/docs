@@ -124,7 +124,7 @@ A `Promise` that resolves to an `HTMLImageElement`. The element’s `src` points
     <script>
         // Generate an image of a cat playing piano using a specific model and quality set to low
         puter.ai.txt2img("a cat playing the piano", {
-            model: "gpt-image-1",
+            model: "gpt-image-1.5",
             quality: "low"
         }).then((image)=>{
             document.body.appendChild(image);

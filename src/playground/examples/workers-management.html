@@ -129,7 +129,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🔄 Workers Management</h1>
+        <h1>Workers Management</h1>
         <p>Manage your serverless workers with the Puter.js Workers API.</p>
 
         <!-- Create Worker Section -->
@@ -159,14 +159,14 @@ router.get('/api/random', async (event) => {
     return { number: Math.floor(Math.random() * 1000) };
 });</textarea>
             </div>
-            <button onclick="createWorker()" class="success">🚀 Create Worker</button>
+            <button onclick="createWorker()" class="success">Create Worker</button>
             <div id="createOutput" class="output" style="display: none;"></div>
         </div>
 
         <!-- List Workers Section -->
         <div class="section">
             <h3>List All Workers</h3>
-            <button onclick="listWorkers()">📋 List Workers</button>
+            <button onclick="listWorkers()">List Workers</button>
             <div id="workersList" class="worker-list"></div>
         </div>
 
@@ -177,7 +177,7 @@ router.get('/api/random', async (event) => {
                 <label>Worker Name:</label>
                 <input type="text" id="getWorkerName" placeholder="worker-name">
             </div>
-            <button onclick="getWorkerUrl()">🔗 Get URL</button>
+            <button onclick="getWorkerUrl()">Get URL</button>
             <div id="getOutput" class="output" style="display: none;"></div>
         </div>
 
@@ -186,9 +186,9 @@ router.get('/api/random', async (event) => {
             <h3>Delete Worker</h3>
             <div>
                 <label>Worker Name:</label>
-                <input type="text" id="deleteWorkerName" placeholder="worker-name">
+                <input type="text" id="deleteWorkerName" placeholder="worker-name.puter.work">
             </div>
-            <button onclick="deleteWorker()" class="danger">🗑️ Delete Worker</button>
+            <button onclick="deleteWorker()" class="danger">Delete Worker</button>
             <div id="deleteOutput" class="output" style="display: none;"></div>
         </div>
 
@@ -199,11 +199,12 @@ router.get('/api/random', async (event) => {
                 <label>Worker URL:</label>
                 <input type="text" id="testWorkerUrl" placeholder="https://worker-name.puter.site">
             </div>
-            <button onclick="testWorker()">🧪 Test Worker</button>
+            <button onclick="testWorker()">Test Worker</button>
             <div id="testOutput" class="output" style="display: none;"></div>
         </div>
     </div>
 
+    <script src="https://js.puter.com/v2/"></script>
     <script>
         let currentWorkers = {};
 
@@ -226,13 +227,13 @@ router.get('/api/random', async (event) => {
                 // Create the worker using the file path
                 const result = await puter.workers.create(name, fileName);
                 
-                showOutput(output, `✅ Worker created successfully!\n\nURL: ${result.url}\n\nYou can now test your worker at the URL above.`, 'success');
+                showOutput(output, `Worker created successfully!\n\nURL: ${result.url}\n\nYou can now test your worker at the URL above.`, 'success');
                 
                 // Refresh the workers list
                 await listWorkers();
                 
             } catch (error) {
-                showOutput(output, `❌ Failed to create worker:\n${error.message}`, 'error');
+                showOutput(output, `Failed to create worker:\n${error.message}`, 'error');
             }
         }
 
@@ -251,7 +252,7 @@ router.get('/api/random', async (event) => {
                 container.innerHTML = '';
                 
                 Object.entries(currentWorkers).forEach(([name, details]) => {
-                    const deployDate = new Date(details.deployTime * 1000);
+                    const deployDate = new Date(details.created_at);
                     const timeAgo = getTimeAgo(deployDate);
                     
                     const workerDiv = document.createElement('div');
@@ -260,7 +261,7 @@ router.get('/api/random', async (event) => {
                         <div class="worker-name">${name}</div>
                         <a href="${details.url}" target="_blank" class="worker-url">${details.url}</a>
                         <div class="worker-details">
-                            Source: ${details.filePath}<br>
+                            Source: ${details.file_path}<br>
                             Deployed: ${deployDate.toLocaleString()} (${timeAgo})
                         </div>
                         <button onclick="testSpecificWorker('${name}', '${details.url}')" style="margin-top: 10px;">Test</button>
@@ -270,7 +271,7 @@ router.get('/api/random', async (event) => {
                 });
                 
             } catch (error) {
-                container.innerHTML = `<p>❌ Error listing workers: ${error.message}</p>`;
+                container.innerHTML = `<p>Error listing workers: ${error.message}</p>`;
             }
         }
 
@@ -285,10 +286,10 @@ router.get('/api/random', async (event) => {
             }
 
             try {
-                const url = await puter.workers.get(name);
-                showOutput(output, `✅ Worker URL: ${url}`, 'success');
+                const worker = await puter.workers.get(name);
+                showOutput(output, `Worker URL: ${worker.url}`, 'success');
             } catch (error) {
-                showOutput(output, `❌ Error: ${error.message}`, 'error');
+                showOutput(output, `Error: ${error.message}`, 'error');
             }
         }
 
@@ -308,13 +309,13 @@ router.get('/api/random', async (event) => {
 
             try {
                 await puter.workers.delete(name);
-                showOutput(output, `✅ Worker "${name}" deleted successfully.`, 'success');
+                showOutput(output, `Worker "${name}" deleted successfully.`, 'success');
                 
                 // Refresh the workers list
                 await listWorkers();
                 
             } catch (error) {
-                showOutput(output, `❌ Failed to delete worker: ${error.message}`, 'error');
+                showOutput(output, `Failed to delete worker: ${error.message}`, 'error');
             }
         }
 
@@ -354,10 +355,10 @@ router.get('/api/random', async (event) => {
                     }
                 }
 
-                showOutput(output, `🧪 Test Results for ${url}:\n\n${JSON.stringify(results, null, 2)}`, 'success');
+                showOutput(output, `Test Results for ${url}:\n\n${JSON.stringify(results, null, 2)}`, 'success');
                 
             } catch (error) {
-                showOutput(output, `❌ Test failed: ${error.message}`, 'error');
+                showOutput(output, `Test failed: ${error.message}`, 'error');
             }
         }
 
