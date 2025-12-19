@@ -7,13 +7,17 @@ platforms: [websites, apps, nodejs, workers]
 Reads data from a file.
 
 ## Syntax
+
 ```js
 puter.fs.read(path)
 puter.fs.read(path, options)
+puter.fs.read(options)
 ```
 
 ## Parameters
+
 #### `path` (String) (required)
+
 Path of the file to read.
 If `path` is not absolute, it will be resolved relative to the app's root directory.
 
@@ -21,13 +25,14 @@ If `path` is not absolute, it will be resolved relative to the app's root direct
 
 An object with the following properties:
 
+- `path` (String) - Path to the file to read. Required when passing options as the only argument.
 - `offset` (Number) (optional)
 The offset to start reading from.
-
 - `byte_count` (Number) (required if `offset` is provided)
 The number of bytes to read from the offset.
 
 ## Return value
+
 A `Promise` that will resolve to a `Blob` object containing the contents of the file.
 
 ## Examples

@@ -11,22 +11,31 @@ Moves a file or a directory from one location to another.
 ```js
 puter.fs.move(source, destination)
 puter.fs.move(source, destination, options)
+puter.fs.move(options)
 ```
 
 ## Parameters
+
 #### `source` (String) (Required)
+
 The path to the file or directory to move.
 
 #### `destination` (String) (Required)
+
 The path to the destination directory. If destination is a directory then the file or directory will be moved into that directory using the same name as the source file or directory. If the destination is a file, we overwrite if overwrite is `true`, otherwise we error.
 
 #### `options` (Object) (Optional)
+
 The options for the `move` operation. The following options are supported:
+
+- `source` (String) - Path to the file or directory to move. Required when passing options as the only argument.
+- `destination` (String) - Path to the destination. Required when passing options as the only argument.
 - `overwrite` (Boolean) - Whether to overwrite the destination file or directory if it already exists. Defaults to `false`.
 - `dedupeName` (Boolean) - Whether to deduplicate the file or directory name if it already exists. Defaults to `false`.
 - `createMissingParents` (Boolean) - Whether to create missing parent directories. Defaults to `false`.
 
 ## Return value
+
 A `Promise` that will resolve to the [`FSItem`](/Objects/fsitem) object of the moved file or directory. If the source file or directory does not exist, the promise will be rejected with an error.
 
 ## Examples

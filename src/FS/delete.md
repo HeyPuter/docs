@@ -9,21 +9,23 @@ Deletes a file or directory.
 ## Syntax
 
 ```js
-puter.fs.delete(path)
-puter.fs.delete(path, options)
+puter.fs.delete(paths)
+puter.fs.delete(paths, options)
+puter.fs.delete(options)
 ```
 
 ## Parameters
 
-#### `path` (String) (required)
+#### `paths` (String | String[]) (required)
 
-Path of the file or directory to delete.
-If `path` is not absolute, it will be resolved relative to the app's root directory.
+A single path or array of paths of the file(s) or directory(ies) to delete.
+If a path is not absolute, it will be resolved relative to the app's root directory.
 
 #### `options` (Object) (optional)
 
 The options for the `delete` operation. The following options are supported:
 
+- `paths` (String | String[]) - A single path or array of paths to delete. Required when passing options as the only argument.
 - `recursive` (Boolean) - Whether to delete the directory recursively. Defaults to `true`.
 - `descendantsOnly` (Boolean) - Whether to delete only the descendants of the directory and not the directory itself. Defaults to `false`.
 

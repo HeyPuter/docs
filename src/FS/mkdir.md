@@ -7,23 +7,31 @@ platforms: [websites, apps, nodejs, workers]
 Allows you to create a directory.
 
 ## Syntax
+
 ```js
 puter.fs.mkdir(path)
 puter.fs.mkdir(path, options)
+puter.fs.mkdir(options)
 ```
 
 ## Parameters
-#### `path` (string) (required)
+
+#### `path` (String) (required)
+
 The path to the directory to create.
 If path is not absolute, it will be resolved relative to the app's root directory.
 
-#### `options` (object)
+#### `options` (Object)
+
 The options for the `mkdir` operation. The following options are supported:
-- `overwrite` (boolean) - Whether to overwrite the directory if it already exists. Defaults to `false`.
-- `dedupeName` (boolean) - Whether to deduplicate the directory name if it already exists. Defaults to `false`.
-- `createMissingParents` (boolean) - Whether to create missing parent directories. Defaults to `false`.
+
+- `path` (String) The directory path to be created if not specified via function parameter.
+- `overwrite` (Boolean) - Whether to overwrite the directory if it already exists. Defaults to `false`.
+- `dedupeName` (Boolean) - Whether to deduplicate the directory name if it already exists. Defaults to `false`.
+- `createMissingParents` (Boolean) - Whether to create missing parent directories. Defaults to `false`.
 
 ## Return value
+
 Returns a `Promise` that resolves to the [`FSItem`](/Objects/fsitem) object of the created directory.
 
 ## Examples

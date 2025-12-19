@@ -15,18 +15,27 @@ puter.fs.upload(items, dirPath, options)
 ```
 
 ## Parameters
-#### `items` (Array) (required)
+
+#### `items` (Object) (required)
+
 The items to upload to the Puter filesystem. `items` can be an `InputFileList`, `FileList`, `Array` of `File` objects, or an `Array` of `Blob` objects.
 
 #### `dirPath` (String) (optional)
+
 The path of the directory to upload the items to. If not set, the items will be uploaded to the app's root directory.
 
 #### `options` (Object) (optional)
-A set of key/value pairs that configure the upload process. 
 
+A set of key/value pairs that configure the upload process. The following options are supported:
+
+- `overwrite` (Boolean) - Whether to overwrite the destination file if it already exists. Defaults to `false`.
+- `dedupeName` (Boolean) - Whether to deduplicate the file name if it already exists. Defaults to `false`.
+- `createMissingParents` (Boolean) - Whether to create missing parent directories. Defaults to `false`.
 
 ## Return value
+
 Returns a `Promise` that resolves to:
+
 - A single [`FSItem`](/Objects/fsitem/) object if `items` parameter contains one item
 - An array of [`FSItem`](/Objects/fsitem/) objects if `items` parameter contains multiple items
 
