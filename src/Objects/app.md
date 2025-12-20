@@ -59,46 +59,76 @@ A number containing the number of users that have access to the app. If the `sta
 
 An object containing custom metadata for the app. This can be used to store arbitrary key-value pairs associated with the app.
 
-#### `users()` (Async Iteratable)
+## Methods
 
-Iterates over all users of the apps. Each user is represented by an object which contains {username, user_uuid}.
-```js
-for await (const user of (await puter.apps.get("your-app-name")).users()) {
-    console.log(user)
-}
-```
+### `users()`
 
-Prints: 
-```
->>  {
-        "user": "user1",
-        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
-    }
+Iterates over all users of the apps.
 
->>  {
-        "user": "user2",
-        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
-    }
-```
-
-#### `getUsers({limit?: number, offset?: number})` (Async Function)
-
-Retrieves list of users one page at a time as defined by limit and offset. Default limit is 100, default offset is 0. Return's an array of users represented by an object which contains {username, user_uuid}.
+__Syntax__
 
 ```js
-const users = await (await puter.apps.get("your-app-name")).getUsers({limit: 2, offset: 0});
+app.users()
 ```
 
-Returns: 
+__Parameters__
+
+None.
+
+__Return value__
+
+Iterable objects each containing `{username, user_uuid}`.
+
+__Example__
+
+```html
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        (async () => {
+            const app = (await puter.apps.get("stampy"));
+            for await (const user of app.users()) {
+                console.log(user)
+            }
+        })();
+    </script>
+</body>
+</html>
 ```
-[
-    {
-        "user": "user1",
-        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
-    },
-    {
-        "user": "user2",
-        "user_uuid": "b206196e-22eb-40bd-8d50-015239b7cd11"
-    }
-]
+
+### `getUsers()`
+
+Retrieves list of users one page at a time as defined by limit and offset.
+
+__Syntax__
+
+```js
+app.getUsers({ limit, offset })
+```
+
+__Parameters__
+
+- `limit` (Number) (optional): The number of users to retrieve. Default is 100.
+- `offset` (Number) (optional): The offset to start retrieving users from. Default is 0.
+
+__Return value__
+
+An array of objects each containing `{username, user_uuid}`.
+
+__Example__
+
+```html
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        (async () => {
+            const app = await puter.apps.get("your-app-name");
+            const users = await app.getUsers({limit: 2, offset: 0});
+            console.log(users);
+        })();
+    </script>
+</body>
+</html>
 ```
