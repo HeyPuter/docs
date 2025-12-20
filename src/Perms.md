@@ -21,7 +21,7 @@ When requesting permissions, users will be prompted to grant or deny access. If 
 
 #### Request access to the user's email address
 
-```html;perms-request-email
+```html
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
@@ -46,7 +46,7 @@ When requesting permissions, users will be prompted to grant or deny access. If 
 
 #### Request read access to the user's Desktop folder
 
-```html;perms-request-desktop
+```html
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
@@ -71,7 +71,7 @@ When requesting permissions, users will be prompted to grant or deny access. If 
 
 #### Request write access to the user's Documents folder
 
-```html;perms-request-documents
+```html
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
@@ -99,7 +99,7 @@ When requesting permissions, users will be prompted to grant or deny access. If 
 
 #### Request read access to the user's apps
 
-```html;perms-request-apps
+```html
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>

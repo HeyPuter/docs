@@ -27,7 +27,7 @@ A `Promise` that resolves to `true` if the permission was granted, or `false` ot
 
 ## Example
 
-```html;perms-request-permission
+```html
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
