@@ -25,7 +25,7 @@ A `Promise` that resolves to:
 
 ## Example
 
-```html;perms-request-email
+```html
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
