@@ -159,7 +159,7 @@ We use different vendors for different models and try to use the best vendor ava
     <script src="https://js.puter.com/v2/"></script>
     <script>
     (async () => {
-        const resp = await puter.ai.chat('Tell me in detail what Rick and Morty is all about.', {model: 'claude', stream: true });
+        const resp = await puter.ai.chat('Tell me in detail what Rick and Morty is all about.', {model: 'gemini-2.5-flash-lite', stream: true });
         for await ( const part of resp ) document.write(part?.text.replaceAll('\n', '<br>'));
     })();
     </script>

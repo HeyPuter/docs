@@ -12,12 +12,10 @@
             puter.print(`Found ${Object.keys(workers).length} worker(s):<br>`);
             
             Object.entries(workers).forEach(([name, details], index) => {
-                const deployDate = new Date(details.deployTime * 1000);
-                
                 puter.print(`${index + 1}. ${name}<br>`);
                 puter.print(`URL: ${details.url}<br>`);
-                puter.print(`Source: ${details.filePath}<br>`);
-                puter.print(`Deployed: ${deployDate.toLocaleString()}<br>`);
+                puter.print(`Source: ${details.file_path}<br>`);
+                puter.print(`Deployed: ${new Date(details.created_at)}<br>`);
                 puter.print('<br>');
             });
         }
