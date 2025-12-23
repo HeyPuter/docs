@@ -128,41 +128,39 @@ When requesting permissions, users will be prompted to grant or deny access. If 
 These permission features are supported out of the box when using Puter.js:
 
 ### General Permissions
+
 - **[`puter.perms.request()`](/Perms/request/)** - Request a specific permission string
 
 ### User Data
+
 - **[`puter.perms.requestEmail()`](/Perms/requestEmail/)** - Request access to the user's email address
 
 ### Special Folders - Desktop
+
 - **[`puter.perms.requestReadDesktop()`](/Perms/requestReadDesktop/)** - Request read access to the Desktop folder
 - **[`puter.perms.requestWriteDesktop()`](/Perms/requestWriteDesktop/)** - Request write access to the Desktop folder
 
 ### Special Folders - Documents
+
 - **[`puter.perms.requestReadDocuments()`](/Perms/requestReadDocuments/)** - Request read access to the Documents folder
 - **[`puter.perms.requestWriteDocuments()`](/Perms/requestWriteDocuments/)** - Request write access to the Documents folder
 
 ### Special Folders - Pictures
+
 - **[`puter.perms.requestReadPictures()`](/Perms/requestReadPictures/)** - Request read access to the Pictures folder
 - **[`puter.perms.requestWritePictures()`](/Perms/requestWritePictures/)** - Request write access to the Pictures folder
 
 ### Special Folders - Videos
+
 - **[`puter.perms.requestReadVideos()`](/Perms/requestReadVideos/)** - Request read access to the Videos folder
 - **[`puter.perms.requestWriteVideos()`](/Perms/requestWriteVideos/)** - Request write access to the Videos folder
 
 ### Apps Management
+
 - **[`puter.perms.requestReadApps()`](/Perms/requestReadApps/)** - Request read access to the user's apps
 - **[`puter.perms.requestManageApps()`](/Perms/requestManageApps/)** - Request write (manage) access to the user's apps
 
 ### Subdomains Management
+
 - **[`puter.perms.requestReadSubdomains()`](/Perms/requestReadSubdomains/)** - Request read access to the user's subdomains
 - **[`puter.perms.requestManageSubdomains()`](/Perms/requestManageSubdomains/)** - Request write (manage) access to the user's subdomains
-
-## Examples
-
-You can see various Puter.js permission features in action from the following examples:
-
-- [Request Email Access](/playground/perms-request-email/)
-- [Request Desktop Access](/playground/perms-request-desktop/)
-- [Request Documents Access](/playground/perms-request-documents/)
-- [Request Apps Access](/playground/perms-request-apps/)
-
