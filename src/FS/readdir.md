@@ -7,6 +7,7 @@ platforms: [websites, apps, nodejs, workers]
 Reads the contents of a directory, returning an array of items (files and directories) within it. This method is useful for listing all items in a specified directory in the Puter cloud storage.
 
 ## Syntax
+
 ```js
 puter.fs.readdir(path)
 puter.fs.readdir(path, options)
@@ -15,24 +16,20 @@ puter.fs.readdir(options)
 
 ## Parameters
 
-#### `path` (string)
+#### `path` (String)
+
 The path to the directory to read.
 If `path` is not absolute, it will be resolved relative to the app's root directory.
- 
 
-#### `options` (object) (optional)
+#### `options` (Object) (optional)
 
-<br>
+An object with the following properties:
 
-- `options.path` (string) (optional)
-The path to the directory to read.
-
-- `options.uid` (string) (optional)
-The UID of the directory to read.
-
-
+- `path` (String) - The path to the directory to read. Required when passing options as the only argument.
+- `uid` (String) (optional) - The UID of the directory to read.
 
 ## Return value
+
 A `Promise` that resolves to an array of [`FSItem`](/Objects/fsitem/) objects (files and directories) within the specified directory.
 
 ## Examples

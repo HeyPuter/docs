@@ -23,7 +23,7 @@ The path to the file to read.
 
 The number of seconds until the URL expires. If not provided, the URL will expire in 24 hours.
 
-## Returns
+## Return value
 
 A promise that resolves to a URL string that can be used to read the file.
 

@@ -9,15 +9,30 @@ This method allows you to get information about a file or directory.
 ## Syntax
 
 ```js
-puter.fs.stat(path)
+puter.fs.stat(path, options)
+puter.fs.stat(options)
 ```
 
 ## Parameters
-#### `path` (string) (required)
+
+#### `path` (String) (required)
+
 The path to the file or directory to get information about.
 If `path` is not absolute, it will be resolved relative to the app's root directory.
 
+#### `options` (Object) (optional)
+
+An object with the following properties:
+
+- `path` (String) - Path to the file or directory. Required when passing options as the only argument.
+- `uid` (String) - The UID of the file or directory. Can be used instead of `path`.
+- `returnSubdomains` (Boolean) - Whether to return subdomain information. Defaults to `false`.
+- `returnPermissions` (Boolean) - Whether to return permission information. Defaults to `false`.
+- `returnVersions` (Boolean) - Whether to return version information. Defaults to `false`.
+- `returnSize` (Boolean) - Whether to return size information. Defaults to `false`.
+
 ## Return value
+
 A `Promise` that resolves to the [`FSItem`](/Objects/fsitem) object of the specified file or directory.
 
 ## Examples

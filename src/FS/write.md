@@ -12,23 +12,34 @@ Writes data to a specified file path. This method is useful for creating new fil
 puter.fs.write(path)
 puter.fs.write(path, data)
 puter.fs.write(path, data, options)
+puter.fs.write(file)
 ```
 
 ## Parameters
-#### `path` (string) (required)
+
+#### `path` (String) (required)
+
 The path to the file to write to.
 If path is not absolute, it will be resolved relative to the app's root directory.
 
-#### `data` (string|File|Blob)
+#### `data` (String|File|Blob) (required)
+
 The data to write to the file.
 
-#### `options` (object)
+#### `options` (Object)
+
 The options for the `write` operation. The following options are supported:
+
 - `overwrite` (boolean) - Whether to overwrite the file if it already exists. Defaults to `true`.
 - `dedupeName` (boolean) - Whether to deduplicate the file name if it already exists. Defaults to `false`.
 - `createMissingParents` (boolean) - Whether to create missing parent directories. Defaults to `false`.
 
+#### `file` (File)
+
+An alternative to `path` and `data`. A `File` object to write directly, where the file path will be derived from the file's name.
+
 ## Return value
+
 Returns a `Promise` that resolves to the [`FSItem`](/Objects/fsitem) object of the written file.
 
 ## Examples
