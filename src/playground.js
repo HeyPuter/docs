@@ -7,15 +7,16 @@ const generateSidebarHtml = (sections) => {
     let sidebarHtml = '<div class="sidebar-content">';
 
     sections.forEach(section => {
-        sidebarHtml += `<div class="sidebar-category">`;
+        sidebarHtml += `<div class="sidebar-category" data-category="${section.title.toLowerCase()}">`;
         sidebarHtml += `<div class="sidebar-category-title">${section.title}</div>`;
         section.children.forEach(example => {
-            sidebarHtml += `<a href="/playground/${example.slug ? example.slug + '/' : ''}" class="sidebar-item">${example.title}</a>`;
+            sidebarHtml += `<a href="/playground/${example.slug ? example.slug + '/' : ''}" class="sidebar-item" data-title="${example.title.toLowerCase()}">${example.title}</a>`;
         });
         sidebarHtml += `</div>`;
     });
 
     sidebarHtml += '</div>';
+    sidebarHtml += '<div class="sidebar-no-results">No examples found</div>';
     return sidebarHtml;
 };
 
@@ -106,6 +107,10 @@ const playgroundHtml = `
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
                 </button>
                 <span class="sidebar-title">Examples</span>
+            </div>
+            <div class="sidebar-search">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" id="sidebar-search-input" placeholder="Search examples..." autocomplete="off" />
             </div>
             <div class="sidebar">
                 {{SIDEBAR}}

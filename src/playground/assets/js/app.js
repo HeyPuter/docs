@@ -339,3 +339,68 @@ window.addEventListener('popstate', function () {
         window.location.href = window.location.href;
     }
 });
+
+// Sidebar search functionality
+const searchInput = document.getElementById('sidebar-search-input');
+const noResultsMessage = document.querySelector('.sidebar-no-results');
+
+if (searchInput) {
+    searchInput.addEventListener('input', function (e) {
+        const query = e.target.value.toLowerCase().trim();
+        const categories = document.querySelectorAll('.sidebar-category');
+        let totalVisible = 0;
+
+        categories.forEach(category => {
+            const items = category.querySelectorAll('.sidebar-item');
+            let categoryHasVisibleItems = false;
+
+            items.forEach(item => {
+                const title = item.getAttribute('data-title') || item.textContent.toLowerCase();
+                const matches = query === '' || title.includes(query);
+                
+                if (matches) {
+                    item.classList.remove('hidden');
+                    categoryHasVisibleItems = true;
+                    totalVisible++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Also check category title
+            const categoryTitle = category.getAttribute('data-category') || '';
+            if (categoryTitle.includes(query)) {
+                // Show all items in this category
+                items.forEach(item => {
+                    item.classList.remove('hidden');
+                    totalVisible++;
+                });
+                categoryHasVisibleItems = true;
+            }
+
+            if (categoryHasVisibleItems || query === '') {
+                category.classList.remove('hidden');
+            } else {
+                category.classList.add('hidden');
+            }
+        });
+
+        // Show/hide no results message
+        if (noResultsMessage) {
+            if (totalVisible === 0 && query !== '') {
+                noResultsMessage.classList.add('visible');
+            } else {
+                noResultsMessage.classList.remove('visible');
+            }
+        }
+    });
+
+    // Clear search on Escape
+    searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input'));
+            searchInput.blur();
+        }
+    });
+}
