@@ -111,3 +111,16 @@ Get started quickly with the [Node.js + Express template](https://github.com/Hey
 [Serverless Workers](/Workers/) let you run HTTP servers and backend APIs.
 
 Think of them as your serverless backend and API endpoints. Just like in other serverless platforms, you can use Puter.js in workers to access AI, cloud storage, key-value stores, and databases.
+
+```js
+// Simple GET endpoint
+router.get("/api/hello", async ({ request }) => {
+  return { message: "Hello, World!" };
+});
+
+// POST endpoint with JSON body
+router.post("/api/user", async ({ request }) => {
+  const body = await request.json();
+  return { processed: true };
+});
+```
