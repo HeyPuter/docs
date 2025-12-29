@@ -112,6 +112,10 @@ router.get("/api/kv/get/:key", async ({ request, params }) => {
 
 - **[`router`](/Workers/router/)** - The router object for handling HTTP requests
 
+### Tutorials
+
+- [How to Run Serverless Functions on Puter](https://developer.puter.com/tutorials/serverless-functions-on-puter/)
+
 ## Workers API
 
 In addition, the Puter.js Workers API lets you create, manage, and execute these workers programmatically. The API provides comprehensive management features including create, delete, list, get, and execute worker.
