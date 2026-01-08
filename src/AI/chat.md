@@ -243,6 +243,9 @@ See the [Function Calling example](/playground/ai-function-calling/) for a compl
                 ]);
 
                 puter.print("Answer: " + finalResponse);
+            } else {
+                // If the AI responds directly without calling a tool, print its message
+                puter.print("Answer: " + (response.message?.content ?? response));
             }
         })();
     </script>
