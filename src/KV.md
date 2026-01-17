@@ -213,7 +213,12 @@ These Key-Value Store features are supported out of the box when using Puter.js:
 - **[`puter.kv.get()`](/KV/get/)** - Get a value by key
 - **[`puter.kv.incr()`](/KV/incr/)** - Increment a numeric value
 - **[`puter.kv.decr()`](/KV/decr/)** - Decrement a numeric value
+- **[`puter.kv.add()`](/KV/add/)** - Add values to an existing key
+- **[`puter.kv.remove()`](/KV/remove/)** - Remove values by path
+- **[`puter.kv.update()`](/KV/update/)** - Update values by path
 - **[`puter.kv.del()`](/KV/del/)** - Delete a key-value pair
+- **[`puter.kv.expire()`](/KV/expire/)** - Set key expiration in seconds
+- **[`puter.kv.expireAt()`](/KV/expireAt/)** - Set key expiration timestamp
 - **[`puter.kv.list()`](/KV/list/)** - List all keys
 - **[`puter.kv.flush()`](/KV/flush/)** - Clear all data
 
@@ -228,6 +233,8 @@ You can see various Puter.js Key-Value Store features in action from the followi
 - [Delete](/playground/kv-del/)
 - [List](/playground/kv-list/)
 - [Flush](/playground/kv-flush/)
+- [Expire](/playground/kv-expire/)
+- [Expire At](/playground/kv-expireAt/)
 - [What's your name?](/playground/kv-name/)
 
 ## Tutorials
