@@ -35,7 +35,7 @@ Returns a `Promise` that resolves to the updated value stored at `key`.
 
 <strong class="example-title">Add values to an array inside an object</strong>
 
-```html
+```html;kv-add
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>

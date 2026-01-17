@@ -35,7 +35,7 @@ Returns a `Promise` that resolves to the updated value stored at `key`.
 
 <strong class="example-title">Update nested fields and refresh the TTL</strong>
 
-```html
+```html;kv-update
 <html>
 <body>
     <script src="https://js.puter.com/v2/"></script>
