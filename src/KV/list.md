@@ -44,16 +44,7 @@ A `Promise` that will resolve to either:
 
 If the user has no keys, the array will be empty.
 
-When you pass `limit` or `cursor` in `options`, the promise resolves to a page object:
-
-```js
-{
-  items: Array<string> | Array<KVPair>,
-  cursor?: string
-}
-```
-
-The `cursor` is present when there are more results to fetch.
+When you pass `limit` or `cursor` in `options`, the promise resolves to a [`KVListPage`](/Objects/kvlistpage) object.
 
 ## Examples
 

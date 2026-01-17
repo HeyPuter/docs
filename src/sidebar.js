@@ -1152,6 +1152,13 @@ let sidebar = [
                 path: '/Objects/kvpair',
             },
             {
+                title: '<code>KVListPage</code>',
+                title_tag: 'KVListPage',
+                icon:'/assets/img/object.svg',
+                source: '/Objects/kvlistpage.md',
+                path: '/Objects/kvlistpage',
+            },
+            {
                 title: '<code>MonthlyUsage</code>',
                 title_tag: 'MonthlyUsage',
                 icon:'/assets/img/object.svg',
