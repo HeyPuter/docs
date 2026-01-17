@@ -40,11 +40,10 @@ An object with the following optional properties:
 A `Promise` that will resolve to either:
 
 - An array of all keys the user has for the current app, or
-- An array of [`KVPair`](/Objects/kvpair) objects containing the user's key-value pairs for the current app
+- An array of [`KVPair`](/Objects/kvpair) objects containing the user's key-value pairs for the current app, or
+- A [`KVListPage`](/Objects/kvlistpage) object when using `limit` or `cursor` in `options`
 
 If the user has no keys, the array will be empty.
-
-When you pass `limit` or `cursor` in `options`, the promise resolves to a [`KVListPage`](/Objects/kvlistpage) object.
 
 ## Examples
 
