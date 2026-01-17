@@ -221,7 +221,6 @@ These Key-Value Store features are supported out of the box when using Puter.js:
 - **[`puter.kv.expireAt()`](/KV/expireAt/)** - Set key expiration timestamp
 - **[`puter.kv.list()`](/KV/list/)** - List all keys
 - **[`puter.kv.flush()`](/KV/flush/)** - Clear all data
-- **[`puter.kv.clear()`](/KV/clear/)** - Alias for `flush()`
 
 ## Examples
 
