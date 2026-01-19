@@ -13,24 +13,35 @@ puter.kv.list()
 puter.kv.list(pattern)
 puter.kv.list(returnValues = false)
 puter.kv.list(pattern, returnValues = false)
+puter.kv.list(options)
 ```
 
 ## Parameters
 
 #### `pattern` (String) (optional)
 
-If set, only keys that match the given pattern will be returned. The pattern can contain the `*` wildcard character, which matches any number of characters. For example, `abc*` will match all keys that start with `abc`, such as `abc`, `abc123`, `abc123xyz`, etc. Default is `*`, which matches all keys.
+If set, only keys that match the given pattern will be returned. The pattern is prefix-based and can include a `*` wildcard only at the end. For example, `abc` and `abc*` both match keys that start with `abc` (such as `abc`, `abc123`, `abc123xyz`). If you need to match a literal `*` in the prefix, use `*` at the end (for example, `key**` matches keys that start with `key*`, or `k*y*` will match `k*y` prefixes). Default is `*`, which matches all keys.
 
 #### `returnValues` (Boolean) (optional)
 
 If set to `true`, the returned array will contain objects with both `key` and `value` properties. If set to `false`, the returned array will contain only the keys. Default is `false`.
+
+#### `options` (Object) (optional)
+
+An object with the following optional properties:
+
+- `pattern` (String): Same as the `pattern` parameter.
+- `returnValues` (Boolean): Same as the `returnValues` parameter.
+- `limit` (Number): Maximum number of items to return in a single call.
+- `cursor` (String): A pagination cursor from a previous call.
 
 ## Return value
 
 A `Promise` that will resolve to either:
 
 - An array of all keys the user has for the current app, or
-- An array of [`KVPair`](/Objects/kvpair) objects containing the user's key-value pairs for the current app
+- An array of [`KVPair`](/Objects/kvpair) objects containing the user's key-value pairs for the current app, or
+- A [`KVListPage`](/Objects/kvlistpage) object when using `limit` or `cursor` in `options`
 
 If the user has no keys, the array will be empty.
 
@@ -66,6 +77,26 @@ If the user has no keys, the array will be empty.
             await puter.kv.del('name');
             await puter.kv.del('age');
             await puter.kv.del('isCool');
+        })();
+    </script>
+</body>
+```
+
+<strong class="example-title">Paginate results with a cursor</strong>
+
+```html
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        (async () => {
+            const firstPage = await puter.kv.list({ limit: 2 });
+            puter.print(`First page: ${firstPage.items}<br>`);
+
+            if (firstPage.cursor) {
+                const secondPage = await puter.kv.list({ cursor: firstPage.cursor });
+                puter.print(`Second page: ${secondPage.items}<br>`);
+            }
         })();
     </script>
 </body>

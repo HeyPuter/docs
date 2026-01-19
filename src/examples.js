@@ -342,6 +342,24 @@ const examples = [
                 source: '/playground/examples/kv-decr.html'
             },
             {
+                title: 'Add',
+                description: 'Add values to existing keys with Puter.js key-value API. Run and experiment with this example directly in the playground.',
+                slug: 'kv-add',
+                source: '/playground/examples/kv-add.html'
+            },
+            {
+                title: 'Remove',
+                description: 'Remove values by path with Puter.js key-value API. Run and modify this code example instantly in your browser.',
+                slug: 'kv-remove',
+                source: '/playground/examples/kv-remove.html'
+            },
+            {
+                title: 'Update',
+                description: 'Update nested paths in stored values with Puter.js key-value API. Run and experiment with this example in the playground.',
+                slug: 'kv-update',
+                source: '/playground/examples/kv-update.html'
+            },
+            {
                 title: 'Decrement (Object value)',
                 description: 'Decrement nested values in objects with Puter.js key-value API. Run and experiment with this example in the playground.',
                 slug: 'kv-decr-nested',
