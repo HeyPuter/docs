@@ -68,6 +68,12 @@ const examples = [
                 source: '/playground/examples/ai-function-calling.html'
             },
             {
+                title: 'Web Search',
+                description: 'Perform web search using AI to generate accurate and up-to-date information. Try out this example in Puter.js playground.',
+                slug: 'ai-web-search',
+                source: '/playground/examples/ai-web-search.html'
+            },
+            {
                 title: 'AI Resume Analyzer (File handling)',
                 description: 'Try an AI resume analyzer with file handling and GPT integration. Run and experiment with this Puter.js example directly in your browser.',
                 slug: 'ai-resume-analyzer',
