@@ -285,7 +285,6 @@ List of OpenAI models that support the web search can be found in their [API com
             })
             .then(puter.print);
     </script>
-    </script>
 </body>
 </html>
 ```
