@@ -144,6 +144,23 @@ After executing the function, send the result back by including a message with:
 
 See the [Function Calling example](/playground/ai-function-calling/) for a complete working implementation.
 
+### Web Search
+
+Specific to OpenAI models, you can use the built-in web search tool, allowing the AI to access up-to-date information from the internet.
+
+Pass in the `tools` parameter with the type of `web_search`.
+
+```js
+{
+  model: 'openai/gpt-5.2-chat',
+  tools: [{type: "web_search"}]
+}
+```
+
+The code implementation is available in our [web search example](/playground/ai-web-search/).
+
+List of OpenAI models that support the web search can be found in their [API compatibility documentation](https://platform.openai.com/docs/guides/tools-web-search#api-compatibility).
+
 ## Examples
 
 <strong class="example-title">Ask GPT-5 nano a question</strong>
@@ -248,6 +265,25 @@ See the [Function Calling example](/playground/ai-function-calling/) for a compl
                 puter.print("Answer: " + response);
             }
         })();
+    </script>
+</body>
+</html>
+```
+
+<strong class="example-title">Web Search</strong>
+
+```html;ai-web-search
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        puter.print(`Loading...`);
+        puter.ai
+            .chat("Summarize what the User-Pays Model is: https://docs.puter.com/user-pays-model/", {
+                model: "openai/gpt-5.2-chat",
+                tools: [{ type: "web_search" }],
+            })
+            .then(puter.print);
     </script>
 </body>
 </html>
