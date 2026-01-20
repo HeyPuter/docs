@@ -27,7 +27,7 @@ A string containing the prompt you want to complete.
 
 An object containing the following properties:
 
-- `model` (String) - The model you want to use for the completion. If not specified, defaults to `gpt-5-nano`. More than 500 models are available, including, but not limited to, OpenAI, Anthropic, Google, xAI, Mistral, OpenRouter, and DeepSeek. For a full list, see the [models list](https://puter.com/puterai/chat/models) page.
+- `model` (String) - The model you want to use for the completion. If not specified, defaults to `gpt-5-nano`. More than 500 models are available, including, but not limited to, OpenAI, Anthropic, Google, xAI, Mistral, OpenRouter, and DeepSeek. For a full list, see the [AI models list](https://developer.puter.com/ai/models/) page.
 - `stream` (Boolean) - A boolean indicating whether you want to stream the completion. Defaults to `false`.
 - `max_tokens` (Number) - The maximum number of tokens to generate in the completion. By default, the specific model's maximum is used.
 - `temperature` (Number) - A number between 0 and 2 indicating the randomness of the completion. Lower values make the output more focused and deterministic, while higher values make it more random. By default, the specific model's temperature is used.
