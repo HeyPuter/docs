@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> The Puter.js documentation has moved to the main Puter repository at [`src/docs`](https://github.com/HeyPuter/puter/tree/main/src/docs).
+>
+> Please submit all contributions and issues to the [main repo](https://github.com/HeyPuter/puter) instead, as this repository is now archived.
+
 <h3 align="center">Puter.js Docs</h3>
 
 <p align="center">
