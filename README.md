@@ -1,5 +1,6 @@
 > [!IMPORTANT]
 > This documentation has moved to the main Puter repository at [`src/docs`](https://github.com/HeyPuter/puter/tree/main/src/docs).
+>
 > This repo is now archived. Please submit all contributions and issues to the [main repo](https://github.com/HeyPuter/puter).
 
 <h3 align="center">Puter.js Docs</h3>
